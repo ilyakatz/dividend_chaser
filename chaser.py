@@ -1,18 +1,6 @@
+
 import robin_stocks as r
-
-class REIT:
-  def __init__(self, symbol, broker):
-    self.symbol=symbol
-    self.bought_price=None
-    self.broker=broker
-
-  def get_details(self):
-    my_stocks = r.build_holdings()
-    for key,value in my_stocks.items():
-      if(key==self.symbol):
-        self.bought_price=value['average_buy_price']
-        print(f"Bought {key} for {self.bought_price}")
-
+from reit import REIT
 
 class Chaser:
   def __init__(self, username, password):
