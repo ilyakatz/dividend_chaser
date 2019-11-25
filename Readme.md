@@ -1,6 +1,6 @@
 ```
-conda env create -f environment.yml
-conda activate dividends_chaser
+pip3 install virtualenv
+source dividends_chaser/bin/activate
 ```
 
 ## Running
