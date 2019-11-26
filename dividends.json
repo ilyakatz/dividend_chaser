@@ -1,0 +1,16 @@
+{
+  "STWD": [
+    { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.48 },
+    { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.48 }
+  ],
+  "APLE": [
+    { "date": 1549031400, "formatted_date": "2019-02-01", "amount": 0.1 },
+    { "date": 1551709800, "formatted_date": "2019-03-04", "amount": 0.1 },
+    { "date": 1554211800, "formatted_date": "2019-04-02", "amount": 0.1 },
+    { "date": 1556717400, "formatted_date": "2019-05-01", "amount": 0.1 },
+    { "date": 1559309400, "formatted_date": "2019-05-31", "amount": 0.1 },
+    { "date": 1561987800, "formatted_date": "2019-07-01", "amount": 0.1 },
+    { "date": 1564666200, "formatted_date": "2019-08-01", "amount": 0.1 },
+    { "date": 1567171800, "formatted_date": "2019-08-30", "amount": 0.1 }
+  ]
+}
