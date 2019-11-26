@@ -12,5 +12,9 @@
     { "date": 1561987800, "formatted_date": "2019-07-01", "amount": 0.1 },
     { "date": 1564666200, "formatted_date": "2019-08-01", "amount": 0.1 },
     { "date": 1567171800, "formatted_date": "2019-08-30", "amount": 0.1 }
+  ],
+  "KREF": [
+    { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.43 },
+    { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.43 }
   ]
 }

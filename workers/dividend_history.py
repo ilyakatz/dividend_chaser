@@ -1,6 +1,8 @@
 import pprint
 import json
 from yahoofinancials import YahooFinancials 
+import numpy as np
+import datetime
 
 """Class responsible for maintaining dividend history
 
@@ -24,7 +26,30 @@ class DividendHistory:
     self.dividends_data[self.symbol]=divs[self.symbol]
     with open(self.filename, 'w') as fp:
         json.dump(self.dividends_data, fp)
-  
+
+  def next_dividend(self):
+    """ Returns estimated date for the next dividend 
+
+    This can probably be replaced with real date from another data source
+    """
+    dates = self._dates()
+    maximum = np.max(dates)
+    return datetime.datetime.fromtimestamp(maximum) + self._average_dividend_interval()
+
+  def _average_dividend_interval(self):
+    """ Calculates how often dividends get paid 
+
+    Return:  
+    """
+    dates = self._dates()
+    a = np.array(dates)
+    average = np.mean(np.diff(a))
+    return datetime.timedelta(seconds=average)  
+
+  def _dates(self):
+    divs = self.dividends_data[self.symbol]
+    return list(map(lambda x: x['date'], divs))
+
   def _get_dividends(self):
     start_date = '2019-01-15'
     end_date = '2019-09-15'
