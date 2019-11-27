@@ -1,1 +1,34 @@
-{"STWD": [{"date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.48}, {"date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.48}], "APLE": [{"date": 1549031400, "formatted_date": "2019-02-01", "amount": 0.1}, {"date": 1551709800, "formatted_date": "2019-03-04", "amount": 0.1}, {"date": 1554211800, "formatted_date": "2019-04-02", "amount": 0.1}, {"date": 1556717400, "formatted_date": "2019-05-01", "amount": 0.1}, {"date": 1559309400, "formatted_date": "2019-05-31", "amount": 0.1}, {"date": 1561987800, "formatted_date": "2019-07-01", "amount": 0.1}, {"date": 1564666200, "formatted_date": "2019-08-01", "amount": 0.1}, {"date": 1567171800, "formatted_date": "2019-08-30", "amount": 0.1}], "KREF": [{"date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.43}, {"date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.43}], "STDW": null}
+{
+  "STWD": [
+    { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.48 },
+    { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.48 }
+  ],
+  "APLE": [
+    { "date": 1549031400, "formatted_date": "2019-02-01", "amount": 0.1 },
+    { "date": 1551709800, "formatted_date": "2019-03-04", "amount": 0.1 },
+    { "date": 1554211800, "formatted_date": "2019-04-02", "amount": 0.1 },
+    { "date": 1556717400, "formatted_date": "2019-05-01", "amount": 0.1 },
+    { "date": 1559309400, "formatted_date": "2019-05-31", "amount": 0.1 },
+    { "date": 1561987800, "formatted_date": "2019-07-01", "amount": 0.1 },
+    { "date": 1564666200, "formatted_date": "2019-08-01", "amount": 0.1 },
+    { "date": 1567171800, "formatted_date": "2019-08-30", "amount": 0.1 }
+  ],
+  "KREF": [
+    { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.43 },
+    { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.43 }
+  ],
+  "AIV": [
+    { "date": 1550759400, "formatted_date": "2019-02-21", "amount": 0.402164 },
+    { "date": 1558013400, "formatted_date": "2019-05-16", "amount": 0.39 },
+    { "date": 1565875800, "formatted_date": "2019-08-15", "amount": 0.39 }
+  ],
+  "PLYM": [
+    { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.375 },
+    { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.375 }
+  ],
+  "OUT": [
+    { "date": 1551969000, "formatted_date": "2019-03-07", "amount": 0.36 },
+    { "date": 1559827800, "formatted_date": "2019-06-06", "amount": 0.36 },
+    { "date": 1567690200, "formatted_date": "2019-09-05", "amount": 0.36 }
+  ]
+}
