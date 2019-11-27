@@ -1,2 +1,6 @@
 yahoofinancials==1.5
 robin-stocks==0.9.9.5
+flower
+celery
+redis
+numpy
