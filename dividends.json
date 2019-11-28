@@ -1,34 +1,157 @@
 {
-  "STWD": [
-    { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.48 },
-    { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.48 }
-  ],
-  "APLE": [
-    { "date": 1549031400, "formatted_date": "2019-02-01", "amount": 0.1 },
-    { "date": 1551709800, "formatted_date": "2019-03-04", "amount": 0.1 },
-    { "date": 1554211800, "formatted_date": "2019-04-02", "amount": 0.1 },
-    { "date": 1556717400, "formatted_date": "2019-05-01", "amount": 0.1 },
-    { "date": 1559309400, "formatted_date": "2019-05-31", "amount": 0.1 },
-    { "date": 1561987800, "formatted_date": "2019-07-01", "amount": 0.1 },
-    { "date": 1564666200, "formatted_date": "2019-08-01", "amount": 0.1 },
-    { "date": 1567171800, "formatted_date": "2019-08-30", "amount": 0.1 }
-  ],
-  "KREF": [
-    { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.43 },
-    { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.43 }
-  ],
-  "AIV": [
-    { "date": 1550759400, "formatted_date": "2019-02-21", "amount": 0.402164 },
-    { "date": 1558013400, "formatted_date": "2019-05-16", "amount": 0.39 },
-    { "date": 1565875800, "formatted_date": "2019-08-15", "amount": 0.39 }
-  ],
-  "PLYM": [
-    { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.375 },
-    { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.375 }
-  ],
-  "OUT": [
-    { "date": 1551969000, "formatted_date": "2019-03-07", "amount": 0.36 },
-    { "date": 1559827800, "formatted_date": "2019-06-06", "amount": 0.36 },
-    { "date": 1567690200, "formatted_date": "2019-09-05", "amount": 0.36 }
-  ]
+  "STWD": {
+    "dividends": [
+      { "date": 1522243800, "formatted_date": "2018-03-28", "amount": 0.48 },
+      { "date": 1530192600, "formatted_date": "2018-06-28", "amount": 0.48 },
+      { "date": 1538055000, "formatted_date": "2018-09-27", "amount": 0.48 },
+      { "date": 1546007400, "formatted_date": "2018-12-28", "amount": 0.48 },
+      { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.48 },
+      { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.48 },
+      { "date": 1569591000, "formatted_date": "2019-09-27", "amount": 0.48 }
+    ],
+    "next_dividend": {
+      "date": "2019-12-27 14:30:00",
+      "formatted_date": "2019-12-27"
+    }
+  },
+  "AIV": {
+    "dividends": [
+      { "date": 1518705000, "formatted_date": "2018-02-15", "amount": 0.38 },
+      { "date": 1526563800, "formatted_date": "2018-05-17", "amount": 0.38 },
+      { "date": 1534426200, "formatted_date": "2018-08-16", "amount": 0.38 },
+      { "date": 1542292200, "formatted_date": "2018-11-15", "amount": 0.38 },
+      {
+        "date": 1550759400,
+        "formatted_date": "2019-02-21",
+        "amount": 0.402164
+      },
+      { "date": 1558013400, "formatted_date": "2019-05-16", "amount": 0.39 },
+      { "date": 1565875800, "formatted_date": "2019-08-15", "amount": 0.39 },
+      { "date": 1573741800, "formatted_date": "2019-11-14", "amount": 0.39 }
+    ],
+    "next_dividend": {
+      "date": "2020-02-13 06:30:00",
+      "formatted_date": "2020-02-13"
+    }
+  },
+  "PLYM": {
+    "dividends": [
+      { "date": 1522243800, "formatted_date": "2018-03-28", "amount": 0.375 },
+      { "date": 1530192600, "formatted_date": "2018-06-28", "amount": 0.375 },
+      { "date": 1538055000, "formatted_date": "2018-09-27", "amount": 0.375 },
+      { "date": 1545921000, "formatted_date": "2018-12-27", "amount": 0.375 },
+      { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.375 },
+      { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.375 },
+      { "date": 1569591000, "formatted_date": "2019-09-27", "amount": 0.375 }
+    ],
+    "next_dividend": {
+      "date": "2019-12-27 14:30:00",
+      "formatted_date": "2019-12-27"
+    }
+  },
+  "OUT": {
+    "dividends": [
+      { "date": 1520519400, "formatted_date": "2018-03-08", "amount": 0.36 },
+      { "date": 1528378200, "formatted_date": "2018-06-07", "amount": 0.36 },
+      { "date": 1536240600, "formatted_date": "2018-09-06", "amount": 0.36 },
+      { "date": 1544106600, "formatted_date": "2018-12-06", "amount": 0.36 },
+      { "date": 1551969000, "formatted_date": "2019-03-07", "amount": 0.36 },
+      { "date": 1559827800, "formatted_date": "2019-06-06", "amount": 0.36 },
+      { "date": 1567690200, "formatted_date": "2019-09-05", "amount": 0.36 }
+    ],
+    "next_dividend": {
+      "date": "2019-12-05 06:20:00",
+      "formatted_date": "2019-12-05"
+    }
+  },
+  "VER": {
+    "dividends": [
+      { "date": 1522243800, "formatted_date": "2018-03-28", "amount": 0.138 },
+      { "date": 1530192600, "formatted_date": "2018-06-28", "amount": 0.138 },
+      { "date": 1538055000, "formatted_date": "2018-09-27", "amount": 0.138 },
+      { "date": 1546007400, "formatted_date": "2018-12-28", "amount": 0.138 },
+      { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.138 },
+      { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.138 },
+      { "date": 1569591000, "formatted_date": "2019-09-27", "amount": 0.138 }
+    ],
+    "next_dividend": {
+      "date": "2019-12-27 14:30:00",
+      "formatted_date": "2019-12-27"
+    }
+  },
+  "AGNC": {
+    "dividends": [
+      { "date": 1517322600, "formatted_date": "2018-01-30", "amount": 0.18 },
+      { "date": 1519741800, "formatted_date": "2018-02-27", "amount": 0.18 },
+      { "date": 1522243800, "formatted_date": "2018-03-28", "amount": 0.18 },
+      { "date": 1524835800, "formatted_date": "2018-04-27", "amount": 0.18 },
+      { "date": 1527687000, "formatted_date": "2018-05-30", "amount": 0.18 },
+      { "date": 1530192600, "formatted_date": "2018-06-28", "amount": 0.18 },
+      { "date": 1532957400, "formatted_date": "2018-07-30", "amount": 0.18 },
+      { "date": 1535635800, "formatted_date": "2018-08-30", "amount": 0.18 },
+      { "date": 1538055000, "formatted_date": "2018-09-27", "amount": 0.18 },
+      { "date": 1540906200, "formatted_date": "2018-10-30", "amount": 0.18 },
+      { "date": 1543501800, "formatted_date": "2018-11-29", "amount": 0.18 },
+      { "date": 1546007400, "formatted_date": "2018-12-28", "amount": 0.18 },
+      { "date": 1548858600, "formatted_date": "2019-01-30", "amount": 0.18 },
+      { "date": 1551277800, "formatted_date": "2019-02-27", "amount": 0.18 },
+      { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.18 },
+      { "date": 1556544600, "formatted_date": "2019-04-29", "amount": 0.18 },
+      { "date": 1559223000, "formatted_date": "2019-05-30", "amount": 0.16 },
+      { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.16 },
+      { "date": 1564493400, "formatted_date": "2019-07-30", "amount": 0.16 },
+      { "date": 1567085400, "formatted_date": "2019-08-29", "amount": 0.16 },
+      { "date": 1569591000, "formatted_date": "2019-09-27", "amount": 0.16 },
+      { "date": 1572442200, "formatted_date": "2019-10-30", "amount": 0.16 }
+    ],
+    "next_dividend": {
+      "date": "2019-11-29 15:35:42.857143",
+      "formatted_date": "2019-11-29"
+    }
+  },
+  "WPC": {
+    "dividends": [
+      { "date": 1522243800, "formatted_date": "2018-03-28", "amount": 1.015 },
+      { "date": 1530192600, "formatted_date": "2018-06-28", "amount": 1.02 },
+      { "date": 1538141400, "formatted_date": "2018-09-28", "amount": 1.025 },
+      { "date": 1546007400, "formatted_date": "2018-12-28", "amount": 1.03 },
+      { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 1.032 },
+      { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 1.034 },
+      { "date": 1569591000, "formatted_date": "2019-09-27", "amount": 1.036 }
+    ],
+    "next_dividend": {
+      "date": "2019-12-27 14:30:00",
+      "formatted_date": "2019-12-27"
+    }
+  },
+  "VICI": {
+    "dividends": [
+      { "date": 1522243800, "formatted_date": "2018-03-28", "amount": 0.16 },
+      { "date": 1530106200, "formatted_date": "2018-06-27", "amount": 0.263 },
+      { "date": 1538055000, "formatted_date": "2018-09-27", "amount": 0.288 },
+      { "date": 1545921000, "formatted_date": "2018-12-27", "amount": 0.288 },
+      { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.288 },
+      { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.288 },
+      { "date": 1569504600, "formatted_date": "2019-09-26", "amount": 0.298 }
+    ],
+    "next_dividend": {
+      "date": "2019-12-26 10:30:00",
+      "formatted_date": "2019-12-26"
+    }
+  },
+  "MPW": {
+    "dividends": [
+      { "date": 1521034200, "formatted_date": "2018-03-14", "amount": 0.25 },
+      { "date": 1528896600, "formatted_date": "2018-06-13", "amount": 0.25 },
+      { "date": 1536759000, "formatted_date": "2018-09-12", "amount": 0.25 },
+      { "date": 1544625000, "formatted_date": "2018-12-12", "amount": 0.25 },
+      { "date": 1552483800, "formatted_date": "2019-03-13", "amount": 0.25 },
+      { "date": 1560346200, "formatted_date": "2019-06-12", "amount": 0.25 },
+      { "date": 1568208600, "formatted_date": "2019-09-11", "amount": 0.26 }
+    ],
+    "next_dividend": {
+      "date": "2019-12-11 06:30:00",
+      "formatted_date": "2019-12-11"
+    }
+  }
 }
