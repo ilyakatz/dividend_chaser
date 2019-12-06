@@ -102,11 +102,12 @@
       { "date": 1564493400, "formatted_date": "2019-07-30", "amount": 0.16 },
       { "date": 1567085400, "formatted_date": "2019-08-29", "amount": 0.16 },
       { "date": 1569591000, "formatted_date": "2019-09-27", "amount": 0.16 },
-      { "date": 1572442200, "formatted_date": "2019-10-30", "amount": 0.16 }
+      { "date": 1572442200, "formatted_date": "2019-10-30", "amount": 0.16 },
+      { "date": 1574865000, "formatted_date": "2019-11-27", "amount": 0.16 }
     ],
     "next_dividend": {
-      "date": "2019-11-29 15:35:42.857143",
-      "formatted_date": "2019-11-29"
+      "date": "2019-12-27 13:02:43.636364",
+      "formatted_date": "2019-12-27"
     }
   },
   "WPC": {
