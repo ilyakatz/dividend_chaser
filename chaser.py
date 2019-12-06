@@ -15,4 +15,5 @@ class Chaser:
         print(key)
         reit = REIT(key, self.broker)
         reit.get_details()
+        print(f"Can sell {reit.is_allowed_to_sell()}")
         print("------")
