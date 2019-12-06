@@ -11,7 +11,13 @@ export USER_NAME="some user"
 export PASSWORD="somepassword"
 ```
 
-## Worker jobs
+### Run the main process
+
+```
+python ./runner.py
+```
+
+### Worker jobs
 
 ```
 celery -A tasks worker --loglevel=info

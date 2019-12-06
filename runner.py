@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 from chaser import Chaser
+from brokers.robinhood import Broker
 import os
 
 if __name__ == '__main__':
-    chaser = Chaser(os.environ["USER_NAME"], os.environ["PASSWORD"])
+    broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"])
+    chaser = Chaser(broker)
     chaser.positions()
