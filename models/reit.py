@@ -59,7 +59,7 @@ class REIT:
 
     # TODO: self.time_to_next_dividend().days rounds down
     next_dividend_days=self.time_to_next_dividend().days 
-    next_dividend_met= next_dividend_days <  DAYS_THREASHOLD 
+    next_dividend_met= next_dividend_days >  DAYS_THREASHOLD 
     if(not next_dividend_met):
       to_sell=False 
       reasons.append(f"Next dividend is only {next_dividend_days} days away (less than {DAYS_THREASHOLD}) ")
