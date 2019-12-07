@@ -14,6 +14,8 @@ class Chaser:
       if(key in self.reits()):
         print(key)
         reit = REIT(key, self.broker)
-        reit.get_details()
-        print(f"Can sell {reit.is_allowed_to_sell()}")
+        if(reit.is_allowed_to_sell()):
+          print("Ready to sell!")
+        else: 
+          print("Not ready to sell")
         print("------")

@@ -15,6 +15,7 @@ class REIT:
     self.bought_price=None
     self.broker=broker
     self.current_price=None
+    self.details=None
 
   def get_details(self):
     my_stocks = self.broker.positions()
@@ -26,9 +27,9 @@ class REIT:
 
   def _details_required(function):
     def details(self, *args, **kwargs) :
-      if(self.bought_price==None or self.current_price==None):
+      if(self.details==None):
         print("Getting details")
-        self.get_details()
+        self.details=self.get_details()
       
       return function(self, *args, **kwargs)
     return details
