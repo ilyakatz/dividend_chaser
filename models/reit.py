@@ -2,10 +2,13 @@ import robin_stocks
 from yahoofinancials import YahooFinancials
 import pprint
 from brokers.abstract_broker import AbstractBroker
+from workers.dividend_history import DividendHistory
+import datetime
 
 pp = pprint.PrettyPrinter(indent=4)
 
-THREADSHOLD =  0.5
+PRICE_THREADSHOLD =  0.5
+DAYS_THREASHOLD = 5
 
 class REIT:
   """Object that representation an instance of an REIT and operations that can be take on it
@@ -46,9 +49,35 @@ class REIT:
     boolean
       True or False indicating that this stock can be sold
     """
-    return ( self.current_price - self.bought_price ) > 0-THREADSHOLD
+
+    price_threshold_met = ( self.current_price - self.bought_price ) > -PRICE_THREADSHOLD
+    to_sell=True
+    reasons=[]
+    if(not price_threshold_met):
+      to_sell=False
+      reasons.append(f"Current price is not within {PRICE_THREADSHOLD}")
+
+    # TODO: self.time_to_next_dividend().days rounds down
+    next_dividend_days=self.time_to_next_dividend().days 
+    next_dividend_met= next_dividend_days <  DAYS_THREASHOLD 
+    if(not next_dividend_met):
+      to_sell=False 
+      reasons.append(f"Next dividend is only {next_dividend_days} days away (less than {DAYS_THREASHOLD}) ")
+
+    return [to_sell, reasons]
 
   def get_current_price(self):
     self.current_price=self.broker.get_current_price(self.symbol)
     current_price=self.broker.get_current_price(self.symbol)
     print(f"Current price ${current_price}")
+
+  """Calculate time untl next dividend is to be paid out
+
+  Returns
+  -------
+  datetime.timedelta
+  """
+  def time_to_next_dividend(self):
+    next_date=DividendHistory(self.symbol).next_dividend() 
+    return next_date - datetime.datetime.now()
+    
