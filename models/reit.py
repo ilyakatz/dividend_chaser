@@ -84,5 +84,7 @@ class REIT:
   """
   def time_to_next_dividend(self):
     next_date=DividendHistory(self.symbol).next_dividend() 
-    return next_date - datetime.datetime.now()
+    res = next_date - datetime.datetime.now()
+    print(f"Time to next dividend {res}")
+    return res
     
