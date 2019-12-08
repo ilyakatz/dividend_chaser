@@ -5,6 +5,7 @@ from brokers.abstract_broker import AbstractBroker
 from workers.dividend_history import DividendHistory
 import datetime
 import collections
+import logging
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -30,13 +31,13 @@ class REIT:
     for key,value in my_stocks.items():
       if(key==self.symbol):
         self.bought_price=float(value['average_buy_price'])
-        print(f"Bought {key} for ${self.bought_price}")
+        logging.info(f"Bought {key} for ${self.bought_price}")
     self.get_current_price()
 
   def _details_required(function):
     def details(self, *args, **kwargs) :
       if(self.details==None):
-        print("Getting details")
+        logging.info("Getting details")
         self.details=self.get_details()
       
       return function(self, *args, **kwargs)
@@ -74,7 +75,7 @@ class REIT:
   def get_current_price(self):
     self.current_price=self.broker.get_current_price(self.symbol)
     current_price=self.broker.get_current_price(self.symbol)
-    print(f"Current price ${current_price}")
+    logging.info(f"Current price ${current_price}")
 
   """Calculate time untl next dividend is to be paid out
 
@@ -85,6 +86,6 @@ class REIT:
   def time_to_next_dividend(self):
     next_date=DividendHistory(self.symbol).next_dividend() 
     res = next_date - datetime.datetime.now()
-    print(f"Time to next dividend {res}")
+    logging.info(f"Time to next dividend {res}")
     return res
     

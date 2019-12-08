@@ -1,6 +1,7 @@
 import robin_stocks as r
 from models.reit import REIT
 from brokers.abstract_broker import AbstractBroker 
+import logging
 
 class Broker(AbstractBroker):
   def __init__(self, username, password):
@@ -11,7 +12,7 @@ class Broker(AbstractBroker):
   def _login_required(function):
     def auth(self, *args, **kwargs) :
       if(self.login==None):
-        print("Logging in")
+        logging.info("Logging in to Robinhood 🏹")
         self.login = r.login(self.username, self.password)
       
       return function(self, *args, **kwargs)

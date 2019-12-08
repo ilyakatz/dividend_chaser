@@ -5,6 +5,7 @@ from yahoofinancials import YahooFinancials
 import numpy as np
 import datetime
 from json import JSONDecodeError
+import logging
 
 """Class responsible for maintaining dividend history
 
@@ -40,7 +41,7 @@ class DividendHistory:
     simplified.sort(key=lambda x:x.dividend_date, reverse=False)
     filtered=list(filter(lambda dividendable: dividendable.is_clearable(), simplified))
 
-    print(f"Upcoming dividends {filtered}")
+    logging.info(f"Upcoming dividends {filtered}")
     return filtered
 
   def load(self):

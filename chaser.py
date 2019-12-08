@@ -2,6 +2,7 @@ from models.reit import REIT
 from brokers.abstract_broker import AbstractBroker
 from workers.dividend_history import DividendHistory
 from datetime import datetime
+import logging
 
 class Chaser:
 
@@ -34,11 +35,11 @@ class Chaser:
 
   def _run(self, symbol):
     if(symbol in self.reits()):
-      print(symbol)
+      logging.info(f"---START {symbol}---")
       reit = REIT(symbol, self.broker)
       res=reit.is_allowed_to_sell()
       if(res.result):
-        print("Ready to sell!")
+        logging.info(f"Proposal: Sell {reit.symbol}, Buy {self.find_better(reit.symbol).symbol}")
       else: 
-        print(f"Not ready to sell \n {res.reasons}")
-      print("------")
+        logging.info(f"Not ready to sell \n {res.reasons}")
+      logging.info(f"---END {symbol}---\n")
