@@ -57,7 +57,7 @@ class DividendHistory:
           self.symbol: {}
       }
 
-    if(not self.symbol in obj):
+    if(self.symbol not in obj):
       obj[self.symbol] = {}
     return obj
 
