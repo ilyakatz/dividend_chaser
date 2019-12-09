@@ -54,3 +54,9 @@ flower -A tasks --port=5555
 from tasks import dividend_history_worker
 dividend_history_worker.delay()
 ```
+
+## Linting
+
+```
+autopep8 --in-place --recursive --exclude=dividends_chaser .
+```

@@ -4,17 +4,18 @@ from workers.dividend_history import DividendHistory
 from datetime import datetime
 import logging
 
+
 class Chaser:
 
   def __init__(self, broker: AbstractBroker):
-    self.broker=broker
+    self.broker = broker
 
   def reits(self):
     return ["STWD", "MPW"]
 
   def run(self):
     my_stocks = self.broker.positions()
-    for key,value in my_stocks.items():
+    for key, value in my_stocks.items():
       self._run(key)
 
   """ Attempts to find an alternative stock to buy
@@ -23,23 +24,26 @@ class Chaser:
   that are worth buying, this will sell the current one 
   and buy the new alternative
   """
+
   def find_better(self, symbol):
-    next_stock=self._next_stock()
+    next_stock = self._next_stock()
     return next_stock
 
   """ Finds the next stock with the closest dividend date
   """
+
   def _next_stock(self):
-    res=DividendHistory.upcoming();
+    res = DividendHistory.upcoming()
     return res[0]
 
   def _run(self, symbol):
     if(symbol in self.reits()):
       logging.info(f"---START {symbol}---")
       reit = REIT(symbol, self.broker)
-      res=reit.is_allowed_to_sell()
+      res = reit.is_allowed_to_sell()
       if(res.result):
-        logging.info(f"Proposal: Sell {reit.symbol}, Buy {self.find_better(reit.symbol).symbol}")
-      else: 
+        logging.info(
+            f"Proposal: Sell {reit.symbol}, Buy {self.find_better(reit.symbol).symbol}")
+      else:
         logging.info(f"Not ready to sell \n {res.reasons}")
       logging.info(f"---END {symbol}---\n")
