@@ -1,7 +1,6 @@
 from models.position import Position
 from brokers.abstract_broker import AbstractBroker
 from workers.dividend_history import DividendHistory
-from datetime import datetime
 import logging
 
 
@@ -21,7 +20,7 @@ class Chaser:
   """ Attempts to find an alternative stock to buy
 
   If there is another stock that has dividents coming up
-  that are worth buying, this will sell the current one 
+  that are worth buying, this will sell the current one
   and buy the new alternative
   """
 

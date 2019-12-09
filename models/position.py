@@ -1,5 +1,3 @@
-import robin_stocks
-from yahoofinancials import YahooFinancials
 import pprint
 from brokers.abstract_broker import AbstractBroker
 from workers.dividend_history import DividendHistory
@@ -38,7 +36,7 @@ class Position:
 
   def _details_required(function):
     def details(self, *args, **kwargs):
-      if(self.details == None):
+      if(self.details is None):
         logging.info("Getting details")
         self.details = self.get_details()
 
@@ -58,8 +56,7 @@ class Position:
       Tuple indicating with boolean and reasons of explaning the results
     """
 
-    price_threshold_met = (self.current_price -
-                           self.bought_price) > -Position.PRICE_THREADSHOLD
+    price_threshold_met = (self.current_price - self.bought_price) > -Position.PRICE_THREADSHOLD
     to_sell = True
     reasons = []
     if(not price_threshold_met):
