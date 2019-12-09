@@ -1,5 +1,5 @@
 import robin_stocks as r
-from models.reit import REIT
+from models.position import Position
 from brokers.abstract_broker import AbstractBroker
 import logging
 

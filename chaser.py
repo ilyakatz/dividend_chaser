@@ -1,4 +1,4 @@
-from models.reit import REIT
+from models.position import Position
 from brokers.abstract_broker import AbstractBroker
 from workers.dividend_history import DividendHistory
 from datetime import datetime
@@ -15,7 +15,7 @@ class Chaser:
 
   def run(self):
     my_stocks = self.broker.positions()
-    for key, value in my_stocks.items():
+    for key, _ in my_stocks.items():
       self._run(key)
 
   """ Attempts to find an alternative stock to buy
@@ -39,7 +39,7 @@ class Chaser:
   def _run(self, symbol):
     if(symbol in self.reits()):
       logging.info(f"---START {symbol}---")
-      reit = REIT(symbol, self.broker)
+      reit = Position(symbol, self.broker)
       res = reit.is_allowed_to_sell()
       if(res.result):
         logging.info(

@@ -10,7 +10,7 @@ import logging
 pp = pprint.PrettyPrinter(indent=4)
 
 
-class REIT:
+class Position:
   PRICE_THREADSHOLD = 0.5
   DAYS_THREASHOLD = 5
 
@@ -54,27 +54,28 @@ class REIT:
 
     Returns
     -------
-    REIT.BooleanResultWithReasons
+    Position.BooleanResultWithReasons
       Tuple indicating with boolean and reasons of explaning the results
     """
 
     price_threshold_met = (self.current_price -
-                           self.bought_price) > -REIT.PRICE_THREADSHOLD
+                           self.bought_price) > -Position.PRICE_THREADSHOLD
     to_sell = True
     reasons = []
     if(not price_threshold_met):
       to_sell = False
-      reasons.append(f"Current price is not within {REIT.PRICE_THREADSHOLD}")
+      reasons.append(
+          f"Current price is not within {Position.PRICE_THREADSHOLD}")
 
     # TODO: self.time_to_next_dividend().days rounds down
     next_dividend_days = self.time_to_next_dividend().days
-    next_dividend_met = next_dividend_days > REIT.DAYS_THREASHOLD
+    next_dividend_met = next_dividend_days > Position.DAYS_THREASHOLD
     if(not next_dividend_met):
       to_sell = False
       reasons.append(
-          f"Next dividend is only {next_dividend_days} days away (less than {REIT.DAYS_THREASHOLD}) ")
+          f"Next dividend is only {next_dividend_days} days away (less than {Position.DAYS_THREASHOLD}) ")
 
-    return REIT.BooleanResultWithReasons(result=to_sell, reasons=reasons)
+    return Position.BooleanResultWithReasons(result=to_sell, reasons=reasons)
 
   def get_current_price(self):
     self.current_price = self.broker.get_current_price(self.symbol)

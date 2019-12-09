@@ -6,3 +6,4 @@ redis
 numpy
 pylint
 autopep8
+rope

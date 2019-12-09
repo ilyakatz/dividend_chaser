@@ -26,7 +26,7 @@ if __name__ == '__main__':
 """
 from chaser import Chaser
 from brokers.robinhood import Broker
-from models.reit import REIT 
+from models.position import REIT 
 import os
 
 broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"])
