@@ -17,11 +17,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Lint with flake8
+    - name: Lint with autopep8
       run: |
-        pip install flake8
-        autopep8 --diff --recursive --exclude=dividends_chaser .
+        autopep8 --diff --recursive --exclude=dividends_chaser --exit-code .
     - name: Test with pytest
       run: |
         pip install pytest
-        
+
