@@ -69,9 +69,15 @@ class DividendHistory:
     with open(self.filename, 'w') as fp:
       json.dump(self.dividends_data, fp)
 
+  """
+  Returns
+  _______
+  dateime.date
+  """
+
   def next_dividend(self):
     new_date = self.dividends_data[self.symbol]['next_dividend']['formatted_date']
-    return datetime.datetime.strptime(new_date, "%Y-%m-%d")
+    return datetime.date.fromisoformat(new_date)
 
   def _calculate_next_dividend(self):
     """ Returns estimated date for the next dividend 
