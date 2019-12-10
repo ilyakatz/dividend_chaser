@@ -70,6 +70,10 @@ class DividendHistory:
       json.dump(self.dividends_data, fp)
 
   def next_dividend(self):
+    new_date = self.dividends_data[self.symbol]['next_dividend']['formatted_date']
+    return datetime.datetime.strptime(new_date, "%Y-%m-%d")
+
+  def _calculate_next_dividend(self):
     """ Returns estimated date for the next dividend 
 
     This can probably be replaced with real date from another data source
@@ -79,7 +83,7 @@ class DividendHistory:
     return datetime.datetime.fromtimestamp(maximum) + self._average_dividend_interval()
 
   def _enrich_with_next_dividend(self):
-    next_dividend_date = self.next_dividend()
+    next_dividend_date = self._calculate_next_dividend()
     next_estimate_hash = {
         "date": str(next_dividend_date),
         "formatted_date": next_dividend_date.strftime("%Y-%m-%d")
