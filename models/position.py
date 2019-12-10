@@ -70,7 +70,7 @@ class Position:
     if(not next_dividend_met):
       to_sell = False
       reasons.append(
-          f"Next dividend is only {next_dividend_days} days away (less than {Position.DAYS_THREASHOLD}) ")
+          f"Next dividend is only {next_dividend_days} days away (less than {Position.DAYS_THREASHOLD} )")
 
     return Position.BooleanResultWithReasons(result=to_sell, reasons=reasons)
 
@@ -78,6 +78,7 @@ class Position:
     self.current_price = self.broker.get_current_price(self.symbol)
     current_price = self.broker.get_current_price(self.symbol)
     logging.info(f"Current price ${current_price}")
+    return current_price
 
   """Calculate time untl next dividend is to be paid out
 
@@ -91,3 +92,9 @@ class Position:
     res = next_date - datetime.datetime.now()
     logging.info(f"Time to next dividend {res}")
     return res
+
+  def __str__(self):
+    return self.__repr__()
+
+  def __repr__(self):
+    return f"<Dividedable symbol={self.symbol} >"

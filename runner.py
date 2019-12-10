@@ -25,11 +25,11 @@ if __name__ == '__main__':
 """
 from chaser import Chaser
 from brokers.robinhood import Broker
-from models.position import REIT
+from models.position import Position
 import os
 
 broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"])
 
-r = REIT("STWD", broker)
-r.is_allowed_to_sell()     
+position = Position("STWD", broker)
+position.is_allowed_to_sell()     
 """
