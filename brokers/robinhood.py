@@ -36,6 +36,10 @@ class Broker(AbstractBroker):
     return my_stocks
 
   @_login_required
+  def get_dividends(self):
+    return self.broker().account.get_dividends()
+
+  @_login_required
   def dividend_history_for(self, symbol):
     info = self.broker().stocks.get_instruments_by_symbols(symbol)
     info = list(filter(None, info))
