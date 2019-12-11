@@ -1,6 +1,7 @@
 import robin_stocks as r
 from brokers.abstract_broker import AbstractBroker
 import logging
+import more_itertools as mit
 
 
 class Broker(AbstractBroker):
@@ -37,6 +38,8 @@ class Broker(AbstractBroker):
   @_login_required
   def dividend_history_for(self, symbol):
     info = self.broker().stocks.get_instruments_by_symbols(symbol)
+    info = list(filter(None, info))
+
     instrument_ids = list(map(lambda x: x["id"], info))
 
     all_dividends = self.broker().account.get_dividends()
@@ -51,4 +54,4 @@ class Broker(AbstractBroker):
   def latest_dividend_for(self, symbol):
     history = self.dividend_history_for(symbol)
     history.sort(key=lambda x: x['payable_date'], reverse=True)
-    return history[0]
+    return mit.first(history, default=None)
