@@ -64,15 +64,34 @@ class Position:
       reasons.append(
           f"Current price is not within {Position.PRICE_THREADSHOLD}")
 
-    # TODO: self.time_to_next_dividend().days rounds down
     next_dividend_days = self.time_to_next_dividend().days
-    next_dividend_met = next_dividend_days > Position.DAYS_THREASHOLD
+    next_dividend_met = next_dividend_days > Position.DAYS_THREASHOLD or next_dividend_days < 0
     if(not next_dividend_met):
       to_sell = False
       reasons.append(
           f"Next dividend is only {next_dividend_days} days away (less than {Position.DAYS_THREASHOLD} )")
 
+    if(next_dividend_days < 0 and not self.is_dividend_pending()):
+      to_sell = False
+      reasons.append(f"Dividend is not yet recorded")
+
     return Position.BooleanResultWithReasons(result=to_sell, reasons=reasons)
+
+  """ Validates that dividend is pending for a stock
+
+  If it is time for dividend to be paid out, make sure that broker has recorded that in 
+  the system
+
+  Returns
+  -------
+  Boolean
+  """
+
+  def is_dividend_pending(self):
+    symbol = self.symbol
+    dividends = self.broker.dividend_history_for(symbol)
+    num_pending_dividends = len(list(filter(lambda d: d["state"] == "pending", dividends)))
+    return num_pending_dividends > 0
 
   def get_current_price(self):
     self.current_price = self.broker.get_current_price(self.symbol)
