@@ -1,6 +1,7 @@
 ```
 pip3 install virtualenv
-source dividends_chaser/bin/activate
+virtualenv dividends_env
+source dividends_env/bin/activate
 pip install -r requirements.txt
 ```
 

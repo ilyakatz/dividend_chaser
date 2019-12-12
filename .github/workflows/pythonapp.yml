@@ -20,9 +20,10 @@ jobs:
     - name: Lint with autopep8
       run: |
         pip3 install virtualenv
-        source dividends_chaser/bin/activate
+        virtualenv dividends_env
+        source dividends_env/bin/activate
         pip3 install -r requirements.txt
-        autopep8 --diff --recursive --exclude=dividends_chaser --exit-code .
+        autopep8 --diff --recursive --exclude=dividends_env --exit-code .
     - name: Test with pytest
       run: |
         pip install pytest
