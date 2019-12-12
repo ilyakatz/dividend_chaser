@@ -1,9 +1,9 @@
-import pprint
-from brokers.abstract_broker import AbstractBroker
-from workers.dividend_history import DividendHistory
+from dividend_chaser.brokers.abstract_broker import AbstractBroker
+from dividend_chaser.workers.dividend_history import DividendHistory
 import datetime
 import collections
 import logging
+import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 

@@ -1,5 +1,5 @@
 from celery import Celery
-from workers.dividend_history import DividendHistory
+from dividend_chaser.workers.dividend_history import DividendHistory
 from celery.signals import celeryd_init
 
 app = Celery('hello', broker='redis://localhost:6379//')
