@@ -149,11 +149,12 @@
       { "date": 1544625000, "formatted_date": "2018-12-12", "amount": 0.25 },
       { "date": 1552483800, "formatted_date": "2019-03-13", "amount": 0.25 },
       { "date": 1560346200, "formatted_date": "2019-06-12", "amount": 0.25 },
-      { "date": 1568208600, "formatted_date": "2019-09-11", "amount": 0.26 }
+      { "date": 1568208600, "formatted_date": "2019-09-11", "amount": 0.26 },
+      { "date": 1576074600, "formatted_date": "2019-12-11", "amount": 0.26 }
     ],
     "next_dividend": {
-      "date": "2019-12-11 06:30:00",
-      "formatted_date": "2019-12-11"
+      "date": "2020-03-11 06:38:34.285714",
+      "formatted_date": "2020-03-11"
     }
   }
 }
