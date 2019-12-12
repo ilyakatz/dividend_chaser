@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from chaser import Chaser
-from brokers.robinhood import Broker
+from dividend_chaser.chaser import Chaser
+from dividend_chaser.brokers.robinhood import Broker
 import os
 import logging
 import sys
@@ -23,9 +23,9 @@ if __name__ == '__main__':
   chaser.run()
 
 """
-from chaser import Chaser
-from brokers.robinhood import Broker
-from models.position import Position
+from dividend_chaser.chaser import Chaser
+from dividend_chaser.brokers.robinhood import Broker
+from dividend_chaser.models.position import Position
 import os
 
 broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"])

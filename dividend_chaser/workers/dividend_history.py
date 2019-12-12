@@ -1,7 +1,7 @@
+from dividend_chaser.models.dividendable import Dividendable
+from yahoofinancials import YahooFinancials
 import pprint
 import json
-from models.dividendable import Dividendable
-from yahoofinancials import YahooFinancials
 import numpy as np
 import datetime
 from json import JSONDecodeError

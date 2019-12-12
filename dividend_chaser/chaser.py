@@ -1,7 +1,7 @@
-from models.position import Position
-from models.dividendable import Dividendable
-from brokers.abstract_broker import AbstractBroker
-from workers.dividend_history import DividendHistory
+from dividend_chaser.models.position import Position
+from dividend_chaser.models.dividendable import Dividendable
+from dividend_chaser.brokers.abstract_broker import AbstractBroker
+from dividend_chaser.workers.dividend_history import DividendHistory
 import logging
 from datetime import datetime
 

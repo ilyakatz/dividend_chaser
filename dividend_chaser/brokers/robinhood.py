@@ -1,5 +1,5 @@
 import robin_stocks as r
-from brokers.abstract_broker import AbstractBroker
+from dividend_chaser.brokers.abstract_broker import AbstractBroker
 import logging
 import more_itertools as mit
 
