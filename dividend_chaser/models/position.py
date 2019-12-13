@@ -9,7 +9,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 
 class Position:
-  PRICE_THREADSHOLD = 0.5
+  PRICE_DIFFERENCE_PERCENT_THREADSHOLD = 2
   DAYS_THREASHOLD = 5
 
   """ Tuple that holds result and reasons for results"""
@@ -56,13 +56,15 @@ class Position:
       Tuple indicating with boolean and reasons of explaning the results
     """
 
-    price_threshold_met = (self.current_price - self.bought_price) > -Position.PRICE_THREADSHOLD
+    price_difference = self.current_price - self.bought_price
+    price_threshold_met = (abs(price_difference) / self.bought_price *
+                           100) > Position.PRICE_DIFFERENCE_PERCENT_THREADSHOLD
     to_sell = True
     reasons = []
-    if(not price_threshold_met):
+    if(price_difference < 0 and not price_threshold_met):
       to_sell = False
       reasons.append(
-          f"Current price is not within {Position.PRICE_THREADSHOLD}")
+          f"Current price is not within {Position.PRICE_DIFFERENCE_PERCENT_THREADSHOLD}% of bought price")
 
     next_dividend_days = self.time_to_next_dividend().days
     next_dividend_met = next_dividend_days > Position.DAYS_THREASHOLD or next_dividend_days < 0
