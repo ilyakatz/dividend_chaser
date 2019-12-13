@@ -12,7 +12,9 @@
     "next_dividend": {
       "date": "2019-12-27 14:30:00",
       "formatted_date": "2019-12-27"
-    }
+    },
+    "volatililty": 0.1347747616844101,
+    "dividend_yield": 0.0775
   },
   "AIV": {
     "dividends": [
@@ -32,7 +34,9 @@
     "next_dividend": {
       "date": "2020-02-13 06:30:00",
       "formatted_date": "2020-02-13"
-    }
+    },
+    "volatililty": 0.16866712895953043,
+    "dividend_yield": 0.030299999
   },
   "PLYM": {
     "dividends": [
@@ -47,7 +51,9 @@
     "next_dividend": {
       "date": "2019-12-27 14:30:00",
       "formatted_date": "2019-12-27"
-    }
+    },
+    "volatililty": 0.3709408886525492,
+    "dividend_yield": 0.0808
   },
   "OUT": {
     "dividends": [
@@ -63,7 +69,9 @@
     "next_dividend": {
       "date": "2020-03-05 06:30:00",
       "formatted_date": "2020-03-05"
-    }
+    },
+    "volatililty": 0.27726916351572495,
+    "dividend_yield": 0.056500003
   },
   "VER": {
     "dividends": [
@@ -78,7 +86,9 @@
     "next_dividend": {
       "date": "2019-12-27 14:30:00",
       "formatted_date": "2019-12-27"
-    }
+    },
+    "volatililty": 0.19934576082308103,
+    "dividend_yield": 0.0574
   },
   "AGNC": {
     "dividends": [
@@ -109,7 +119,9 @@
     "next_dividend": {
       "date": "2019-12-27 13:02:43.636364",
       "formatted_date": "2019-12-27"
-    }
+    },
+    "volatililty": 0.1294472767575985,
+    "dividend_yield": 0.1109
   },
   "WPC": {
     "dividends": [
@@ -124,7 +136,9 @@
     "next_dividend": {
       "date": "2019-12-27 14:30:00",
       "formatted_date": "2019-12-27"
-    }
+    },
+    "volatililty": 0.1652533541469399,
+    "dividend_yield": 0.0515
   },
   "VICI": {
     "dividends": [
@@ -139,7 +153,9 @@
     "next_dividend": {
       "date": "2019-12-26 10:30:00",
       "formatted_date": "2019-12-26"
-    }
+    },
+    "volatililty": 0.16765474461717256,
+    "dividend_yield": 0.0482
   },
   "MPW": {
     "dividends": [
@@ -155,6 +171,54 @@
     "next_dividend": {
       "date": "2020-03-11 06:38:34.285714",
       "formatted_date": "2020-03-11"
-    }
+    },
+    "volatililty": 0.2252763377008922,
+    "dividend_yield": 0.050100002
+  },
+  "RWT": {
+    "dividends": [
+      { "date": 1521034200, "formatted_date": "2018-03-14", "amount": 0.28 },
+      { "date": 1528983000, "formatted_date": "2018-06-14", "amount": 0.3 },
+      { "date": 1536845400, "formatted_date": "2018-09-13", "amount": 0.3 },
+      { "date": 1544711400, "formatted_date": "2018-12-13", "amount": 0.3 },
+      { "date": 1552570200, "formatted_date": "2019-03-14", "amount": 0.3 },
+      { "date": 1560432600, "formatted_date": "2019-06-13", "amount": 0.3 },
+      { "date": 1568381400, "formatted_date": "2019-09-13", "amount": 0.3 }
+    ],
+    "volatililty": 0.134511084835801,
+    "next_dividend": {
+      "date": "2019-12-13 14:30:00",
+      "formatted_date": "2019-12-13"
+    },
+    "dividend_yield": 0.0734
+  },
+  "IRM": {
+    "dividends": [
+      { "date": 1521034200, "formatted_date": "2018-03-14", "amount": 0.5875 },
+      { "date": 1528983000, "formatted_date": "2018-06-14", "amount": 0.5875 },
+      { "date": 1536931800, "formatted_date": "2018-09-14", "amount": 0.5875 },
+      { "date": 1544797800, "formatted_date": "2018-12-14", "amount": 0.611 },
+      { "date": 1552570200, "formatted_date": "2019-03-14", "amount": 0.611 },
+      { "date": 1560519000, "formatted_date": "2019-06-14", "amount": 0.611 },
+      { "date": 1568381400, "formatted_date": "2019-09-13", "amount": 0.611 }
+    ],
+    "volatililty": 0.23873344938566357,
+    "next_dividend": {
+      "date": "2019-12-13 14:30:00",
+      "formatted_date": "2019-12-13"
+    },
+    "dividend_yield": 0.0757
+  },
+  "SBAC": {
+    "dividends": [
+      { "date": 1566912600, "formatted_date": "2019-08-27", "amount": 0.37 },
+      { "date": 1574260200, "formatted_date": "2019-11-20", "amount": 0.37 }
+    ],
+    "volatililty": 0.20432674210121024,
+    "next_dividend": {
+      "date": "2020-02-13 07:30:00",
+      "formatted_date": "2020-02-13"
+    },
+    "dividend_yield": 0.0063
   }
 }
