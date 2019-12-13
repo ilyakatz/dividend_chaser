@@ -13,8 +13,11 @@ class Chaser:
   def __init__(self, broker: AbstractBroker):
     self.broker = broker
 
+  """ Returns list of all support reits that Chaser supports
+  """
+
   def reits(self):
-    return ["STWD", "MPW"]
+    return list(DividendHistory.loadStocks().keys())
 
   def run(self):
     my_stocks = self.broker.positions()
