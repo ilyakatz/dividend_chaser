@@ -27,7 +27,7 @@ class DividendHistory:
     self.dividends_data = self.load()
 
   @classmethod
-  def loadStocks(self):
+  def loadStocks(cls):
     file = open(DividendHistory.filename)
     obj = json.load(file)
     return obj
@@ -35,7 +35,7 @@ class DividendHistory:
   """ Return the annualized stddev of daily log returns of
   """
   @classmethod
-  def historical_volatility(self, sym, days):
+  def historical_volatility(cls, sym, days):
     quotes = web.DataReader(sym, 'yahoo')['Close'][-days:]
     logreturns = np.log(quotes / quotes.shift(1))
     return np.sqrt(252 * logreturns.var())
@@ -47,7 +47,7 @@ class DividendHistory:
   Array[Dividendable]
   """
   @classmethod
-  def upcoming(self):
+  def upcoming(cls):
     stocks = DividendHistory.loadStocks()
     arr = list(stocks.items())
     simplified = list(map(lambda x: Dividendable(
