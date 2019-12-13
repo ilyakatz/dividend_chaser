@@ -58,7 +58,7 @@ class Position:
 
     price_difference = self.current_price - self.bought_price
     price_threshold_met = (abs(price_difference) / self.bought_price *
-                           100) > Position.PRICE_DIFFERENCE_PERCENT_THREADSHOLD
+                           100) < Position.PRICE_DIFFERENCE_PERCENT_THREADSHOLD
     to_sell = True
     reasons = []
     if(price_difference < 0 and not price_threshold_met):
