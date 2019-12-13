@@ -56,6 +56,13 @@ from tasks import dividend_history_worker
 dividend_history_worker.delay()
 ```
 
+### Notebook
+
+```
+ipython kernel install --user --name=dividends_env
+jupyter notebook
+```
+
 ## Linting
 
 ```

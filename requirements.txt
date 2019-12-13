@@ -7,3 +7,7 @@ numpy
 pylint
 autopep8
 rope
+jupyterlab
+pandas_datareader
+matplotlib
+pandas
