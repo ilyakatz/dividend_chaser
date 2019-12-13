@@ -6,6 +6,9 @@ import numpy as np
 import datetime
 from json import JSONDecodeError
 import logging
+from pandas import np
+import pandas_datareader as web
+
 
 """Class responsible for maintaining dividend history
 
@@ -28,6 +31,14 @@ class DividendHistory:
     file = open(DividendHistory.filename)
     obj = json.load(file)
     return obj
+
+  """ Return the annualized stddev of daily log returns of
+  """
+  @classmethod
+  def historical_volatility(self, sym, days):
+    quotes = web.DataReader(sym, 'yahoo')['Close'][-days:]
+    logreturns = np.log(quotes / quotes.shift(1))
+    return np.sqrt(252 * logreturns.var())
 
   """ Finds the candidates for positions that have upcoming dividends
 
@@ -64,7 +75,9 @@ class DividendHistory:
   def dump(self):
     divs = self._get_dividends()
     self.dividends_data[self.symbol]["dividends"] = divs[self.symbol]
+    self._enrich_with_volatililty()
     self._enrich_with_next_dividend()
+    self._enrich_with_dividend_yield()
 
     with open(self.filename, 'w') as fp:
       json.dump(self.dividends_data, fp)
@@ -76,6 +89,7 @@ class DividendHistory:
   """
 
   def next_dividend(self):
+    " TODO maybe can use get_exdividend_date "
     new_date = self.dividends_data[self.symbol]['next_dividend']['formatted_date']
     return datetime.date.fromisoformat(new_date)
 
@@ -95,6 +109,15 @@ class DividendHistory:
         "formatted_date": next_dividend_date.strftime("%Y-%m-%d")
     }
     self.dividends_data[self.symbol]["next_dividend"] = next_estimate_hash
+
+  def _enrich_with_dividend_yield(self):
+    symbol = self.symbol
+    yahoo_financials = YahooFinancials([symbol])
+    divs = yahoo_financials.get_dividend_yield()
+    self.dividends_data[self.symbol]["dividend_yield"] = divs[self.symbol]
+
+  def _enrich_with_volatililty(self):
+    self.dividends_data[self.symbol]["volatililty"] = DividendHistory.historical_volatility(self.symbol, 365)
 
   def _average_dividend_interval(self):
     """ Calculates how often dividends get paid 
