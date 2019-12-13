@@ -28,9 +28,9 @@ class DividendHistory:
 
   @classmethod
   def loadStocks(cls):
-    file = open(DividendHistory.filename)
-    obj = json.load(file)
-    return obj
+    with open(DividendHistory.filename) as file:
+      obj = json.load(file)
+      return obj
 
   """ Return the annualized stddev of daily log returns of
   """
@@ -61,8 +61,8 @@ class DividendHistory:
 
   def load(self):
     try:
-      file = open(self.filename)
-      obj = json.load(file)
+      with open(self.filename) as file:
+        obj = json.load(file)
     except JSONDecodeError:
       obj = {
           self.symbol: {}
