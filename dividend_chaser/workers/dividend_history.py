@@ -1,14 +1,14 @@
-from dividend_chaser.models.dividendable import Dividendable
-from yahoofinancials import YahooFinancials
-import pprint
 import json
-import numpy as np
 import datetime
-from json import JSONDecodeError
+import pprint
 import logging
+from json import JSONDecodeError
+from yahoofinancials import YahooFinancials
+import numpy as np
 from pandas import np
 import pandas_datareader as web
 
+from dividend_chaser.models.dividendable import Dividendable
 
 """Class responsible for maintaining dividend history
 

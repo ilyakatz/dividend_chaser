@@ -1,9 +1,10 @@
+import logging
+from datetime import datetime
+
 from dividend_chaser.models.position import Position
 from dividend_chaser.models.dividendable import Dividendable
 from dividend_chaser.brokers.abstract_broker import AbstractBroker
 from dividend_chaser.workers.dividend_history import DividendHistory
-import logging
-from datetime import datetime
 
 
 class Chaser:
@@ -31,7 +32,7 @@ class Chaser:
   and buy the new alternative
   """
 
-  def find_better(self, symbol):
+  def find_better(self):
     next_stock = self._next_stock()
     return next_stock
 
@@ -74,7 +75,7 @@ class Chaser:
       position = Position(symbol, self.broker)
       res = position.is_allowed_to_sell()
       if(res.result):
-        dividendable = self.find_better(position.symbol)
+        dividendable = self.find_better()
         if(self._should_exchange(position, dividendable)):
           logging.info(f"Proposal: Sell {position.symbol}, Buy {dividendable.symbol}")
         else:

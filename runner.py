@@ -1,9 +1,10 @@
 #!/usr/bin/env python
-from dividend_chaser.chaser import Chaser
-from dividend_chaser.brokers.robinhood import Broker
-import os
 import logging
+import os
 import sys
+
+from dividend_chaser.brokers.robinhood import Broker
+from dividend_chaser.chaser import Chaser
 
 if __name__ == '__main__':
 

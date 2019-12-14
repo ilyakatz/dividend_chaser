@@ -1,7 +1,8 @@
-import robin_stocks as r
-from dividend_chaser.brokers.abstract_broker import AbstractBroker
 import logging
+import robin_stocks as r
 import more_itertools as mit
+
+from dividend_chaser.brokers.abstract_broker import AbstractBroker
 
 
 class Broker(AbstractBroker):

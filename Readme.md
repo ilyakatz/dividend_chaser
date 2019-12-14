@@ -66,5 +66,5 @@ jupyter notebook
 ## Linting
 
 ```
-autopep8 --in-place --recursive --exclude=dividends_chaser .
+autopep8 --in-place --recursive --exclude=dividends_env .
 ```
