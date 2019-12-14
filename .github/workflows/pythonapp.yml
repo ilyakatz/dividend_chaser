@@ -24,6 +24,7 @@ jobs:
         source dividends_env/bin/activate
         pip3 install -r requirements.txt
         autopep8 --diff --recursive --exclude=dividends_env --exit-code .
+        pylint --rcfile=setup.cfg dividend_chaser
     - name: Test with pytest
       run: |
         pip install pytest

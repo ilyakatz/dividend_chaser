@@ -11,3 +11,4 @@ jupyterlab
 pandas_datareader
 matplotlib
 pandas
+pylint
