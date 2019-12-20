@@ -30,6 +30,7 @@ from dividend_chaser.models.position import Position
 import os
 
 broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"])
+#broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"],dry_run=False)
 
 position = Position("STWD", broker)
 position.is_allowed_to_sell()     
