@@ -9,12 +9,9 @@
       { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.48 },
       { "date": 1569591000, "formatted_date": "2019-09-27", "amount": 0.48 }
     ],
-    "next_dividend": {
-      "date": "2019-12-27 14:30:00",
-      "formatted_date": "2019-12-27"
-    },
-    "volatililty": 0.1347747616844101,
-    "dividend_yield": 0.0775
+    "next_dividend": { "date": "2019-12-30", "formatted_date": "2019-12-30" },
+    "volatililty": 0.1346954331792041,
+    "dividend_yield": 0.0758
   },
   "AIV": {
     "dividends": [
@@ -31,12 +28,9 @@
       { "date": 1565875800, "formatted_date": "2019-08-15", "amount": 0.39 },
       { "date": 1573741800, "formatted_date": "2019-11-14", "amount": 0.39 }
     ],
-    "next_dividend": {
-      "date": "2020-02-13 06:30:00",
-      "formatted_date": "2020-02-13"
-    },
-    "volatililty": 0.16866712895953043,
-    "dividend_yield": 0.030299999
+    "next_dividend": { "date": "2019-11-14", "formatted_date": "2019-11-14" },
+    "volatililty": 0.1686764593311241,
+    "dividend_yield": 0.0307
   },
   "PLYM": {
     "dividends": [
@@ -48,12 +42,9 @@
       { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.375 },
       { "date": 1569591000, "formatted_date": "2019-09-27", "amount": 0.375 }
     ],
-    "next_dividend": {
-      "date": "2019-12-27 14:30:00",
-      "formatted_date": "2019-12-27"
-    },
-    "volatililty": 0.3709408886525492,
-    "dividend_yield": 0.0808
+    "next_dividend": { "date": "2019-12-30", "formatted_date": "2019-12-30" },
+    "volatililty": 0.37678869984572483,
+    "dividend_yield": 0.080699995
   },
   "OUT": {
     "dividends": [
@@ -66,12 +57,9 @@
       { "date": 1567690200, "formatted_date": "2019-09-05", "amount": 0.36 },
       { "date": 1575556200, "formatted_date": "2019-12-05", "amount": 0.36 }
     ],
-    "next_dividend": {
-      "date": "2020-03-05 06:30:00",
-      "formatted_date": "2020-03-05"
-    },
-    "volatililty": 0.27726916351572495,
-    "dividend_yield": 0.056500003
+    "next_dividend": { "date": "2019-12-05", "formatted_date": "2019-12-05" },
+    "volatililty": 0.2767687877609668,
+    "dividend_yield": 0.0535
   },
   "VER": {
     "dividends": [
@@ -83,12 +71,9 @@
       { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.138 },
       { "date": 1569591000, "formatted_date": "2019-09-27", "amount": 0.138 }
     ],
-    "next_dividend": {
-      "date": "2019-12-27 14:30:00",
-      "formatted_date": "2019-12-27"
-    },
-    "volatililty": 0.19934576082308103,
-    "dividend_yield": 0.0574
+    "next_dividend": { "date": "2019-12-30", "formatted_date": "2019-12-30" },
+    "volatililty": 0.19855501842114326,
+    "dividend_yield": 0.060500003
   },
   "AGNC": {
     "dividends": [
@@ -116,12 +101,9 @@
       { "date": 1572442200, "formatted_date": "2019-10-30", "amount": 0.16 },
       { "date": 1574865000, "formatted_date": "2019-11-27", "amount": 0.16 }
     ],
-    "next_dividend": {
-      "date": "2019-12-27 13:02:43.636364",
-      "formatted_date": "2019-12-27"
-    },
-    "volatililty": 0.1294472767575985,
-    "dividend_yield": 0.1109
+    "next_dividend": { "date": "2019-12-30", "formatted_date": "2019-12-30" },
+    "volatililty": 0.13020137846333504,
+    "dividend_yield": 0.1074
   },
   "WPC": {
     "dividends": [
@@ -133,29 +115,24 @@
       { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 1.034 },
       { "date": 1569591000, "formatted_date": "2019-09-27", "amount": 1.036 }
     ],
-    "next_dividend": {
-      "date": "2019-12-27 14:30:00",
-      "formatted_date": "2019-12-27"
-    },
-    "volatililty": 0.1652533541469399,
-    "dividend_yield": 0.0515
+    "next_dividend": { "date": "2019-12-30", "formatted_date": "2019-12-30" },
+    "volatililty": 0.1652695505930703,
+    "dividend_yield": 0.052399997
   },
   "VICI": {
     "dividends": [
       { "date": 1522243800, "formatted_date": "2018-03-28", "amount": 0.16 },
-      { "date": 1530106200, "formatted_date": "2018-06-27", "amount": 0.263 },
-      { "date": 1538055000, "formatted_date": "2018-09-27", "amount": 0.288 },
-      { "date": 1545921000, "formatted_date": "2018-12-27", "amount": 0.288 },
-      { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.288 },
+      { "date": 1530106200, "formatted_date": "2018-06-27", "amount": 0.2625 },
+      { "date": 1538055000, "formatted_date": "2018-09-27", "amount": 0.2875 },
+      { "date": 1545921000, "formatted_date": "2018-12-27", "amount": 0.2875 },
+      { "date": 1553779800, "formatted_date": "2019-03-28", "amount": 0.2875 },
       { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.288 },
-      { "date": 1569504600, "formatted_date": "2019-09-26", "amount": 0.298 }
+      { "date": 1569504600, "formatted_date": "2019-09-26", "amount": 0.2975 },
+      { "date": 1577370600, "formatted_date": "2019-12-26", "amount": 0.298 }
     ],
-    "next_dividend": {
-      "date": "2019-12-26 10:30:00",
-      "formatted_date": "2019-12-26"
-    },
-    "volatililty": 0.16765474461717256,
-    "dividend_yield": 0.0482
+    "next_dividend": { "date": "2019-12-26", "formatted_date": "2019-12-26" },
+    "volatililty": 0.16808647476981076,
+    "dividend_yield": 0.047
   },
   "MPW": {
     "dividends": [
@@ -168,12 +145,9 @@
       { "date": 1568208600, "formatted_date": "2019-09-11", "amount": 0.26 },
       { "date": 1576074600, "formatted_date": "2019-12-11", "amount": 0.26 }
     ],
-    "next_dividend": {
-      "date": "2020-03-11 06:38:34.285714",
-      "formatted_date": "2020-03-11"
-    },
-    "volatililty": 0.2252763377008922,
-    "dividend_yield": 0.050100002
+    "next_dividend": { "date": "2019-12-11", "formatted_date": "2019-12-11" },
+    "volatililty": 0.22693957746027824,
+    "dividend_yield": 0.0502
   },
   "RWT": {
     "dividends": [
@@ -183,14 +157,12 @@
       { "date": 1544711400, "formatted_date": "2018-12-13", "amount": 0.3 },
       { "date": 1552570200, "formatted_date": "2019-03-14", "amount": 0.3 },
       { "date": 1560432600, "formatted_date": "2019-06-13", "amount": 0.3 },
-      { "date": 1568381400, "formatted_date": "2019-09-13", "amount": 0.3 }
+      { "date": 1568381400, "formatted_date": "2019-09-13", "amount": 0.3 },
+      { "date": 1576247400, "formatted_date": "2019-12-13", "amount": 0.3 }
     ],
-    "volatililty": 0.134511084835801,
-    "next_dividend": {
-      "date": "2019-12-13 14:30:00",
-      "formatted_date": "2019-12-13"
-    },
-    "dividend_yield": 0.0734
+    "volatililty": 0.13643132667762725,
+    "next_dividend": { "date": "2019-12-13", "formatted_date": "2019-12-13" },
+    "dividend_yield": 0.0727
   },
   "IRM": {
     "dividends": [
@@ -200,14 +172,12 @@
       { "date": 1544797800, "formatted_date": "2018-12-14", "amount": 0.611 },
       { "date": 1552570200, "formatted_date": "2019-03-14", "amount": 0.611 },
       { "date": 1560519000, "formatted_date": "2019-06-14", "amount": 0.611 },
-      { "date": 1568381400, "formatted_date": "2019-09-13", "amount": 0.611 }
+      { "date": 1568381400, "formatted_date": "2019-09-13", "amount": 0.611 },
+      { "date": 1576247400, "formatted_date": "2019-12-13", "amount": 0.619 }
     ],
-    "volatililty": 0.23873344938566357,
-    "next_dividend": {
-      "date": "2019-12-13 14:30:00",
-      "formatted_date": "2019-12-13"
-    },
-    "dividend_yield": 0.0757
+    "volatililty": 0.2384490202377232,
+    "next_dividend": { "date": "2019-12-13", "formatted_date": "2019-12-13" },
+    "dividend_yield": 0.0777
   },
   "SBAC": {
     "dividends": [

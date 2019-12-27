@@ -96,11 +96,12 @@ class DividendHistory:
   def _calculate_next_dividend(self):
     """ Returns estimated date for the next dividend 
 
-    This can probably be replaced with real date from another data source
     """
-    dates = self._dates()
-    maximum = np.max(dates)
-    return datetime.datetime.fromtimestamp(maximum) + self._average_dividend_interval()
+    symbol = self.symbol
+    yahoo_financials = YahooFinancials([symbol])
+    data = yahoo_financials.get_exdividend_date()
+    date_str = data[symbol]
+    return datetime.date.fromisoformat(date_str)
 
   def _enrich_with_next_dividend(self):
     next_dividend_date = self._calculate_next_dividend()
