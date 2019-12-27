@@ -10,7 +10,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 
 class Position:
-  PRICE_DIFFERENCE_PERCENT_THREADSHOLD = 2
+  PRICE_DIFFERENCE_PERCENT_THREADSHOLD = 0.5
   DAYS_THREASHOLD = 5
 
   """ Tuple that holds result and reasons for results"""
