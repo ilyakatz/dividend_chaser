@@ -36,8 +36,7 @@ class Broker(AbstractBroker):
 
   @_login_required
   def positions(self):
-    my_stocks = r.build_holdings()
-    return my_stocks
+    return r.build_holdings()
 
   @_login_required
   def get_dividends(self):
@@ -60,6 +59,35 @@ class Broker(AbstractBroker):
     ref_id = data['ref_id']
     if(ref_id):
       logging.info(f"Executed: ref_id {ref_id}")
+      return ref_id
+
+    return None
+
+  def sell_all(self, symbol):
+    """Request to sell all for the given symbol
+
+    Returns
+    --------
+    Float | None
+      Estimated amount from sold position if sale is possible, else, None
+    """
+    current_positions = self.positions()
+    position = current_positions[symbol]
+    quantity = float(position['quantity'])
+    equity = do_if_enabled(self.dry_run, symbol, quantity, lambda symbol, quantity: self._sell(symbol, quantity))
+    return equity
+
+  def _sell(self, symbol, quantity):
+    logging.info(f"Selling {quantity} of {symbol}")
+    # trigger sale order
+    data = self.broker().orders.order_sell_market(symbol, quantity)
+    price = float(data['price'])
+    equity = price * quantity
+
+    # since this is a market order and result are not instaneous
+    # this is an estimated amout of equity that will be returned once transaction is
+    # completed
+    return equity
 
   @_login_required
   def dividend_history_for(self, symbol):

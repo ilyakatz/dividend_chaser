@@ -28,6 +28,8 @@ from dividend_chaser.chaser import Chaser
 from dividend_chaser.brokers.robinhood import Broker
 from dividend_chaser.models.position import Position
 import os
+import logging
+import sys
 
 broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"])
 #broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"],dry_run=False)
