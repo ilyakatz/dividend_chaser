@@ -51,7 +51,7 @@ class DividendHistory:
     stocks = DividendHistory.loadStocks()
     arr = list(stocks.items())
     simplified = list(map(lambda x: Dividendable(
-        x[0], x[1]['next_dividend']['formatted_date']), arr))
+        x[0], x[1]['next_dividend']['formatted_date'], x[1]['dividend_yield'], x[1]['volatililty']), arr))
     simplified.sort(key=lambda x: x.dividend_date, reverse=False)
     filtered = list(
         filter(lambda dividendable: dividendable.is_clearable(), simplified))
