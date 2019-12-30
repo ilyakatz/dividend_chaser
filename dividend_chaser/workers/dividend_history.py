@@ -51,7 +51,7 @@ class DividendHistory:
     stocks = DividendHistory.loadStocks()
     arr = list(stocks.items())
     simplified = list(map(lambda x: Dividendable(
-        x[0], x[1]['next_dividend']['formatted_date']), arr))
+        x[0], x[1]['next_dividend']['formatted_date'], x[1]['dividend_yield'], x[1]['volatililty']), arr))
     simplified.sort(key=lambda x: x.dividend_date, reverse=False)
     filtered = list(
         filter(lambda dividendable: dividendable.is_clearable(), simplified))
@@ -101,7 +101,17 @@ class DividendHistory:
     yahoo_financials = YahooFinancials([symbol])
     data = yahoo_financials.get_exdividend_date()
     date_str = data[symbol]
-    return datetime.date.fromisoformat(date_str)
+    next_div_date = datetime.date.fromisoformat(date_str)
+    today = datetime.date.today()
+
+    " at times, yahoo does not return correct next date "
+    if (next_div_date < today):
+      logging.info("Next dividend date is not yet known. Estimating ...")
+      dates = self._dates()
+      maximum = np.max(dates)
+      next_div_date = datetime.datetime.fromtimestamp(maximum) + self._average_dividend_interval()
+
+    return next_div_date
 
   def _enrich_with_next_dividend(self):
     next_dividend_date = self._calculate_next_dividend()
