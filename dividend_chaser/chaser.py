@@ -1,5 +1,6 @@
 import logging
 from datetime import datetime
+import click
 
 from dividend_chaser.models.position import Position
 from dividend_chaser.models.dividendable import Dividendable
@@ -91,6 +92,11 @@ class Chaser:
         res = self._should_exchange(position, dividendable)
         if(res.result):
           logging.info(f"Proposal: Sell {position.symbol}, Buy {dividendable.symbol} \n {res.reasons}")
+          if click.confirm(f"Do you want to sell {position.symbol} and buy {dividendable.symbol}", default=True):
+            logging.info("SWAPPPING")
+            self.broker.exchange(position.symbol, dividendable.symbol)
+          else:
+            logging.info("Skipping swap")
         else:
           logging.info(f"Proposal: Do not sell {position.symbol} \n {res.reasons}")
 

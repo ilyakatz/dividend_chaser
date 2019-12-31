@@ -75,7 +75,15 @@ class Broker(AbstractBroker):
     position = current_positions[symbol]
     quantity = float(position['quantity'])
     equity = do_if_enabled(self.dry_run, symbol, quantity, lambda symbol, quantity: self._sell(symbol, quantity))
-    return equity
+    return (equity or 0)
+
+  def exchange(self, old_symbol, new_symbol):
+    """
+    Because sell orders may not be executed right away,
+    before buying, we need to make sure we have enough cash in the account
+    """
+    equity = self.sell_all(old_symbol)
+    self.buy(new_symbol, equity)
 
   def _sell(self, symbol, quantity):
     logging.info(f"Selling {quantity} of {symbol}")
