@@ -1,3 +1,5 @@
+![Dividend Chaser](./assets/chaser_logo.png)
+
 ```
 pip3 install virtualenv
 virtualenv dividends_env
