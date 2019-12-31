@@ -69,4 +69,9 @@ jupyter notebook
 
 ```
 autopep8 --in-place --recursive --exclude=dividends_env .
+
 ```
+
+## Robinhood
+
+Want to do your own automated trading? Use my referal link to sign up for [Robinhood](https://join.robinhood.com/ilyak36)
