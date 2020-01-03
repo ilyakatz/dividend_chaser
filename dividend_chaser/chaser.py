@@ -66,8 +66,12 @@ class Chaser:
   """
 
   def _next_stock(self):
-    res = DividendHistory.upcoming()
-    return res[0]
+    upcoming = DividendHistory.upcoming()
+    positions_dic = self.broker.positions()
+    positions = list(positions_dic.keys())
+    filtered = list(filter(lambda d: d.symbol not in positions, upcoming))
+    logging.info(f"Upcoming dividends {filtered}")
+    return filtered[0]
 
   def _run(self, symbol):
     if(symbol in self.reits()):

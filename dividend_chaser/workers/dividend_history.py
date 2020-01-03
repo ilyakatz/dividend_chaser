@@ -56,7 +56,6 @@ class DividendHistory:
     filtered = list(
         filter(lambda dividendable: dividendable.is_clearable(), simplified))
 
-    logging.info(f"Upcoming dividends {filtered}")
     return filtered
 
   def load(self):
