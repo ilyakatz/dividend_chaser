@@ -48,19 +48,21 @@ class Chaser:
 
   Returns
   -------
-  Boolean
-    True or False if the current position should be traded out
+  Position.BooleanResultWithReasons
+    Tuple indicating with boolean and reasons of explaning the results
   """
 
   def _should_exchange(self, position: Position, dividendable: Dividendable):
     current_time_to_next_dividend = position.time_to_next_dividend().days
     days_to_dividend = (dividendable.dividend_date - datetime.today()).days
-    difference = current_time_to_next_dividend - days_to_dividend
-    doit = (difference > Chaser.MINIMUM_DIVIDEND_DAYS)
-    if(not doit):
-      logging.info(
-          f"New dividend date is only {difference} days away from current ( less than {Chaser.MINIMUM_DIVIDEND_DAYS} )")
-    return doit
+    difference = days_to_dividend - current_time_to_next_dividend
+    doit = (difference <= -Chaser.MINIMUM_DIVIDEND_DAYS)
+    if(doit):
+      reason = f"Current dividend date is {difference} days LATER than the first available swap"
+      logging.info(reason)
+      return Position.BooleanResultWithReasons(result=True, reasons=reason)
+    reason = f"Current dividend date is {difference} days EARLIER than the first available swap"
+    return Position.BooleanResultWithReasons(result=False, reasons=reason)
 
   """ Finds the next stock with the closest dividend date
   """
@@ -80,10 +82,11 @@ class Chaser:
       res = position.is_allowed_to_sell()
       if(res.result):
         dividendable = self.find_better()
-        if(self._should_exchange(position, dividendable)):
-          logging.info(f"Proposal: Sell {position.symbol}, Buy {dividendable.symbol}")
+        res = self._should_exchange(position, dividendable)
+        if(res.result):
+          logging.info(f"Proposal: Sell {position.symbol}, Buy {dividendable.symbol} \n {res.reasons}")
         else:
-          logging.info(f"Proposal: Do not sell {position.symbol}")
+          logging.info(f"Proposal: Do not sell {position.symbol} \n {res.reasons}")
 
       else:
         logging.info(f"Not ready to sell \n {res.reasons}")

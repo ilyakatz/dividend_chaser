@@ -12,3 +12,7 @@ pandas_datareader
 matplotlib
 pandas
 pylint
+
+pytest
+pytest-mock
+freezegun
