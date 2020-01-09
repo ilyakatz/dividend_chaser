@@ -51,6 +51,13 @@ celery -A tasks worker --loglevel=info
 flower -A tasks --port=5555
 ```
 
+#### Update stock universe data
+
+```
+from dividend_chaser.workers.stock_universe_worker import StockUniverseWorker
+StockUniverseWorker.dump()
+```
+
 ### Scheduling a job
 
 ```
