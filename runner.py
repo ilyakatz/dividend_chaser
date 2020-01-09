@@ -36,4 +36,6 @@ broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"])
 
 position = Position("STWD", broker)
 position.is_allowed_to_sell()     
+
+    
 """

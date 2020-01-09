@@ -12,6 +12,7 @@ pandas_datareader
 matplotlib
 pandas
 pylint
+dirtyjson
 
 pytest
 pytest-mock
