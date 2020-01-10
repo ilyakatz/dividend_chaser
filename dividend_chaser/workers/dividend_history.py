@@ -106,11 +106,16 @@ class DividendHistory:
     " at times, yahoo does not return correct next date "
     if (next_div_date < today):
       logging.info("Next dividend date is not yet known. Estimating ...")
-      dates = self._dates()
-      maximum = np.max(dates)
-      next_div_date = datetime.datetime.fromtimestamp(maximum) + self._average_dividend_interval()
+      next_div_date = self._estimate_next_date(next_div_date)
 
     return next_div_date
+
+  def _estimate_next_date(self, next_div_date):
+    dates = self._dates()
+    next_div_date_in_seconds = next_div_date.strftime('%s')
+    dates.append(int(next_div_date_in_seconds))
+    maximum = np.max(dates)
+    return datetime.datetime.fromtimestamp(maximum) + self._average_dividend_interval()
 
   def _enrich_with_next_dividend(self):
     next_dividend_date = self._calculate_next_dividend()
