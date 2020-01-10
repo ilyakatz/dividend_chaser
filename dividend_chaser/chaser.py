@@ -11,6 +11,11 @@ class Chaser:
   """ Threshold that determines whether to trade out current positions for a new one"""
   MINIMUM_DIVIDEND_DAYS = 4
 
+  """ In order to dercrease effect of volatile stocks,
+  this is the threshold that will be used to determine which stocks to pick
+  """
+  VOLATILITY_THREASHOLD = 0.15
+
   def __init__(self, broker: AbstractBroker):
     self.broker = broker
 
@@ -72,6 +77,7 @@ class Chaser:
     positions_dic = self.broker.positions()
     positions = list(positions_dic.keys())
     filtered = list(filter(lambda d: d.symbol not in positions, upcoming))
+    filtered = list(filter(lambda d: d.volatililty < self.VOLATILITY_THREASHOLD, filtered))
     logging.info(f"Upcoming dividends {filtered}")
     return filtered[0]
 
