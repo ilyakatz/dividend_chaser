@@ -341,11 +341,15 @@
       { "date": 1547044200, "formatted_date": "2019-01-09", "amount": 0.3225 },
       { "date": 1554730200, "formatted_date": "2019-04-08", "amount": 0.3425 },
       { "date": 1562679000, "formatted_date": "2019-07-09", "amount": 0.343 },
-      { "date": 1570627800, "formatted_date": "2019-10-09", "amount": 0.3425 }
+      { "date": 1570627800, "formatted_date": "2019-10-09", "amount": 0.3425 },
+      { "date": 1578580200, "formatted_date": "2020-01-09", "amount": 0.343 }
     ],
-    "volatililty": 0.17089767166394992,
-    "next_dividend": { "date": "2020-01-09", "formatted_date": "2020-01-09" },
-    "dividend_yield": 0.0295
+    "volatililty": 0.16821605741969353,
+    "next_dividend": {
+      "date": "2020-04-10 03:12:51.428571",
+      "formatted_date": "2020-04-10"
+    },
+    "dividend_yield": 0.0299
   },
   "COR": {
     "dividends": [
