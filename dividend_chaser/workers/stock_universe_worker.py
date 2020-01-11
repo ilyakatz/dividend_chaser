@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 import json
+import os
 import dirtyjson
 import requests 
 import numpy as np
@@ -15,7 +16,8 @@ StockUniverseWorker.dump()
 
 
 class StockUniverseWorker:
-  filename = 'data/stocks.json'
+  data_dir = 'data/'
+  filename = f"{data_dir}/stocks.json"
   url = 'https://www.thestreet.com/util/divs.jsp'
   """ Worker responsible for analyzing the whole universe of stocks with dividends
   """
@@ -30,6 +32,8 @@ class StockUniverseWorker:
     print(f"Writing to {StockUniverseWorker.filename}")
     stocks = StockUniverseWorker().get_all_dividends(start_date, end_date)
     stocks = list(np.unique(stocks))
+    if not os.path.exists(StockUniverseWorker.data_dir):
+      os.makedirs(StockUniverseWorker.data_dir)
     with open(StockUniverseWorker.filename, 'w') as fp:
       json.dump(stocks, fp)
 

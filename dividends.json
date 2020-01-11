@@ -636,5 +636,40 @@
       "formatted_date": "2020-03-30"
     },
     "dividend_yield": 0.052699998
+  },
+  "MAIN": {
+    "dividends": [
+      { "date": 1516285800, "formatted_date": "2018-01-18", "amount": 0.19 },
+      { "date": 1519223400, "formatted_date": "2018-02-21", "amount": 0.19 },
+      { "date": 1521552600, "formatted_date": "2018-03-20", "amount": 0.19 },
+      { "date": 1524144600, "formatted_date": "2018-04-19", "amount": 0.19 },
+      { "date": 1526650200, "formatted_date": "2018-05-18", "amount": 0.19 },
+      { "date": 1529328600, "formatted_date": "2018-06-18", "amount": 0.275 },
+      { "date": 1530192600, "formatted_date": "2018-06-28", "amount": 0.19 },
+      { "date": 1532007000, "formatted_date": "2018-07-19", "amount": 0.19 },
+      { "date": 1534771800, "formatted_date": "2018-08-20", "amount": 0.19 },
+      { "date": 1537363800, "formatted_date": "2018-09-19", "amount": 0.195 },
+      { "date": 1539869400, "formatted_date": "2018-10-18", "amount": 0.195 },
+      { "date": 1542637800, "formatted_date": "2018-11-19", "amount": 0.195 },
+      { "date": 1545057000, "formatted_date": "2018-12-17", "amount": 0.275 },
+      { "date": 1546007400, "formatted_date": "2018-12-28", "amount": 0.195 },
+      { "date": 1547735400, "formatted_date": "2019-01-17", "amount": 0.195 },
+      { "date": 1550673000, "formatted_date": "2019-02-20", "amount": 0.195 },
+      { "date": 1553002200, "formatted_date": "2019-03-19", "amount": 0.2 },
+      { "date": 1555507800, "formatted_date": "2019-04-17", "amount": 0.2 },
+      { "date": 1558099800, "formatted_date": "2019-05-17", "amount": 0.2 },
+      { "date": 1560778200, "formatted_date": "2019-06-17", "amount": 0.25 },
+      { "date": 1561642200, "formatted_date": "2019-06-27", "amount": 0.205 },
+      { "date": 1563370200, "formatted_date": "2019-07-17", "amount": 0.205 },
+      { "date": 1566221400, "formatted_date": "2019-08-19", "amount": 0.205 },
+      { "date": 1568813400, "formatted_date": "2019-09-18", "amount": 0.205 },
+      { "date": 1571319000, "formatted_date": "2019-10-17", "amount": 0.205 },
+      { "date": 1574173800, "formatted_date": "2019-11-19", "amount": 0.205 },
+      { "date": 1576161000, "formatted_date": "2019-12-12", "amount": 0.24 },
+      { "date": 1577457000, "formatted_date": "2019-12-27", "amount": 0.205 }
+    ],
+    "volatililty": 0.1576703978178977,
+    "next_dividend": { "date": "2020-01-21", "formatted_date": "2020-01-21" },
+    "dividend_yield": 0.056599997
   }
 }
