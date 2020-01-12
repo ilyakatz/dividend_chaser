@@ -2,6 +2,7 @@ import json
 import datetime
 import pprint
 import logging
+import sys
 from json import JSONDecodeError
 from yahoofinancials import YahooFinancials
 import numpy as np
@@ -36,7 +37,12 @@ class DividendHistory:
   """
   @classmethod
   def historical_volatility(cls, sym, days):
-    quotes = web.DataReader(sym, 'yahoo')['Close'][-days:]
+    try:
+      data = web.DataReader(sym, 'yahoo')
+    except:
+      return None
+
+    quotes = data['Close'][-days:]
     logreturns = np.log(quotes / quotes.shift(1))
     return np.sqrt(252 * logreturns.var())
 
@@ -74,12 +80,15 @@ class DividendHistory:
   def dump(self):
     divs = self._get_dividends()
     self.dividends_data[self.symbol]["dividends"] = divs[self.symbol]
-    self._enrich_with_volatililty()
-    self._enrich_with_next_dividend()
-    self._enrich_with_dividend_yield()
+    try:
+      self._enrich_with_volatililty()
+      self._enrich_with_next_dividend()
+      self._enrich_with_dividend_yield()
 
-    with open(self.filename, 'w') as fp:
-      json.dump(self.dividends_data, fp)
+      with open(self.filename, 'w') as fp:
+        json.dump(self.dividends_data, fp)
+    except:
+      print("Unexpected error:", sys.exc_info()[0])
 
   """
   Returns
