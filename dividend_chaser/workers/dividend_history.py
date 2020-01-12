@@ -13,8 +13,8 @@ from dividend_chaser.models.dividendable import Dividendable
 
 """Class responsible for maintaining dividend history
 
-DividendHistory retrieves and stores dividend history for 
-desires instruments. History is stored in json file for 
+DividendHistory retrieves and stores dividend history for
+desires instruments. History is stored in json file for
 easy retrieval
 """
 
@@ -48,16 +48,24 @@ class DividendHistory:
 
   """ Finds the candidates for positions that have upcoming dividends
 
+  Parameters
+  ----------
+  limit_days: int
+     Limit to number of days in the future of when the next dividend is expected
+
   Returns
   -------
   Array[Dividendable]
   """
   @classmethod
-  def upcoming(cls):
+  def upcoming(cls, limit_days=14):
     stocks = DividendHistory.loadStocks()
     arr = list(stocks.items())
     simplified = list(map(lambda x: Dividendable(
         x[0], x[1]['next_dividend']['formatted_date'], x[1]['dividend_yield'], x[1]['volatililty']), arr))
+    simplified = list(filter(lambda d: d.dividend_date.date() < (
+        datetime.date.today() + datetime.timedelta(days=limit_days)), simplified))
+
     simplified.sort(key=lambda x: x.dividend_date, reverse=False)
     filtered = list(
         filter(lambda dividendable: dividendable.is_clearable(), simplified))
@@ -102,7 +110,7 @@ class DividendHistory:
     return datetime.date.fromisoformat(new_date)
 
   def _calculate_next_dividend(self):
-    """ Returns estimated date for the next dividend 
+    """ Returns estimated date for the next dividend
 
     """
     symbol = self.symbol
@@ -144,9 +152,9 @@ class DividendHistory:
     self.dividends_data[self.symbol]["volatililty"] = DividendHistory.historical_volatility(self.symbol, 365)
 
   def _average_dividend_interval(self):
-    """ Calculates how often dividends get paid 
+    """ Calculates how often dividends get paid
 
-    Return:  
+    Return:
     """
     dates = self._dates()
     a = np.array(dates)
