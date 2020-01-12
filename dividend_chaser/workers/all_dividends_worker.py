@@ -1,4 +1,3 @@
-import sys
 import json
 import numpy as np
 
@@ -6,6 +5,7 @@ from dividend_chaser.workers.dividend_history import DividendHistory
 
 
 class AllDividendsWorker:
+  # pylint: disable=R0903
   filename = "data/stocks.json"
   @classmethod
   def dump(cls):
@@ -17,7 +17,7 @@ class AllDividendsWorker:
     with open(AllDividendsWorker.filename) as file:
       all_stocks = json.load(file)
 
-    stocks = all_stocks
+    stocks = all_stocks + additional_reits + reits + funds
     stocks = list(np.unique(stocks))
 
     """ https://en.wikipedia.org/wiki/List_of_public_REITs_in_the_United_States """

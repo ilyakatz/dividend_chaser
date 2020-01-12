@@ -37,6 +37,7 @@ class DividendHistory:
   """
   @classmethod
   def historical_volatility(cls, sym, days):
+    # pylint: disable=W0702
     try:
       data = web.DataReader(sym, 'yahoo')
     except:
@@ -86,6 +87,7 @@ class DividendHistory:
     return obj
 
   def dump(self):
+    # pylint: disable=W0702
     divs = self._get_dividends()
     self.dividends_data[self.symbol]["dividends"] = divs[self.symbol]
     try:
