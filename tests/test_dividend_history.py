@@ -37,7 +37,8 @@ class TestUpcoming(unittest.TestCase):
                 "formatted_date": "2020-01-16"
             },
             "volatililty": 0.13605430659514575,
-            "dividend_yield": 0.0773
+            "dividend_yield": 0.0773,
+            "average_volume": 2000
         }
     }
 
@@ -61,7 +62,8 @@ class TestUpcoming(unittest.TestCase):
                 "formatted_date": "2020-01-16"
             },
             "volatililty": 0.13605430659514575,
-            "dividend_yield": 0.0773
+            "dividend_yield": 0.0773,
+            "average_volume": 20000
         }
     }
 
@@ -84,7 +86,8 @@ class TestUpcoming(unittest.TestCase):
                 "formatted_date": "2020-01-17"
             },
             "volatililty": 0.13605430659514575,
-            "dividend_yield": 0.0773
+            "dividend_yield": 0.0773,
+            "average_volume": 20000
         },
         "PP": {
             "dividends": [
@@ -95,7 +98,8 @@ class TestUpcoming(unittest.TestCase):
                 "formatted_date": "2020-01-15"
             },
             "volatililty": 0.13605430659514575,
-            "dividend_yield": 0.0773
+            "dividend_yield": 0.0773,
+            "average_volume": 20000
         }
     }
 

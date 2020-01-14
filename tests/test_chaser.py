@@ -9,7 +9,7 @@ import datetime as dt
 import re
 
 broker = None
-dividendable = Dividendable("AGNC", "2020-01-07", "0.01", 0.11)
+dividendable = Dividendable("AGNC", "2020-01-07", "0.01", 0.11, 2000)
 chaser = Chaser(broker)
 position = Position("APPLE", broker)
 
@@ -25,7 +25,7 @@ positions_dic = {
 
 @freeze_time("2020-01-06 12:00:01")
 def test_next_dividend_too_far_away(mocker):
-  dividendable = Dividendable("AGNC", "2020-01-29", "0.01", 0.11)
+  dividendable = Dividendable("AGNC", "2020-01-29", "0.01", 0.11, 2000)
   mocker.patch.object(position, 'time_to_next_dividend', return_value=datetime.timedelta(days=8), autospec=True)
 
   res = chaser._should_exchange(position, dividendable)
@@ -52,9 +52,9 @@ def test_next_stock_does_not_include_existing(mocker):
   chaser = Chaser(broker)
 
   upcoming = [
-      Dividendable("MAA", "2020-01-28", 0.0830, 0.24804521107634905),
-      Dividendable("AGNC", "2020-01-29", 0.108, 0.13090305500556784),
-      Dividendable("EPR", "2020-01-29", 0.064, 0.1714829852718327),
+      Dividendable("MAA", "2020-01-28", 0.0830, 0.24804521107634905, 2000),
+      Dividendable("AGNC", "2020-01-29", 0.108, 0.13090305500556784, 2000),
+      Dividendable("EPR", "2020-01-29", 0.064, 0.1714829852718327, 200),
   ]
 
   mocker.patch.object(broker, 'positions', return_value=positions_dic)
@@ -72,9 +72,9 @@ def test_threshold(mocker):
   chaser = Chaser(broker)
 
   upcoming = [
-      Dividendable("HIGH", "2020-01-28", 1, 0.24804521107634905),
-      Dividendable("LOW", "2020-01-28", 1, 0.13090305500556784),
-      Dividendable("EPR", "2020-01-29", 1, 0.1714829852718327),
+      Dividendable("HIGH", "2020-01-28", 1, 0.24804521107634905, 2000),
+      Dividendable("LOW", "2020-01-28", 1, 0.13090305500556784, 2000),
+      Dividendable("EPR", "2020-01-29", 1, 0.1714829852718327, 2000),
   ]
 
   mocker.patch.object(broker, 'positions', return_value=positions_dic)

@@ -63,7 +63,11 @@ class DividendHistory:
     stocks = DividendHistory.loadStocks()
     arr = list(stocks.items())
     simplified = list(map(lambda x: Dividendable(
-        x[0], x[1]['next_dividend']['formatted_date'], x[1]['dividend_yield'], x[1]['volatililty']), arr))
+        x[0],
+        x[1]['next_dividend']['formatted_date'],
+        x[1]['dividend_yield'],
+        x[1]['volatililty'],
+        x[1].get('average_volume')), arr))
     simplified = list(filter(lambda d: d.dividend_date.date() < (
         datetime.date.today() + datetime.timedelta(days=limit_days)), simplified))
 
@@ -92,6 +96,7 @@ class DividendHistory:
     self.dividends_data[self.symbol]["dividends"] = divs[self.symbol]
     try:
       self._enrich_with_volatililty()
+      self._enrich_with_volume()
       self._enrich_with_next_dividend()
       self._enrich_with_dividend_yield()
 
@@ -152,6 +157,12 @@ class DividendHistory:
 
   def _enrich_with_volatililty(self):
     self.dividends_data[self.symbol]["volatililty"] = DividendHistory.historical_volatility(self.symbol, 365)
+
+  def _enrich_with_volume(self):
+    symbol = self.symbol
+    yahoo_financials = YahooFinancials([symbol])
+    res = yahoo_financials.get_three_month_avg_daily_volume()
+    self.dividends_data[self.symbol]["average_volume"] = res[symbol]
 
   def _average_dividend_interval(self):
     """ Calculates how often dividends get paid

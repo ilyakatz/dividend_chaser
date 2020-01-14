@@ -13,11 +13,13 @@ class Dividendable:
     Date of the next dividend in %Y-%m-%d format
   """
 
-  def __init__(self, symbol, dividend_date, dividend_yield, volatililty):
+  # pylint: disable=R0913
+  def __init__(self, symbol, dividend_date, dividend_yield, volatililty, average_volume):
     self.symbol = symbol
     self.dividend_date = datetime.strptime(dividend_date, "%Y-%m-%d")
     self.dividend_yield = dividend_yield
     self.volatililty = volatililty
+    self.average_volume = average_volume
 
   def is_clearable(self):
     today = datetime.now().strftime('%Y-%m-%d')
@@ -32,5 +34,6 @@ class Dividendable:
 symbol={self.symbol} \
 volatililty={self.volatililty} \
 dividend_yield={self.dividend_yield} \
+average_volume={self.average_volume} \
 dividend_date={self.dividend_date.strftime('%Y-%m-%d')} \
 />"""
