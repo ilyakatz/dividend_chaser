@@ -13,6 +13,7 @@ matplotlib
 pandas
 pylint
 dirtyjson
+click
 
 pytest
 pytest-mock

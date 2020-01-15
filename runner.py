@@ -2,9 +2,20 @@
 import logging
 import os
 import sys
+import click
 
 from dividend_chaser.brokers.robinhood import Broker
 from dividend_chaser.chaser import Chaser
+
+
+@click.command()
+@click.option('--execute/--no-execute', required=True, help='Dry run mode - buy and sell orders are not executed')
+def run(execute=False):
+  dry_run = not execute
+  broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"], dry_run=dry_run)
+  chaser = Chaser(broker)
+  chaser.run()
+
 
 if __name__ == '__main__':
 
@@ -18,10 +29,8 @@ if __name__ == '__main__':
   handler.setFormatter(formatter)
 
   root.addHandler(handler)
+  run()
 
-  broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"])
-  chaser = Chaser(broker)
-  chaser.run()
 
 """
 from dividend_chaser.chaser import Chaser
