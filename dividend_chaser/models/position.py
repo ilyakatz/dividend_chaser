@@ -110,7 +110,7 @@ class Position:
   """
 
   def time_to_next_dividend(self):
-    next_date = DividendHistory(self.symbol).next_dividend()
+    next_date = DividendHistory.next_dividend(self.symbol)
     res = next_date - datetime.date.today()
     logging.info(f"Time to next dividend {res}")
     return res

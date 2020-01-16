@@ -6,9 +6,13 @@ class ReloadStockDatabaseWorker:
   @classmethod
   def run(cls):
     stocks = list(DividendHistory.loadStocks().keys())
-    index = stocks.index("GME")
-    stocks = stocks[901:-1]
-    for stock in stocks:
-      print(f"Running worker for {stock}")
-      DividendHistory(stock).dump()
+    index = stocks.index("HMC")
+    stocks = stocks[index:-1]
+
+    chunk_size = 50
+    for i in range(0, len(stocks), chunk_size):
+      chunk = stocks[i:i + chunk_size]
+      print(f"Running worker for {chunk}")
+      DividendHistory(chunk).dump()
+
     return True
