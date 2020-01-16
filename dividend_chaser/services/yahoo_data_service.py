@@ -16,6 +16,17 @@ class YahooDataService:
   def volatililty(self, symbol):
     return self.fin_data[symbol]["volatililty"]
 
+  def average_volume(self, symbol):
+    return self.fin_data[symbol]["average_volume"]
+
+  def calculate_average_volume(self):
+    yahoo_financials = YahooFinancials(self.symbols)
+    logging.debug("Fetching get_three_month_avg_daily_volume")
+    yahoo_data = yahoo_financials.get_three_month_avg_daily_volume()
+    logging.debug("Finished detching get_three_month_avg_daily_volume")
+    for symbol in self.symbols:
+      self.fin_data[symbol]["average_volume"] = yahoo_data[symbol]
+
   def calculate_historical_volatility(self):
     symbols = self.symbols
 

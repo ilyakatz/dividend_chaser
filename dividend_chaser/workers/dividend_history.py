@@ -100,7 +100,7 @@ class DividendHistory:
     logging.debug("Starting _enrich")
     self._enrich_with_volatililty(symbols)
     # This is too slow
-    # self._enrich_with_volume(symbols)
+    self._enrich_with_volume(symbols)
     self._enrich_with_next_dividend(symbols)
     self._enrich_with_dividend_yield(symbols)
     logging.debug("Finished _enrich")
@@ -176,6 +176,13 @@ class DividendHistory:
     logging.debug("Finished fetching get_exdividend_date")
     for symbol in symbols:
       self.dividends_data[symbol]["dividend_yield"] = divs[symbol]
+
+  def _enrich_with_volume(self, symbols):
+    service = YahooDataService(symbols)
+    service.calculate_average_volume()
+
+    for symbol in symbols:
+      self.dividends_data[symbol]["average_volume"] = service.average_volume(symbol)
 
   def _enrich_with_volatililty(self, symbols):
     service = YahooDataService(symbols)
