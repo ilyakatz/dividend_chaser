@@ -47,8 +47,14 @@ INFO - ---END MPW---
 ### Worker jobs
 
 ```
-celery -A tasks worker --loglevel=info
+celery -A tasks worker --loglevel=debug --concurrency=1
 flower -A tasks --port=5555
+```
+
+#### Commands
+
+```
+celery -A tasks purge -f
 ```
 
 #### Update stock universe data
