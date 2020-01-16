@@ -7,9 +7,9 @@ from json import JSONDecodeError
 from yahoofinancials import YahooFinancials
 import numpy as np
 from pandas import np
-import pandas_datareader as web
 
 from dividend_chaser.models.dividendable import Dividendable
+from dividend_chaser.services.yahoo_data_service import YahooDataService
 
 """Class responsible for maintaining dividend history
 
@@ -32,21 +32,6 @@ class DividendHistory:
     with open(DividendHistory.filename) as file:
       obj = json.load(file)
       return obj
-
-  """ Return the annualized stddev of daily log returns of
-  """
-  @classmethod
-  def historical_volatility(cls, sym, days):
-    # pylint: disable=W0702
-    logging.debug("Fetching historical volatility from yahoo")
-    try:
-      data = web.DataReader(sym, 'yahoo')
-    except:
-      return None
-
-    quotes = data['Close'][-days:]
-    logreturns = np.log(quotes / quotes.shift(1))
-    return np.sqrt(252 * logreturns.var())
 
   """ Finds the candidates for positions that have upcoming dividends
 
@@ -105,6 +90,7 @@ class DividendHistory:
 
     try:
       self._enrich(self.symbols)
+      logging.info(f"Dumping data for {self.symbols}")
       with open(self.filename, 'w') as fp:
         json.dump(self.dividends_data, fp)
     except:
@@ -113,7 +99,8 @@ class DividendHistory:
   def _enrich(self, symbols):
     logging.debug("Starting _enrich")
     self._enrich_with_volatililty(symbols)
-    self._enrich_with_volume(symbols)
+    # This is too slow
+    # self._enrich_with_volume(symbols)
     self._enrich_with_next_dividend(symbols)
     self._enrich_with_dividend_yield(symbols)
     logging.debug("Finished _enrich")
@@ -191,16 +178,11 @@ class DividendHistory:
       self.dividends_data[symbol]["dividend_yield"] = divs[symbol]
 
   def _enrich_with_volatililty(self, symbols):
-    for symbol in symbols:
-      self.dividends_data[symbol]["volatililty"] = DividendHistory.historical_volatility(symbol, 365)
+    service = YahooDataService(symbols)
+    service.calculate_historical_volatility()
 
-  def _enrich_with_volume(self, symbols):
-    yahoo_financials = YahooFinancials(symbols)
-    logging.debug("Fetching three_month_avg_daily_volume")
-    res = yahoo_financials.get_three_month_avg_daily_volume()
-    logging.debug("Finished fetching three_month_avg_daily_volume")
     for symbol in symbols:
-      self.dividends_data[symbol]["average_volume"] = res[symbol]
+      self.dividends_data[symbol]["volatililty"] = service.volatililty(symbol)
 
   def _average_dividend_interval(self, symbol):
     """ Calculates how often dividends get paid
