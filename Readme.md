@@ -47,7 +47,7 @@ INFO - ---END MPW---
 ### Worker jobs
 
 ```
-celery -A tasks worker --loglevel=info
+celery -A tasks worker --loglevel=debug
 flower -A tasks --port=5555
 ```
 

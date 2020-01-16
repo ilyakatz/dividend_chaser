@@ -17,6 +17,12 @@ def dividend_history_worker():
   return True
 
 
+@app.task
+def reload_batch_worker(stocks):
+  print(f"Running worker for {stocks}")
+  DividendHistory(stocks).dump()
+
+
 """Run dividend refresh worker on celery startup
 """
 @celeryd_init.connect
