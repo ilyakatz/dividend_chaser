@@ -79,7 +79,7 @@ class Chaser:
   """
 
   def _next_stock(self):
-    upcoming = DividendHistory.upcoming(limit_days=5)
+    upcoming = DividendHistory.upcoming(limit_days=7)
     positions_dic = self.broker.positions()
     positions = list(positions_dic.keys())
     filtered = list(filter(lambda d: d.symbol not in positions, upcoming))

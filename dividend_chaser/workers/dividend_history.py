@@ -101,11 +101,11 @@ class DividendHistory:
 
   def _enrich(self, symbols, dividends_data):
     logging.debug("Starting _enrich")
-    self._enrich_with_volatililty(symbols)
+    self._enrich_with_volatililty(symbols, dividends_data)
     # This is too slow
-    self._enrich_with_volume(symbols)
+    self._enrich_with_volume(symbols, dividends_data)
     self._enrich_with_next_dividend(symbols, dividends_data)
-    self._enrich_with_dividend_yield(symbols)
+    self._enrich_with_dividend_yield(symbols, dividends_data)
     logging.debug("Finished _enrich")
 
   """
@@ -128,29 +128,28 @@ class DividendHistory:
   """
 
   def _enrich_with_next_dividend(self, symbols, dividends_data):
-    # service = YahooDataService(symbols, dividends_data)
-    service = IExcloudService(symbols)
+    service = IExcloudService(symbols, dividends_data)
     service.calculate_next_dividend()
 
     for symbol in symbols:
       self.dividends_data[symbol]["next_dividend"] = service.next_dividend(symbol)
 
-  def _enrich_with_dividend_yield(self, symbols):
-    service = YahooDataService(symbols)
+  def _enrich_with_dividend_yield(self, symbols, dividends_data):
+    service = YahooDataService(symbols, dividends_data)
     service.calculate_dividend_yield()
 
     for symbol in symbols:
       self.dividends_data[symbol]["dividend_yield"] = service.dividend_yield(symbol)
 
-  def _enrich_with_volume(self, symbols):
-    service = YahooDataService(symbols)
+  def _enrich_with_volume(self, symbols, dividends_data):
+    service = YahooDataService(symbols, dividends_data)
     service.calculate_average_volume()
 
     for symbol in symbols:
       self.dividends_data[symbol]["average_volume"] = service.average_volume(symbol)
 
-  def _enrich_with_volatililty(self, symbols):
-    service = YahooDataService(symbols)
+  def _enrich_with_volatililty(self, symbols, dividends_data):
+    service = YahooDataService(symbols, dividends_data)
     service.calculate_historical_volatility()
 
     for symbol in symbols:

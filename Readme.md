@@ -10,6 +10,7 @@ pip install -r requirements.txt
 ## Running
 
 ```
+export IEX_TOKEN="token"
 export USER_NAME="some user"
 export PASSWORD="somepassword"
 ```

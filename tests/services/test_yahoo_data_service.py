@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 
 def test_estimate_next_date(mocker):
-  dh = YahooDataService([])
+  dh = YahooDataService([], None)
   res = [1523021400, 1531143000, 1539091800, 1547044200, 1554730200, 1562679000, 1570627800, 1578580200]
   mocker.patch.object(dh, '_dates', return_value=res, autospec=True)
 

@@ -1,23 +1,38 @@
-from iexfinance.stocks import Stock
 import logging
+import datetime
+from iexfinance.stocks import Stock
+
+from dividend_chaser.services.base_data_service import BaseDataService
 
 
-class IExcloudService: 
-  def __init__(self, symbols):
-    self.symbols = symbols
-    self.fin_data = {}
-    for symbol in symbols:
-      self.fin_data[symbol] = {}
+class IExcloudService(BaseDataService):
+  def __init__(self, symbols, dividends_data):
+    super().__init__(symbols, dividends_data)
 
   def next_dividend(self, symbol):
     return self.fin_data[symbol]["next_dividend"]
 
-  def calculate_next_dividend(self):
-    for symbol in self.symbols:
+  def _calculate_next_dividend(self, symbols):
+    """ Returns estimated date for the next dividend
+
+    Returns
+    -------
+    If date is unknown, returns beginning of epoch
+    """
+    next_div_dates = {}
+    for symbol in symbols:
       logging.debug("IExcloudService - Fetching get_dividends")
       stock = Stock(symbol)
       logging.debug("IExcloudService - Finished fetching get_dividends")
 
       div_data = stock.get_dividends()
+      if div_data:
+        data = {symbol: div_data[0]['exDate']}
+      else:
+        epoch = datetime.datetime(1970, 1, 1).date()
+        data = {symbol: epoch.strftime("%Y-%m-%d")}
 
-      self.fin_data[symbol]["next_dividend"] = div_data[0]['exDate']
+      dividends = self._next_div(data, symbol)
+      next_div_dates[symbol] = dividends
+
+    return next_div_dates
