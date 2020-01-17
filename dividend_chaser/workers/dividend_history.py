@@ -3,10 +3,9 @@ import datetime
 import pprint
 import logging
 import sys
+import traceback
 from json import JSONDecodeError
 from yahoofinancials import YahooFinancials
-import numpy as np
-from pandas import np
 
 from dividend_chaser.models.dividendable import Dividendable
 from dividend_chaser.services.yahoo_data_service import YahooDataService
@@ -89,19 +88,22 @@ class DividendHistory:
       self.dividends_data[symbol]["dividends"] = divs[symbol]
 
     try:
-      self._enrich(self.symbols)
+      self._enrich(self.symbols, self.dividends_data)
       logging.info(f"Dumping data for {self.symbols}")
       with open(self.filename, 'w') as fp:
         json.dump(self.dividends_data, fp)
     except:
-      print("Unexpected error:", sys.exc_info()[0])
+      print("Exception:")
+      print('-' * 60)
+      traceback.print_exc(file=sys.stdout)
+      print('-' * 60)
 
-  def _enrich(self, symbols):
+  def _enrich(self, symbols, dividends_data):
     logging.debug("Starting _enrich")
     self._enrich_with_volatililty(symbols)
     # This is too slow
     self._enrich_with_volume(symbols)
-    self._enrich_with_next_dividend(symbols)
+    self._enrich_with_next_dividend(symbols, dividends_data)
     self._enrich_with_dividend_yield(symbols)
     logging.debug("Finished _enrich")
 
@@ -124,50 +126,12 @@ class DividendHistory:
   Hash[String: datetime.date]
   """
 
-  def _calculate_next_dividend(self, symbols):
-    """ Returns estimated date for the next dividend
+  def _enrich_with_next_dividend(self, symbols, dividends_data):
+    service = YahooDataService(symbols, dividends_data)
+    service.calculate_next_dividend()
 
-    """
-    yahoo_financials = YahooFinancials(symbols)
-    logging.debug("Fetching get_exdividend_date")
-    data = yahoo_financials.get_exdividend_date()
-    logging.debug("Finished fetching get_exdividend_date")
-    next_div_dates = {}
     for symbol in symbols:
-      dividends = self._next_div(data, symbol)
-      next_div_dates[symbol] = dividends
-
-    return next_div_dates
-
-  def _next_div(self, data, symbol):
-    date_str = data[symbol]
-    next_div_date = datetime.date.fromisoformat(date_str)
-    today = datetime.date.today()
-
-    " at times, yahoo does not return correct next date "
-    if (next_div_date < today):
-      logging.info("Next dividend date is not yet known. Estimating ...")
-      next_div_date = self._estimate_next_date(next_div_date, symbol)
-
-    return next_div_date
-
-  def _estimate_next_date(self, next_div_date, symbol):
-    dates = self._dates(symbol)
-    next_div_date_in_seconds = next_div_date.strftime('%s')
-    dates.append(int(next_div_date_in_seconds))
-    maximum = np.max(dates)
-    return datetime.datetime.fromtimestamp(maximum) + self._average_dividend_interval(symbol)
-
-  def _enrich_with_next_dividend(self, symbols):
-    next_dividend_dates = self._calculate_next_dividend(symbols)
-    for symbol in symbols:
-      next_dividend_date = next_dividend_dates[symbol]
-      print(next_dividend_date)
-      next_estimate_hash = {
-          "date": str(next_dividend_date),
-          "formatted_date": next_dividend_date.strftime("%Y-%m-%d")
-      }
-      self.dividends_data[symbol]["next_dividend"] = next_estimate_hash
+      self.dividends_data[symbol]["next_dividend"] = service.next_dividend(symbol)
 
   def _enrich_with_dividend_yield(self, symbols):
     yahoo_financials = YahooFinancials(symbols)
@@ -190,20 +154,6 @@ class DividendHistory:
 
     for symbol in symbols:
       self.dividends_data[symbol]["volatililty"] = service.volatililty(symbol)
-
-  def _average_dividend_interval(self, symbol):
-    """ Calculates how often dividends get paid
-
-    Return:
-    """
-    dates = self._dates(symbol)
-    a = np.array(dates)
-    average = np.mean(np.diff(a))
-    return datetime.timedelta(seconds=average)
-
-  def _dates(self, symbol):
-    divs = self.dividends_data[symbol]["dividends"]
-    return list(map(lambda x: x['date'], divs))
 
   def _get_dividends(self, symbols):
     start_date = '2018-01-15'

@@ -80,6 +80,8 @@ class Chaser:
     filtered = list(filter(lambda d: d.symbol not in positions, upcoming))
     filtered = list(filter(lambda d: d.volatililty < self.VOLATILITY_THREASHOLD, filtered))
     logging.info(f"Upcoming dividends {filtered}")
+    if(len(filtered) == 0):
+      return None
     return filtered[0]
 
   def _run(self, symbol):
