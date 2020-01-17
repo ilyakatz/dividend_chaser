@@ -35,6 +35,17 @@ def test_next_dividend_too_far_away(mocker):
 
 
 @freeze_time("2020-01-06 12:00:01")
+def test_next_dividend_in_the_past(mocker):
+  dividendable = Dividendable("AGNC", "2020-01-29", "0.01", 0.11, 2000)
+  mocker.patch.object(position, 'time_to_next_dividend', return_value=datetime.timedelta(days=-1), autospec=True)
+
+  res = chaser._should_exchange(position, dividendable)
+
+  assert res.result == True
+  assert re.search('was paid out recently', res.reasons)
+
+
+@freeze_time("2020-01-06 12:00:01")
 def test_next_dividend_closer_than_current(mocker):
   mocker.patch.object(position, 'time_to_next_dividend', return_value=datetime.timedelta(days=8), autospec=True)
 

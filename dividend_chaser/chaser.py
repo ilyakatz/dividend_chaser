@@ -60,6 +60,11 @@ class Chaser:
 
   def _should_exchange(self, position: Position, dividendable: Dividendable):
     current_time_to_next_dividend = position.time_to_next_dividend().days
+
+    if(current_time_to_next_dividend <= -1):
+      reason = f"Dividend for {position.symbol} was paid out recently ({abs(current_time_to_next_dividend)}) days"
+      return Position.BooleanResultWithReasons(result=True, reasons=reason)
+
     days_to_dividend = (dividendable.dividend_date - datetime.today()).days
     difference = days_to_dividend - current_time_to_next_dividend
     doit = (difference <= -Chaser.MINIMUM_DIVIDEND_DAYS)
