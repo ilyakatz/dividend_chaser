@@ -23,6 +23,9 @@ class YahooDataService:
   def next_dividend(self, symbol):
     return self.fin_data[symbol]["next_dividend"]
 
+  def dividend_yield(self, symbol):
+    return self.fin_data[symbol]["dividend_yield"]
+
   def calculate_next_dividend(self):
     next_dividend_dates = self._calculate_next_dividend(self.symbols)
     for symbol in self.symbols:
@@ -38,11 +41,19 @@ class YahooDataService:
       }
       self.fin_data[symbol]["next_dividend"] = next_estimate_hash
 
+  def calculate_dividend_yield(self):
+    yahoo_financials = YahooFinancials(self.symbols)
+    logging.debug("YahooFinancials - Fetching get_dividend_yield")
+    divs = yahoo_financials.get_dividend_yield()
+    logging.debug("YahooFinancials - Finished fetching get_exdividend_date")
+    for symbol in self.symbols:
+      self.fin_data[symbol]["dividend_yield"] = divs[symbol]
+
   def calculate_average_volume(self):
     yahoo_financials = YahooFinancials(self.symbols)
-    logging.debug("Fetching get_three_month_avg_daily_volume")
+    logging.debug("YahooFinancials - Fetching get_three_month_avg_daily_volume")
     yahoo_data = yahoo_financials.get_three_month_avg_daily_volume()
-    logging.debug("Finished detching get_three_month_avg_daily_volume")
+    logging.debug("YahooFinancials - Finished detching get_three_month_avg_daily_volume")
     for symbol in self.symbols:
       self.fin_data[symbol]["average_volume"] = yahoo_data[symbol]
 
@@ -82,7 +93,7 @@ class YahooDataService:
   def legacy_volatililty(self, symbol):
     # pylint: disable = W0702
     days = 365
-    logging.debug("Fetching historical volatility from yahoo")
+    logging.debug("YahooFinancials - Fetching historical volatility from yahoo")
     try:
       data = web.DataReader(symbol, 'yahoo')
     except:

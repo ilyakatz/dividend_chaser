@@ -134,12 +134,11 @@ class DividendHistory:
       self.dividends_data[symbol]["next_dividend"] = service.next_dividend(symbol)
 
   def _enrich_with_dividend_yield(self, symbols):
-    yahoo_financials = YahooFinancials(symbols)
-    logging.debug("Fetching get_dividend_yield")
-    divs = yahoo_financials.get_dividend_yield()
-    logging.debug("Finished fetching get_exdividend_date")
+    service = YahooDataService(symbols)
+    service.calculate_dividend_yield()
+
     for symbol in symbols:
-      self.dividends_data[symbol]["dividend_yield"] = divs[symbol]
+      self.dividends_data[symbol]["dividend_yield"] = service.dividend_yield(symbol)
 
   def _enrich_with_volume(self, symbols):
     service = YahooDataService(symbols)
