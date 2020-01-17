@@ -9,6 +9,7 @@ from yahoofinancials import YahooFinancials
 
 from dividend_chaser.models.dividendable import Dividendable
 from dividend_chaser.services.yahoo_data_service import YahooDataService
+from dividend_chaser.services.iexcloud_service import IExcloudService
 
 """Class responsible for maintaining dividend history
 
@@ -127,7 +128,8 @@ class DividendHistory:
   """
 
   def _enrich_with_next_dividend(self, symbols, dividends_data):
-    service = YahooDataService(symbols, dividends_data)
+    # service = YahooDataService(symbols, dividends_data)
+    service = IExcloudService(symbols)
     service.calculate_next_dividend()
 
     for symbol in symbols:
