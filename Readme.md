@@ -45,11 +45,12 @@ INFO - Not ready to sell
 INFO - ---END MPW---
 ```
 
-### Worker jobs
+### Background Processing
+
+To start workers and monitoring
 
 ```
-celery -A tasks worker --loglevel=debug --concurrency=1
-flower -A tasks --port=5555
+supervisord -c supervisord.conf
 ```
 
 #### Commands
