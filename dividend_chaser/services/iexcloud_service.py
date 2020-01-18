@@ -25,6 +25,7 @@ class IExcloudService(BaseDataService):
       stock = Stock(symbol)
       logging.debug("IExcloudService - Finished fetching get_dividends")
 
+      logging.error("IExcloud does not return dividend dates correctly")
       div_data = stock.get_dividends()
       if div_data:
         data = {symbol: div_data[0]['exDate']}

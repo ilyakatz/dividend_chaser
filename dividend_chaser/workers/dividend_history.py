@@ -1,15 +1,12 @@
 import json
 import datetime
-import pprint
 import logging
-import sys
-import traceback
 from json import JSONDecodeError
 from yahoofinancials import YahooFinancials
 
 from dividend_chaser.models.dividendable import Dividendable
 from dividend_chaser.services.yahoo_data_service import YahooDataService
-from dividend_chaser.services.iexcloud_service import IExcloudService
+# from dividend_chaser.services.iexcloud_service import IExcloudService
 
 """Class responsible for maintaining dividend history
 
@@ -88,16 +85,18 @@ class DividendHistory:
     for symbol in self.symbols:
       self.dividends_data[symbol]["dividends"] = divs[symbol]
 
-    try:
-      self._enrich(self.symbols, self.dividends_data)
-      logging.info(f"Dumping data for {self.symbols}")
-      with open(self.filename, 'w') as fp:
-        json.dump(self.dividends_data, fp)
-    except:
-      print("Exception:")
-      print('-' * 60)
-      traceback.print_exc(file=sys.stdout)
-      print('-' * 60)
+    # try:
+    self._enrich(self.symbols, self.dividends_data)
+    logging.info(f"Dumping data for {self.symbols}")
+    with open(self.filename, 'w') as fp:
+      # json.dump(self.dividends_data, fp)
+      pretty = json.dumps(self.dividends_data, indent=2)
+      fp.write(pretty)
+    # except:
+    #   print("Exception:")
+    #   print('-' * 60)
+    #   traceback.print_exc(file=sys.stdout)
+    #   print('-' * 60)
 
   def _enrich(self, symbols, dividends_data):
     logging.debug("Starting _enrich")
@@ -128,7 +127,8 @@ class DividendHistory:
   """
 
   def _enrich_with_next_dividend(self, symbols, dividends_data):
-    service = IExcloudService(symbols, dividends_data)
+    #service = IExcloudService(symbols, dividends_data)
+    service = YahooDataService(symbols, dividends_data)
     service.calculate_next_dividend()
 
     for symbol in symbols:
@@ -162,6 +162,4 @@ class DividendHistory:
     yahoo_financials = YahooFinancials(symbols)
     divs = yahoo_financials.get_daily_dividend_data(start_date, end_date)
 
-    pp = pprint.PrettyPrinter(indent=4)
-    pp.pprint(f"Dividends {divs}")
     return divs
