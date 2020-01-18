@@ -23,6 +23,12 @@ class StockUniverseWorker:
   """
 
   @classmethod
+  def loadStocks(cls):
+    with open(StockUniverseWorker.filename) as file:
+      obj = json.load(file)
+      return obj
+
+  @classmethod
   def dump(cls, start_date="2019-01-01", end_date="2019-12-31"):
     """ 
     Returns
@@ -66,6 +72,7 @@ class StockUniverseWorker:
       results = parsed.get("results")
       for obj in results:
         symbol = obj.get("symbol")
-        stocks.append(symbol)
+        if(symbol.find(".") < 0):
+          stocks.append(symbol)
 
     return stocks
