@@ -1,12 +1,11 @@
+import datetime
+import re
+from freezegun import freeze_time
+
 from dividend_chaser.models.position import Position
 from dividend_chaser.models.dividendable import Dividendable
 from dividend_chaser.chaser import Chaser
 from dividend_chaser.workers.dividend_history import DividendHistory
-
-import datetime  
-from freezegun import freeze_time
-import datetime as dt
-import re
 
 broker = None
 dividendable = Dividendable("AGNC", "2020-01-07", "0.01", 0.11, 2000)
@@ -15,11 +14,17 @@ position = Position("APPLE", broker)
 
 positions_dic = {
     'MAA':
-    {'price': '132.240000', 'quantity': '3.00000000', 'average_buy_price': '130.5000', 'equity': '396.72', 'percent_change': '1.33', 'equity_change': '5.220000',
-     'type': 'reit', 'name': 'Mid-America Apartment Communities', 'id': '1d8c69f9-4835-45c7-852f-a8cc163f29fd', 'pe_ratio': '56.308000', 'percentage': '6.87'},
+    {'price': '132.240000', 'quantity': '3.00000000',
+     'average_buy_price': '130.5000', 'equity': '396.72',
+     'percent_change': '1.33', 'equity_change': '5.220000',
+     'type': 'reit', 'name': 'Mid-America Apartment Communities',
+     'id': '1d8c69f9-4835-45c7-852f-a8cc163f29fd', 'pe_ratio':
+     '56.308000', 'percentage': '6.87'},
     'UDR':
-    {'price': '46.060000', 'quantity': '22.00000000', 'average_buy_price': '45.8600', 'equity': '1013.32', 'percent_change': '0.44',
-     'equity_change': '4.400000', 'type': 'reit', 'name': 'UDR', 'id': '36396dd5-d024-45a3-be64-aec99317aba7', 'pe_ratio': '76.724700', 'percentage': '17.56'}
+    {'price': '46.060000', 'quantity':
+     '22.00000000', 'average_buy_price': '45.8600', 'equity': '1013.32', 'percent_change': '0.44',
+     'equity_change': '4.400000', 'type': 'reit',
+     'name': 'UDR', 'id': '36396dd5-d024-45a3-be64-aec99317aba7', 'pe_ratio': '76.724700', 'percentage': '17.56'}
 }
 
 

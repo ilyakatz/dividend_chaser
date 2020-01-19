@@ -34,7 +34,12 @@ class BaseDataService(ABC):
 
   def _next_div(self, data, symbol):
     date_str = data[symbol]
-    next_div_date = datetime.date.fromisoformat(date_str)
+    try:
+      next_div_date = datetime.date.fromisoformat(date_str)
+    except ValueError:
+      epoch = datetime.datetime(1970, 1, 1).date()
+      next_div_date = epoch
+
     today = datetime.date.today()
 
     " at times, yahoo does not return correct next date "
