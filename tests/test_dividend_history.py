@@ -1,12 +1,8 @@
-from dividend_chaser.workers.dividend_history import DividendHistory
-from dividend_chaser.models.dividendable import Dividendable
-
-import datetime  
-from freezegun import freeze_time
-import datetime as dt
-import re
 import unittest
 from unittest.mock import patch
+from freezegun import freeze_time
+
+from dividend_chaser.workers.dividend_history import DividendHistory
 
 
 class TestUpcoming(unittest.TestCase):
