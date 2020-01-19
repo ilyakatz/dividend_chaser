@@ -1,14 +1,12 @@
 import json
 import datetime
-import pprint
 import logging
-import sys
-import traceback
 from json import JSONDecodeError
 from yahoofinancials import YahooFinancials
 
 from dividend_chaser.models.dividendable import Dividendable
 from dividend_chaser.services.yahoo_data_service import YahooDataService
+# from dividend_chaser.services.iexcloud_service import IExcloudService
 
 """Class responsible for maintaining dividend history
 
@@ -87,24 +85,26 @@ class DividendHistory:
     for symbol in self.symbols:
       self.dividends_data[symbol]["dividends"] = divs[symbol]
 
-    try:
-      self._enrich(self.symbols, self.dividends_data)
-      logging.info(f"Dumping data for {self.symbols}")
-      with open(self.filename, 'w') as fp:
-        json.dump(self.dividends_data, fp)
-    except:
-      print("Exception:")
-      print('-' * 60)
-      traceback.print_exc(file=sys.stdout)
-      print('-' * 60)
+    # try:
+    self._enrich(self.symbols, self.dividends_data)
+    logging.info(f"Dumping data for {self.symbols}")
+    with open(self.filename, 'w') as fp:
+      # json.dump(self.dividends_data, fp)
+      pretty = json.dumps(self.dividends_data, indent=2)
+      fp.write(pretty)
+    # except:
+    #   print("Exception:")
+    #   print('-' * 60)
+    #   traceback.print_exc(file=sys.stdout)
+    #   print('-' * 60)
 
   def _enrich(self, symbols, dividends_data):
     logging.debug("Starting _enrich")
-    self._enrich_with_volatililty(symbols)
+    self._enrich_with_volatililty(symbols, dividends_data)
     # This is too slow
-    self._enrich_with_volume(symbols)
+    self._enrich_with_volume(symbols, dividends_data)
     self._enrich_with_next_dividend(symbols, dividends_data)
-    self._enrich_with_dividend_yield(symbols)
+    self._enrich_with_dividend_yield(symbols, dividends_data)
     logging.debug("Finished _enrich")
 
   """
@@ -127,29 +127,29 @@ class DividendHistory:
   """
 
   def _enrich_with_next_dividend(self, symbols, dividends_data):
+    #service = IExcloudService(symbols, dividends_data)
     service = YahooDataService(symbols, dividends_data)
     service.calculate_next_dividend()
 
     for symbol in symbols:
       self.dividends_data[symbol]["next_dividend"] = service.next_dividend(symbol)
 
-  def _enrich_with_dividend_yield(self, symbols):
-    yahoo_financials = YahooFinancials(symbols)
-    logging.debug("Fetching get_dividend_yield")
-    divs = yahoo_financials.get_dividend_yield()
-    logging.debug("Finished fetching get_exdividend_date")
-    for symbol in symbols:
-      self.dividends_data[symbol]["dividend_yield"] = divs[symbol]
+  def _enrich_with_dividend_yield(self, symbols, dividends_data):
+    service = YahooDataService(symbols, dividends_data)
+    service.calculate_dividend_yield()
 
-  def _enrich_with_volume(self, symbols):
-    service = YahooDataService(symbols)
+    for symbol in symbols:
+      self.dividends_data[symbol]["dividend_yield"] = service.dividend_yield(symbol)
+
+  def _enrich_with_volume(self, symbols, dividends_data):
+    service = YahooDataService(symbols, dividends_data)
     service.calculate_average_volume()
 
     for symbol in symbols:
       self.dividends_data[symbol]["average_volume"] = service.average_volume(symbol)
 
-  def _enrich_with_volatililty(self, symbols):
-    service = YahooDataService(symbols)
+  def _enrich_with_volatililty(self, symbols, dividends_data):
+    service = YahooDataService(symbols, dividends_data)
     service.calculate_historical_volatility()
 
     for symbol in symbols:
@@ -162,6 +162,4 @@ class DividendHistory:
     yahoo_financials = YahooFinancials(symbols)
     divs = yahoo_financials.get_daily_dividend_data(start_date, end_date)
 
-    pp = pprint.PrettyPrinter(indent=4)
-    pp.pprint(f"Dividends {divs}")
     return divs

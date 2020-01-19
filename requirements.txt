@@ -14,7 +14,11 @@ pandas
 pylint
 dirtyjson
 click
+iexfinance
 
 pytest
 pytest-mock
 freezegun
+
+# dev
+supervisor
