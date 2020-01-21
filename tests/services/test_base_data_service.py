@@ -45,3 +45,15 @@ class TestNextDiv(unittest.TestCase):
 
       self.assertEqual(res['value'], return_date)
       self.assertEqual(res['actual'], False)
+
+
+class TestAverageDividendInterval(unittest.TestCase):
+  def test_not_enough_dates(self):
+    """ Dividend history is too small
+    """
+    service = MockDataService([])
+    dates = [1554384600]
+    with patch.object(service, '_dates', return_value=dates):
+      res = service._estimate_next_date(datetime.date(2019, 4, 3), "BOGUS")
+
+      self.assertEqual(res, BaseDataService.EPOCH)
