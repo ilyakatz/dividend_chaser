@@ -120107,5 +120107,2160 @@
       "actual": false
     },
     "dividend_yield": null
+  },
+  "BKU": {
+    "dividends": [
+      {
+        "date": 1523453400,
+        "formatted_date": "2018-04-11",
+        "amount": 0.21
+      },
+      {
+        "date": 1531488600,
+        "formatted_date": "2018-07-13",
+        "amount": 0.21
+      },
+      {
+        "date": 1539610200,
+        "formatted_date": "2018-10-15",
+        "amount": 0.21
+      },
+      {
+        "date": 1547217000,
+        "formatted_date": "2019-01-11",
+        "amount": 0.21
+      },
+      {
+        "date": 1554989400,
+        "formatted_date": "2019-04-11",
+        "amount": 0.21
+      },
+      {
+        "date": 1562851800,
+        "formatted_date": "2019-07-11",
+        "amount": 0.21
+      },
+      {
+        "date": 1570800600,
+        "formatted_date": "2019-10-11",
+        "amount": 0.21
+      },
+      {
+        "date": 1578925800,
+        "formatted_date": "2020-01-13",
+        "amount": 0.21
+      }
+    ],
+    "next_dividend": {
+      "date": "2020-04-13 23:47:08.571429",
+      "formatted_date": "2020-04-13",
+      "actual": false
+    },
+    "volatililty": 0.2504836836205964,
+    "average_volume": 513391,
+    "dividend_yield": 0.0239
+  },
+  "BLE": {
+    "dividends": [
+      {
+        "date": 1518618600,
+        "formatted_date": "2018-02-14",
+        "amount": 0.065
+      },
+      {
+        "date": 1521034200,
+        "formatted_date": "2018-03-14",
+        "amount": 0.065
+      },
+      {
+        "date": 1523626200,
+        "formatted_date": "2018-04-13",
+        "amount": 0.065
+      },
+      {
+        "date": 1526304600,
+        "formatted_date": "2018-05-14",
+        "amount": 0.065
+      },
+      {
+        "date": 1528983000,
+        "formatted_date": "2018-06-14",
+        "amount": 0.065
+      },
+      {
+        "date": 1531488600,
+        "formatted_date": "2018-07-13",
+        "amount": 0.058
+      },
+      {
+        "date": 1534253400,
+        "formatted_date": "2018-08-14",
+        "amount": 0.058
+      },
+      {
+        "date": 1536845400,
+        "formatted_date": "2018-09-13",
+        "amount": 0.058
+      },
+      {
+        "date": 1539351000,
+        "formatted_date": "2018-10-12",
+        "amount": 0.058
+      },
+      {
+        "date": 1542205800,
+        "formatted_date": "2018-11-14",
+        "amount": 0.058
+      },
+      {
+        "date": 1544625000,
+        "formatted_date": "2018-12-12",
+        "amount": 0.058
+      },
+      {
+        "date": 1547476200,
+        "formatted_date": "2019-01-14",
+        "amount": 0.058
+      },
+      {
+        "date": 1550154600,
+        "formatted_date": "2019-02-14",
+        "amount": 0.058
+      },
+      {
+        "date": 1552570200,
+        "formatted_date": "2019-03-14",
+        "amount": 0.058
+      },
+      {
+        "date": 1555075800,
+        "formatted_date": "2019-04-12",
+        "amount": 0.058
+      },
+      {
+        "date": 1557840600,
+        "formatted_date": "2019-05-14",
+        "amount": 0.058
+      },
+      {
+        "date": 1560432600,
+        "formatted_date": "2019-06-13",
+        "amount": 0.058
+      },
+      {
+        "date": 1562938200,
+        "formatted_date": "2019-07-12",
+        "amount": 0.058
+      },
+      {
+        "date": 1565789400,
+        "formatted_date": "2019-08-14",
+        "amount": 0.058
+      },
+      {
+        "date": 1568381400,
+        "formatted_date": "2019-09-13",
+        "amount": 0.058
+      },
+      {
+        "date": 1570800600,
+        "formatted_date": "2019-10-11",
+        "amount": 0.058
+      },
+      {
+        "date": 1573741800,
+        "formatted_date": "2019-11-14",
+        "amount": 0.058
+      },
+      {
+        "date": 1576247400,
+        "formatted_date": "2019-12-13",
+        "amount": 0.058
+      },
+      {
+        "date": 1579012200,
+        "formatted_date": "2020-01-14",
+        "amount": 0.058
+      }
+    ],
+    "next_dividend": {
+      "date": "2020-02-13 15:53:28.695652",
+      "formatted_date": "2020-02-13",
+      "actual": false
+    },
+    "volatililty": 0.09697259570923815,
+    "average_volume": 38285,
+    "dividend_yield": 0.044699997
+  },
+  "BLK": {
+    "dividends": [
+      {
+        "date": 1520346600,
+        "formatted_date": "2018-03-06",
+        "amount": 2.88
+      },
+      {
+        "date": 1528291800,
+        "formatted_date": "2018-06-06",
+        "amount": 2.88
+      },
+      {
+        "date": 1536240600,
+        "formatted_date": "2018-09-06",
+        "amount": 3.13
+      },
+      {
+        "date": 1544106600,
+        "formatted_date": "2018-12-06",
+        "amount": 3.13
+      },
+      {
+        "date": 1551796200,
+        "formatted_date": "2019-03-05",
+        "amount": 3.3
+      },
+      {
+        "date": 1559741400,
+        "formatted_date": "2019-06-05",
+        "amount": 3.3
+      },
+      {
+        "date": 1567603800,
+        "formatted_date": "2019-09-04",
+        "amount": 3.3
+      },
+      {
+        "date": 1575556200,
+        "formatted_date": "2019-12-05",
+        "amount": 3.3
+      }
+    ],
+    "next_dividend": {
+      "date": "2020-03-05 13:21:25.714286",
+      "formatted_date": "2020-03-05",
+      "actual": false
+    },
+    "volatililty": 0.23035414192437587,
+    "average_volume": 476638,
+    "dividend_yield": 0.0247
+  },
+  "BLKB": {
+    "dividends": [
+      {
+        "date": 1519741800,
+        "formatted_date": "2018-02-27",
+        "amount": 0.12
+      },
+      {
+        "date": 1527168600,
+        "formatted_date": "2018-05-24",
+        "amount": 0.12
+      },
+      {
+        "date": 1535376600,
+        "formatted_date": "2018-08-27",
+        "amount": 0.12
+      },
+      {
+        "date": 1543329000,
+        "formatted_date": "2018-11-27",
+        "amount": 0.12
+      },
+      {
+        "date": 1551191400,
+        "formatted_date": "2019-02-26",
+        "amount": 0.12
+      },
+      {
+        "date": 1558704600,
+        "formatted_date": "2019-05-24",
+        "amount": 0.12
+      },
+      {
+        "date": 1566912600,
+        "formatted_date": "2019-08-27",
+        "amount": 0.12
+      },
+      {
+        "date": 1574778600,
+        "formatted_date": "2019-11-26",
+        "amount": 0.12
+      }
+    ],
+    "next_dividend": {
+      "date": "2020-02-25 06:30:00",
+      "formatted_date": "2020-02-25",
+      "actual": false
+    },
+    "volatililty": 0.3497455702506183,
+    "average_volume": 229641,
+    "dividend_yield": 0.0058999998
+  },
+  "BLL": {
+    "dividends": [
+      {
+        "date": 1519828200,
+        "formatted_date": "2018-02-28",
+        "amount": 0.1
+      },
+      {
+        "date": 1527773400,
+        "formatted_date": "2018-05-31",
+        "amount": 0.1
+      },
+      {
+        "date": 1535722200,
+        "formatted_date": "2018-08-31",
+        "amount": 0.1
+      },
+      {
+        "date": 1543588200,
+        "formatted_date": "2018-11-30",
+        "amount": 0.1
+      },
+      {
+        "date": 1551364200,
+        "formatted_date": "2019-02-28",
+        "amount": 0.1
+      },
+      {
+        "date": 1559309400,
+        "formatted_date": "2019-05-31",
+        "amount": 0.15
+      },
+      {
+        "date": 1567171800,
+        "formatted_date": "2019-08-30",
+        "amount": 0.15
+      },
+      {
+        "date": 1575037800,
+        "formatted_date": "2019-11-29",
+        "amount": 0.15
+      }
+    ],
+    "next_dividend": {
+      "date": "2020-02-28 13:21:25.714286",
+      "formatted_date": "2020-02-28",
+      "actual": false
+    },
+    "volatililty": 0.22956085725256206,
+    "average_volume": 2107109,
+    "dividend_yield": 0.0087
+  },
+  "BPT": {
+    "dividends": [
+      {
+        "date": 1516285800,
+        "formatted_date": "2018-01-18",
+        "amount": 1.23015
+      },
+      {
+        "date": 1523626200,
+        "formatted_date": "2018-04-13",
+        "amount": 1.27484
+      },
+      {
+        "date": 1531488600,
+        "formatted_date": "2018-07-13",
+        "amount": 1.40756
+      },
+      {
+        "date": 1539610200,
+        "formatted_date": "2018-10-15",
+        "amount": 1.3801
+      },
+      {
+        "date": 1547562600,
+        "formatted_date": "2019-01-15",
+        "amount": 1.00293
+      },
+      {
+        "date": 1555335000,
+        "formatted_date": "2019-04-15",
+        "amount": 0.344926
+      },
+      {
+        "date": 1563197400,
+        "formatted_date": "2019-07-15",
+        "amount": 0.551
+      },
+      {
+        "date": 1571319000,
+        "formatted_date": "2019-10-17",
+        "amount": 0.334817
+      },
+      {
+        "date": 1579185000,
+        "formatted_date": "2020-01-16",
+        "amount": 0.424
+      }
+    ],
+    "volatililty": 0.6701092612002522,
+    "average_volume": 312208,
+    "next_dividend": {
+      "date": "2020-04-16 06:30:00",
+      "formatted_date": "2020-04-16",
+      "actual": false
+    },
+    "dividend_yield": 0.2067
+  },
+  "BPY": {
+    "dividends": [
+      {
+        "date": 1519741800,
+        "formatted_date": "2018-02-27",
+        "amount": 0.315
+      },
+      {
+        "date": 1527687000,
+        "formatted_date": "2018-05-30",
+        "amount": 0.315
+      },
+      {
+        "date": 1535635800,
+        "formatted_date": "2018-08-30",
+        "amount": 0.315
+      },
+      {
+        "date": 1543501800,
+        "formatted_date": "2018-11-29",
+        "amount": 0.315
+      },
+      {
+        "date": 1551277800,
+        "formatted_date": "2019-02-27",
+        "amount": 0.33
+      },
+      {
+        "date": 1559223000,
+        "formatted_date": "2019-05-30",
+        "amount": 0.33
+      },
+      {
+        "date": 1567085400,
+        "formatted_date": "2019-08-29",
+        "amount": 0.33
+      },
+      {
+        "date": 1575037800,
+        "formatted_date": "2019-11-29",
+        "amount": 0.33
+      }
+    ],
+    "volatililty": 0.20774266983210216,
+    "average_volume": 1025364,
+    "next_dividend": {
+      "date": "2020-02-28 16:47:08.571429",
+      "formatted_date": "2020-02-28",
+      "actual": false
+    },
+    "dividend_yield": 0.0665
+  },
+  "BPYPO": {
+    "dividends": [
+      {
+        "date": 1575037800,
+        "formatted_date": "2019-11-29",
+        "amount": 0.58
+      }
+    ],
+    "volatililty": 0.10038756652312676,
+    "average_volume": 43885,
+    "next_dividend": {
+      "date": "1970-01-01",
+      "formatted_date": "1970-01-01",
+      "actual": false
+    },
+    "dividend_yield": 0.0889
+  },
+  "BPYPP": {
+    "dividends": [
+      {
+        "date": 1559223000,
+        "formatted_date": "2019-05-30",
+        "amount": 0.447
+      },
+      {
+        "date": 1567085400,
+        "formatted_date": "2019-08-29",
+        "amount": 0.406
+      },
+      {
+        "date": 1575037800,
+        "formatted_date": "2019-11-29",
+        "amount": 0.406
+      }
+    ],
+    "volatililty": 0.06136367274320865,
+    "average_volume": 25258,
+    "next_dividend": {
+      "date": "2020-02-28 19:00:00",
+      "formatted_date": "2020-02-28",
+      "actual": false
+    },
+    "dividend_yield": 0.062
+  },
+  "BQH": {
+    "dividends": [
+      {
+        "date": 1518618600,
+        "formatted_date": "2018-02-14",
+        "amount": 0.059
+      },
+      {
+        "date": 1521034200,
+        "formatted_date": "2018-03-14",
+        "amount": 0.046
+      },
+      {
+        "date": 1523626200,
+        "formatted_date": "2018-04-13",
+        "amount": 0.046
+      },
+      {
+        "date": 1526304600,
+        "formatted_date": "2018-05-14",
+        "amount": 0.046
+      },
+      {
+        "date": 1528983000,
+        "formatted_date": "2018-06-14",
+        "amount": 0.046
+      },
+      {
+        "date": 1531488600,
+        "formatted_date": "2018-07-13",
+        "amount": 0.046
+      },
+      {
+        "date": 1534253400,
+        "formatted_date": "2018-08-14",
+        "amount": 0.046
+      },
+      {
+        "date": 1536845400,
+        "formatted_date": "2018-09-13",
+        "amount": 0.046
+      },
+      {
+        "date": 1539351000,
+        "formatted_date": "2018-10-12",
+        "amount": 0.046
+      },
+      {
+        "date": 1542205800,
+        "formatted_date": "2018-11-14",
+        "amount": 0.046
+      },
+      {
+        "date": 1544625000,
+        "formatted_date": "2018-12-12",
+        "amount": 0.048
+      },
+      {
+        "date": 1547476200,
+        "formatted_date": "2019-01-14",
+        "amount": 0.046
+      },
+      {
+        "date": 1550154600,
+        "formatted_date": "2019-02-14",
+        "amount": 0.046
+      },
+      {
+        "date": 1552570200,
+        "formatted_date": "2019-03-14",
+        "amount": 0.048
+      },
+      {
+        "date": 1555075800,
+        "formatted_date": "2019-04-12",
+        "amount": 0.048
+      },
+      {
+        "date": 1557840600,
+        "formatted_date": "2019-05-14",
+        "amount": 0.048
+      },
+      {
+        "date": 1560432600,
+        "formatted_date": "2019-06-13",
+        "amount": 0.048
+      },
+      {
+        "date": 1562938200,
+        "formatted_date": "2019-07-12",
+        "amount": 0.048
+      },
+      {
+        "date": 1565789400,
+        "formatted_date": "2019-08-14",
+        "amount": 0.048
+      },
+      {
+        "date": 1568381400,
+        "formatted_date": "2019-09-13",
+        "amount": 0.048
+      },
+      {
+        "date": 1570800600,
+        "formatted_date": "2019-10-11",
+        "amount": 0.048
+      },
+      {
+        "date": 1573741800,
+        "formatted_date": "2019-11-14",
+        "amount": 0.048
+      },
+      {
+        "date": 1576247400,
+        "formatted_date": "2019-12-13",
+        "amount": 0.048
+      },
+      {
+        "date": 1579012200,
+        "formatted_date": "2020-01-14",
+        "amount": 0.048
+      }
+    ],
+    "volatililty": 0.08669722029669322,
+    "average_volume": 4893,
+    "next_dividend": {
+      "date": "2020-02-13 15:53:28.695652",
+      "formatted_date": "2020-02-13",
+      "actual": false
+    },
+    "dividend_yield": 0.0374
+  },
+  "BXP": {
+    "dividends": [
+      {
+        "date": 1522243800,
+        "formatted_date": "2018-03-28",
+        "amount": 0.8
+      },
+      {
+        "date": 1530192600,
+        "formatted_date": "2018-06-28",
+        "amount": 0.8
+      },
+      {
+        "date": 1538055000,
+        "formatted_date": "2018-09-27",
+        "amount": 0.95
+      },
+      {
+        "date": 1546007400,
+        "formatted_date": "2018-12-28",
+        "amount": 0.95
+      },
+      {
+        "date": 1553779800,
+        "formatted_date": "2019-03-28",
+        "amount": 0.95
+      },
+      {
+        "date": 1561642200,
+        "formatted_date": "2019-06-27",
+        "amount": 0.95
+      },
+      {
+        "date": 1569591000,
+        "formatted_date": "2019-09-27",
+        "amount": 0.95
+      },
+      {
+        "date": 1577716200,
+        "formatted_date": "2019-12-30",
+        "amount": 0.98
+      }
+    ],
+    "volatililty": 0.17837990742760637,
+    "average_volume": 568851,
+    "next_dividend": {
+      "date": "2020-03-30 23:47:08.571429",
+      "formatted_date": "2020-03-30",
+      "actual": false
+    },
+    "dividend_yield": 0.028099999
+  },
+  "BXS": {
+    "dividends": [
+      {
+        "date": 1521034200,
+        "formatted_date": "2018-03-14",
+        "amount": 0.14
+      },
+      {
+        "date": 1528983000,
+        "formatted_date": "2018-06-14",
+        "amount": 0.14
+      },
+      {
+        "date": 1536845400,
+        "formatted_date": "2018-09-13",
+        "amount": 0.17
+      },
+      {
+        "date": 1544711400,
+        "formatted_date": "2018-12-13",
+        "amount": 0.17
+      },
+      {
+        "date": 1552570200,
+        "formatted_date": "2019-03-14",
+        "amount": 0.17
+      },
+      {
+        "date": 1560432600,
+        "formatted_date": "2019-06-13",
+        "amount": 0.17
+      },
+      {
+        "date": 1568295000,
+        "formatted_date": "2019-09-12",
+        "amount": 0.185
+      },
+      {
+        "date": 1576161000,
+        "formatted_date": "2019-12-12",
+        "amount": 0.185
+      }
+    ],
+    "volatililty": 0.23229076445363186,
+    "average_volume": 458174,
+    "next_dividend": {
+      "date": "2020-03-12 10:04:17.142857",
+      "formatted_date": "2020-03-12",
+      "actual": false
+    },
+    "dividend_yield": 0.024
+  },
+  "BY": {
+    "dividends": [
+      {
+        "date": 1577111400,
+        "formatted_date": "2019-12-23",
+        "amount": 0.03
+      }
+    ],
+    "volatililty": 0.23717302507401086,
+    "average_volume": 96362,
+    "next_dividend": {
+      "date": "1970-01-01",
+      "formatted_date": "1970-01-01",
+      "actual": false
+    },
+    "dividend_yield": 0.0058999998
+  },
+  "BYD": {
+    "dividends": [
+      {
+        "date": 1521120600,
+        "formatted_date": "2018-03-15",
+        "amount": 0.05
+      },
+      {
+        "date": 1530192600,
+        "formatted_date": "2018-06-28",
+        "amount": 0.06
+      },
+      {
+        "date": 1538055000,
+        "formatted_date": "2018-09-27",
+        "amount": 0.06
+      },
+      {
+        "date": 1545921000,
+        "formatted_date": "2018-12-27",
+        "amount": 0.06
+      },
+      {
+        "date": 1552570200,
+        "formatted_date": "2019-03-14",
+        "amount": 0.06
+      },
+      {
+        "date": 1560519000,
+        "formatted_date": "2019-06-14",
+        "amount": 0.07
+      },
+      {
+        "date": 1569504600,
+        "formatted_date": "2019-09-26",
+        "amount": 0.07
+      },
+      {
+        "date": 1577370600,
+        "formatted_date": "2019-12-26",
+        "amount": 0.07
+      }
+    ],
+    "volatililty": 0.3885033982289503,
+    "average_volume": 887616,
+    "next_dividend": {
+      "date": "2020-03-28 06:38:34.285714",
+      "formatted_date": "2020-03-28",
+      "actual": false
+    },
+    "dividend_yield": 0.0095999995
+  },
+  "BYM": {
+    "dividends": [
+      {
+        "date": 1518618600,
+        "formatted_date": "2018-02-14",
+        "amount": 0.06
+      },
+      {
+        "date": 1521034200,
+        "formatted_date": "2018-03-14",
+        "amount": 0.052
+      },
+      {
+        "date": 1523626200,
+        "formatted_date": "2018-04-13",
+        "amount": 0.052
+      },
+      {
+        "date": 1526304600,
+        "formatted_date": "2018-05-14",
+        "amount": 0.052
+      },
+      {
+        "date": 1528983000,
+        "formatted_date": "2018-06-14",
+        "amount": 0.052
+      },
+      {
+        "date": 1531488600,
+        "formatted_date": "2018-07-13",
+        "amount": 0.052
+      },
+      {
+        "date": 1534253400,
+        "formatted_date": "2018-08-14",
+        "amount": 0.052
+      },
+      {
+        "date": 1536845400,
+        "formatted_date": "2018-09-13",
+        "amount": 0.052
+      },
+      {
+        "date": 1539351000,
+        "formatted_date": "2018-10-12",
+        "amount": 0.052
+      },
+      {
+        "date": 1542205800,
+        "formatted_date": "2018-11-14",
+        "amount": 0.052
+      },
+      {
+        "date": 1544625000,
+        "formatted_date": "2018-12-12",
+        "amount": 0.065
+      },
+      {
+        "date": 1547476200,
+        "formatted_date": "2019-01-14",
+        "amount": 0.052
+      },
+      {
+        "date": 1550154600,
+        "formatted_date": "2019-02-14",
+        "amount": 0.052
+      },
+      {
+        "date": 1552570200,
+        "formatted_date": "2019-03-14",
+        "amount": 0.052
+      },
+      {
+        "date": 1555075800,
+        "formatted_date": "2019-04-12",
+        "amount": 0.052
+      },
+      {
+        "date": 1557840600,
+        "formatted_date": "2019-05-14",
+        "amount": 0.052
+      },
+      {
+        "date": 1560432600,
+        "formatted_date": "2019-06-13",
+        "amount": 0.052
+      },
+      {
+        "date": 1562938200,
+        "formatted_date": "2019-07-12",
+        "amount": 0.048
+      },
+      {
+        "date": 1565789400,
+        "formatted_date": "2019-08-14",
+        "amount": 0.048
+      },
+      {
+        "date": 1568381400,
+        "formatted_date": "2019-09-13",
+        "amount": 0.048
+      },
+      {
+        "date": 1570800600,
+        "formatted_date": "2019-10-11",
+        "amount": 0.048
+      },
+      {
+        "date": 1573741800,
+        "formatted_date": "2019-11-14",
+        "amount": 0.048
+      },
+      {
+        "date": 1576247400,
+        "formatted_date": "2019-12-13",
+        "amount": 0.048
+      },
+      {
+        "date": 1579012200,
+        "formatted_date": "2020-01-14",
+        "amount": 0.048
+      }
+    ],
+    "volatililty": 0.068940859852143,
+    "average_volume": 40646,
+    "next_dividend": {
+      "date": "2020-02-13 15:53:28.695652",
+      "formatted_date": "2020-02-13",
+      "actual": false
+    },
+    "dividend_yield": 0.0403
+  },
+  "CANG": {
+    "dividends": [
+      {
+        "date": 1557408600,
+        "formatted_date": "2019-05-09",
+        "amount": 0.25
+      }
+    ],
+    "volatililty": 0.6143788109478681,
+    "average_volume": 15254,
+    "next_dividend": {
+      "date": "1970-01-01",
+      "formatted_date": "1970-01-01",
+      "actual": false
+    },
+    "dividend_yield": null
+  },
+  "CAPL": {
+    "dividends": [
+      {
+        "date": 1517581800,
+        "formatted_date": "2018-02-02",
+        "amount": 0.6275
+      },
+      {
+        "date": 1526563800,
+        "formatted_date": "2018-05-17",
+        "amount": 0.525
+      },
+      {
+        "date": 1533303000,
+        "formatted_date": "2018-08-03",
+        "amount": 0.525
+      },
+      {
+        "date": 1541165400,
+        "formatted_date": "2018-11-02",
+        "amount": 0.525
+      },
+      {
+        "date": 1549636200,
+        "formatted_date": "2019-02-08",
+        "amount": 0.525
+      },
+      {
+        "date": 1556890200,
+        "formatted_date": "2019-05-03",
+        "amount": 0.525
+      },
+      {
+        "date": 1564407000,
+        "formatted_date": "2019-07-29",
+        "amount": 0.525
+      },
+      {
+        "date": 1572877800,
+        "formatted_date": "2019-11-04",
+        "amount": 0.525
+      }
+    ],
+    "volatililty": 0.2577209154276208,
+    "average_volume": 55295,
+    "next_dividend": {
+      "date": "2020-02-03 16:47:08.571429",
+      "formatted_date": "2020-02-03",
+      "actual": false
+    },
+    "dividend_yield": 0.1122
+  },
+  "CARO": {
+    "dividends": [
+      {
+        "date": 1520260200,
+        "formatted_date": "2018-03-05",
+        "amount": 0.05
+      },
+      {
+        "date": 1521120600,
+        "formatted_date": "2018-03-15",
+        "amount": 0.05
+      },
+      {
+        "date": 1528983000,
+        "formatted_date": "2018-06-14",
+        "amount": 0.06
+      },
+      {
+        "date": 1537363800,
+        "formatted_date": "2018-09-19",
+        "amount": 0.07
+      },
+      {
+        "date": 1544711400,
+        "formatted_date": "2018-12-13",
+        "amount": 0.07
+      },
+      {
+        "date": 1552570200,
+        "formatted_date": "2019-03-14",
+        "amount": 0.08
+      },
+      {
+        "date": 1560432600,
+        "formatted_date": "2019-06-13",
+        "amount": 0.09
+      },
+      {
+        "date": 1568295000,
+        "formatted_date": "2019-09-12",
+        "amount": 0.09
+      },
+      {
+        "date": 1576161000,
+        "formatted_date": "2019-12-12",
+        "amount": 0.1
+      }
+    ],
+    "volatililty": 0.2439888319138174,
+    "average_volume": 145358,
+    "next_dividend": {
+      "date": "2020-03-02 03:30:00",
+      "formatted_date": "2020-03-02",
+      "actual": false
+    },
+    "dividend_yield": 0.0094
+  },
+  "CASH": {
+    "dividends": [
+      {
+        "date": 1520605800,
+        "formatted_date": "2018-03-09",
+        "amount": 0.04333
+      },
+      {
+        "date": 1528464600,
+        "formatted_date": "2018-06-08",
+        "amount": 0.04333
+      },
+      {
+        "date": 1536240600,
+        "formatted_date": "2018-09-06",
+        "amount": 0.05
+      },
+      {
+        "date": 1544452200,
+        "formatted_date": "2018-12-10",
+        "amount": 0.05
+      },
+      {
+        "date": 1552055400,
+        "formatted_date": "2019-03-08",
+        "amount": 0.05
+      },
+      {
+        "date": 1559914200,
+        "formatted_date": "2019-06-07",
+        "amount": 0.05
+      },
+      {
+        "date": 1568035800,
+        "formatted_date": "2019-09-09",
+        "amount": 0.05
+      },
+      {
+        "date": 1575901800,
+        "formatted_date": "2019-12-09",
+        "amount": 0.05
+      }
+    ],
+    "volatililty": 0.3319875141069621,
+    "average_volume": 243888,
+    "next_dividend": {
+      "date": "2020-03-09 16:47:08.571429",
+      "formatted_date": "2020-03-09",
+      "actual": false
+    },
+    "dividend_yield": 0.0054
+  },
+  "CASS": {
+    "dividends": [
+      {
+        "date": 1520001000,
+        "formatted_date": "2018-03-02",
+        "amount": 0.2
+      },
+      {
+        "date": 1528119000,
+        "formatted_date": "2018-06-04",
+        "amount": 0.21667
+      },
+      {
+        "date": 1535722200,
+        "formatted_date": "2018-08-31",
+        "amount": 0.21667
+      },
+      {
+        "date": 1543847400,
+        "formatted_date": "2018-12-03",
+        "amount": 0.26
+      },
+      {
+        "date": 1551709800,
+        "formatted_date": "2019-03-04",
+        "amount": 0.26
+      },
+      {
+        "date": 1559568600,
+        "formatted_date": "2019-06-03",
+        "amount": 0.26
+      },
+      {
+        "date": 1567171800,
+        "formatted_date": "2019-08-30",
+        "amount": 0.26
+      },
+      {
+        "date": 1575297000,
+        "formatted_date": "2019-12-02",
+        "amount": 0.27
+      }
+    ],
+    "volatililty": 0.22777105394736513,
+    "average_volume": 44880,
+    "next_dividend": {
+      "date": "2020-03-02 16:47:08.571429",
+      "formatted_date": "2020-03-02",
+      "actual": false
+    },
+    "dividend_yield": 0.0187
+  },
+  "CLPR": {
+    "dividends": [
+      {
+        "date": 1521639000,
+        "formatted_date": "2018-03-21",
+        "amount": 0.095
+      },
+      {
+        "date": 1526909400,
+        "formatted_date": "2018-05-21",
+        "amount": 0.095
+      },
+      {
+        "date": 1534512600,
+        "formatted_date": "2018-08-17",
+        "amount": 0.095
+      },
+      {
+        "date": 1542119400,
+        "formatted_date": "2018-11-13",
+        "amount": 0.095
+      },
+      {
+        "date": 1552656600,
+        "formatted_date": "2019-03-15",
+        "amount": 0.095
+      },
+      {
+        "date": 1558359000,
+        "formatted_date": "2019-05-20",
+        "amount": 0.095
+      },
+      {
+        "date": 1558445400,
+        "formatted_date": "2019-05-21",
+        "amount": 0.095
+      },
+      {
+        "date": 1565616600,
+        "formatted_date": "2019-08-12",
+        "amount": 0.095
+      },
+      {
+        "date": 1574433000,
+        "formatted_date": "2019-11-22",
+        "amount": 0.095
+      }
+    ],
+    "volatililty": 0.33003584050830936,
+    "average_volume": 41079,
+    "next_dividend": {
+      "date": "2020-02-06 15:37:30",
+      "formatted_date": "2020-02-06",
+      "actual": false
+    },
+    "dividend_yield": 0.0353
+  },
+  "CLR": {
+    "dividends": [
+      {
+        "date": 1573050600,
+        "formatted_date": "2019-11-06",
+        "amount": 0.05
+      }
+    ],
+    "volatililty": 0.48490433964381585,
+    "average_volume": 2069412,
+    "next_dividend": {
+      "date": "1970-01-01",
+      "formatted_date": "1970-01-01",
+      "actual": false
+    },
+    "dividend_yield": 0.0061000003
+  },
+  "CM": {
+    "dividends": [
+      {
+        "date": 1522157400,
+        "formatted_date": "2018-03-27",
+        "amount": 1.33
+      },
+      {
+        "date": 1530106200,
+        "formatted_date": "2018-06-27",
+        "amount": 1.33
+      },
+      {
+        "date": 1538055000,
+        "formatted_date": "2018-09-27",
+        "amount": 1.36
+      },
+      {
+        "date": 1545921000,
+        "formatted_date": "2018-12-27",
+        "amount": 1.36
+      },
+      {
+        "date": 1553693400,
+        "formatted_date": "2019-03-27",
+        "amount": 1.4
+      },
+      {
+        "date": 1561642200,
+        "formatted_date": "2019-06-27",
+        "amount": 1.067
+      },
+      {
+        "date": 1569504600,
+        "formatted_date": "2019-09-26",
+        "amount": 1.085
+      },
+      {
+        "date": 1577197800,
+        "formatted_date": "2019-12-24",
+        "amount": 1.095
+      },
+      {
+        "date": 1577370600,
+        "formatted_date": "2019-12-26",
+        "amount": 1.44
+      }
+    ],
+    "volatililty": 0.15368620625265977,
+    "average_volume": 445504,
+    "next_dividend": {
+      "date": "2020-03-15 03:37:30",
+      "formatted_date": "2020-03-15",
+      "actual": false
+    },
+    "dividend_yield": 0.052699998
+  },
+  "CMA": {
+    "dividends": [
+      {
+        "date": 1521034200,
+        "formatted_date": "2018-03-14",
+        "amount": 0.3
+      },
+      {
+        "date": 1528983000,
+        "formatted_date": "2018-06-14",
+        "amount": 0.34
+      },
+      {
+        "date": 1536845400,
+        "formatted_date": "2018-09-13",
+        "amount": 0.6
+      },
+      {
+        "date": 1544711400,
+        "formatted_date": "2018-12-13",
+        "amount": 0.6
+      },
+      {
+        "date": 1552570200,
+        "formatted_date": "2019-03-14",
+        "amount": 0.67
+      },
+      {
+        "date": 1560432600,
+        "formatted_date": "2019-06-13",
+        "amount": 0.67
+      },
+      {
+        "date": 1568295000,
+        "formatted_date": "2019-09-12",
+        "amount": 0.67
+      },
+      {
+        "date": 1576161000,
+        "formatted_date": "2019-12-12",
+        "amount": 0.67
+      }
+    ],
+    "volatililty": 0.2614938121158568,
+    "average_volume": 1361964,
+    "next_dividend": {
+      "date": "2020-03-12 10:04:17.142857",
+      "formatted_date": "2020-03-12",
+      "actual": false
+    },
+    "dividend_yield": 0.039
+  },
+  "CMC": {
+    "dividends": [
+      {
+        "date": 1522762200,
+        "formatted_date": "2018-04-03",
+        "amount": 0.12
+      },
+      {
+        "date": 1530624600,
+        "formatted_date": "2018-07-03",
+        "amount": 0.12
+      },
+      {
+        "date": 1541514600,
+        "formatted_date": "2018-11-06",
+        "amount": 0.12
+      },
+      {
+        "date": 1547476200,
+        "formatted_date": "2019-01-14",
+        "amount": 0.12
+      },
+      {
+        "date": 1554384600,
+        "formatted_date": "2019-04-04",
+        "amount": 0.12
+      },
+      {
+        "date": 1562160600,
+        "formatted_date": "2019-07-03",
+        "amount": 0.12
+      },
+      {
+        "date": 1572964200,
+        "formatted_date": "2019-11-05",
+        "amount": 0.12
+      },
+      {
+        "date": 1579012200,
+        "formatted_date": "2020-01-14",
+        "amount": 0.12
+      }
+    ],
+    "volatililty": 0.3594343094325441,
+    "average_volume": 1715030,
+    "next_dividend": {
+      "date": "2020-04-16 06:38:34.285714",
+      "formatted_date": "2020-04-16",
+      "actual": false
+    },
+    "dividend_yield": 0.022
+  },
+  "EOD": {
+    "dividends": [
+      {
+        "date": 1528810200,
+        "formatted_date": "2018-06-12",
+        "amount": 0.164
+      },
+      {
+        "date": 1536931800,
+        "formatted_date": "2018-09-14",
+        "amount": 0.16
+      },
+      {
+        "date": 1544797800,
+        "formatted_date": "2018-12-14",
+        "amount": 0.154
+      },
+      {
+        "date": 1552311000,
+        "formatted_date": "2019-03-11",
+        "amount": 0.149
+      },
+      {
+        "date": 1560432600,
+        "formatted_date": "2019-06-13",
+        "amount": 0.147
+      },
+      {
+        "date": 1568295000,
+        "formatted_date": "2019-09-12",
+        "amount": 0.146
+      },
+      {
+        "date": 1576161000,
+        "formatted_date": "2019-12-12",
+        "amount": 0.145
+      }
+    ],
+    "volatililty": 0.13672734620670107,
+    "average_volume": 161945,
+    "next_dividend": {
+      "date": "2020-03-12 14:40:00",
+      "formatted_date": "2020-03-12",
+      "actual": false
+    },
+    "dividend_yield": 0.103
+  },
+  "EOI": {
+    "dividends": [
+      {
+        "date": 1516717800,
+        "formatted_date": "2018-01-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1519137000,
+        "formatted_date": "2018-02-20",
+        "amount": 0.086
+      },
+      {
+        "date": 1521639000,
+        "formatted_date": "2018-03-21",
+        "amount": 0.086
+      },
+      {
+        "date": 1524231000,
+        "formatted_date": "2018-04-20",
+        "amount": 0.086
+      },
+      {
+        "date": 1527082200,
+        "formatted_date": "2018-05-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1529587800,
+        "formatted_date": "2018-06-21",
+        "amount": 0.086
+      },
+      {
+        "date": 1532352600,
+        "formatted_date": "2018-07-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1535031000,
+        "formatted_date": "2018-08-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1537450200,
+        "formatted_date": "2018-09-20",
+        "amount": 0.086
+      },
+      {
+        "date": 1540301400,
+        "formatted_date": "2018-10-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1542810600,
+        "formatted_date": "2018-11-21",
+        "amount": 0.086
+      },
+      {
+        "date": 1545402600,
+        "formatted_date": "2018-12-21",
+        "amount": 0.086
+      },
+      {
+        "date": 1548253800,
+        "formatted_date": "2019-01-23",
+        "amount": 0.09
+      },
+      {
+        "date": 1550673000,
+        "formatted_date": "2019-02-20",
+        "amount": 0.09
+      },
+      {
+        "date": 1553088600,
+        "formatted_date": "2019-03-20",
+        "amount": 0.09
+      },
+      {
+        "date": 1555939800,
+        "formatted_date": "2019-04-22",
+        "amount": 0.09
+      },
+      {
+        "date": 1558618200,
+        "formatted_date": "2019-05-23",
+        "amount": 0.09
+      },
+      {
+        "date": 1561037400,
+        "formatted_date": "2019-06-20",
+        "amount": 0.09
+      },
+      {
+        "date": 1563888600,
+        "formatted_date": "2019-07-23",
+        "amount": 0.09
+      },
+      {
+        "date": 1566480600,
+        "formatted_date": "2019-08-22",
+        "amount": 0.09
+      },
+      {
+        "date": 1568986200,
+        "formatted_date": "2019-09-20",
+        "amount": 0.09
+      },
+      {
+        "date": 1571837400,
+        "formatted_date": "2019-10-23",
+        "amount": 0.09
+      },
+      {
+        "date": 1574346600,
+        "formatted_date": "2019-11-21",
+        "amount": 0.09
+      },
+      {
+        "date": 1577111400,
+        "formatted_date": "2019-12-23",
+        "amount": 0.09
+      }
+    ],
+    "volatililty": 0.1640632818090674,
+    "average_volume": 86191,
+    "next_dividend": {
+      "date": "2020-01-22 15:53:28.695652",
+      "formatted_date": "2020-01-22",
+      "actual": false
+    },
+    "dividend_yield": 0.0669
+  },
+  "EOS": {
+    "dividends": [
+      {
+        "date": 1516717800,
+        "formatted_date": "2018-01-23",
+        "amount": 0.088
+      },
+      {
+        "date": 1519137000,
+        "formatted_date": "2018-02-20",
+        "amount": 0.088
+      },
+      {
+        "date": 1521639000,
+        "formatted_date": "2018-03-21",
+        "amount": 0.088
+      },
+      {
+        "date": 1524231000,
+        "formatted_date": "2018-04-20",
+        "amount": 0.088
+      },
+      {
+        "date": 1527082200,
+        "formatted_date": "2018-05-23",
+        "amount": 0.088
+      },
+      {
+        "date": 1529587800,
+        "formatted_date": "2018-06-21",
+        "amount": 0.088
+      },
+      {
+        "date": 1532352600,
+        "formatted_date": "2018-07-23",
+        "amount": 0.088
+      },
+      {
+        "date": 1535031000,
+        "formatted_date": "2018-08-23",
+        "amount": 0.088
+      },
+      {
+        "date": 1537450200,
+        "formatted_date": "2018-09-20",
+        "amount": 0.088
+      },
+      {
+        "date": 1540301400,
+        "formatted_date": "2018-10-23",
+        "amount": 0.088
+      },
+      {
+        "date": 1542810600,
+        "formatted_date": "2018-11-21",
+        "amount": 0.088
+      },
+      {
+        "date": 1545402600,
+        "formatted_date": "2018-12-21",
+        "amount": 0.088
+      },
+      {
+        "date": 1548253800,
+        "formatted_date": "2019-01-23",
+        "amount": 0.099
+      },
+      {
+        "date": 1550673000,
+        "formatted_date": "2019-02-20",
+        "amount": 0.099
+      },
+      {
+        "date": 1553088600,
+        "formatted_date": "2019-03-20",
+        "amount": 0.099
+      },
+      {
+        "date": 1555939800,
+        "formatted_date": "2019-04-22",
+        "amount": 0.099
+      },
+      {
+        "date": 1558618200,
+        "formatted_date": "2019-05-23",
+        "amount": 0.099
+      },
+      {
+        "date": 1561037400,
+        "formatted_date": "2019-06-20",
+        "amount": 0.099
+      },
+      {
+        "date": 1563888600,
+        "formatted_date": "2019-07-23",
+        "amount": 0.099
+      },
+      {
+        "date": 1566480600,
+        "formatted_date": "2019-08-22",
+        "amount": 0.099
+      },
+      {
+        "date": 1568986200,
+        "formatted_date": "2019-09-20",
+        "amount": 0.099
+      },
+      {
+        "date": 1571837400,
+        "formatted_date": "2019-10-23",
+        "amount": 0.099
+      },
+      {
+        "date": 1574346600,
+        "formatted_date": "2019-11-21",
+        "amount": 0.099
+      },
+      {
+        "date": 1577111400,
+        "formatted_date": "2019-12-23",
+        "amount": 0.099
+      },
+      {
+        "date": 1577457000,
+        "formatted_date": "2019-12-27",
+        "amount": 0.099
+      }
+    ],
+    "volatililty": 0.17661749056435305,
+    "average_volume": 98774,
+    "next_dividend": {
+      "date": "2020-01-25 13:30:00",
+      "formatted_date": "2020-01-25",
+      "actual": false
+    },
+    "dividend_yield": 0.0643
+  },
+  "EOT": {
+    "dividends": [
+      {
+        "date": 1516717800,
+        "formatted_date": "2018-01-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1519137000,
+        "formatted_date": "2018-02-20",
+        "amount": 0.086
+      },
+      {
+        "date": 1521639000,
+        "formatted_date": "2018-03-21",
+        "amount": 0.086
+      },
+      {
+        "date": 1524231000,
+        "formatted_date": "2018-04-20",
+        "amount": 0.086
+      },
+      {
+        "date": 1527082200,
+        "formatted_date": "2018-05-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1529587800,
+        "formatted_date": "2018-06-21",
+        "amount": 0.086
+      },
+      {
+        "date": 1532352600,
+        "formatted_date": "2018-07-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1535031000,
+        "formatted_date": "2018-08-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1537450200,
+        "formatted_date": "2018-09-20",
+        "amount": 0.086
+      },
+      {
+        "date": 1540301400,
+        "formatted_date": "2018-10-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1542810600,
+        "formatted_date": "2018-11-21",
+        "amount": 0.086
+      },
+      {
+        "date": 1544711400,
+        "formatted_date": "2018-12-13",
+        "amount": 0.107
+      },
+      {
+        "date": 1545402600,
+        "formatted_date": "2018-12-21",
+        "amount": 0.086
+      },
+      {
+        "date": 1548253800,
+        "formatted_date": "2019-01-23",
+        "amount": 0.086
+      },
+      {
+        "date": 1550673000,
+        "formatted_date": "2019-02-20",
+        "amount": 0.081
+      },
+      {
+        "date": 1553088600,
+        "formatted_date": "2019-03-20",
+        "amount": 0.081
+      },
+      {
+        "date": 1555939800,
+        "formatted_date": "2019-04-22",
+        "amount": 0.081
+      },
+      {
+        "date": 1558618200,
+        "formatted_date": "2019-05-23",
+        "amount": 0.081
+      },
+      {
+        "date": 1561037400,
+        "formatted_date": "2019-06-20",
+        "amount": 0.081
+      },
+      {
+        "date": 1563888600,
+        "formatted_date": "2019-07-23",
+        "amount": 0.081
+      },
+      {
+        "date": 1566480600,
+        "formatted_date": "2019-08-22",
+        "amount": 0.076
+      },
+      {
+        "date": 1568986200,
+        "formatted_date": "2019-09-20",
+        "amount": 0.076
+      },
+      {
+        "date": 1571837400,
+        "formatted_date": "2019-10-23",
+        "amount": 0.076
+      },
+      {
+        "date": 1574346600,
+        "formatted_date": "2019-11-21",
+        "amount": 0.076
+      },
+      {
+        "date": 1576161000,
+        "formatted_date": "2019-12-12",
+        "amount": 0.078
+      },
+      {
+        "date": 1577111400,
+        "formatted_date": "2019-12-23",
+        "amount": 0.072
+      }
+    ],
+    "volatililty": 0.15989275174152168,
+    "average_volume": 30164,
+    "next_dividend": {
+      "date": "2020-01-20 05:32:24",
+      "formatted_date": "2020-01-20",
+      "actual": false
+    },
+    "dividend_yield": 0.038900003
+  },
+  "EPAC": {
+    "dividends": [
+      {
+        "date": 1569504600,
+        "formatted_date": "2019-09-26",
+        "amount": 0.04
+      }
+    ],
+    "volatililty": 0.328945982526955,
+    "average_volume": 375658,
+    "next_dividend": {
+      "date": "1970-01-01",
+      "formatted_date": "1970-01-01",
+      "actual": false
+    },
+    "dividend_yield": 0.0016
+  },
+  "GIL": {
+    "dividends": [
+      {
+        "date": 1520433000,
+        "formatted_date": "2018-03-07",
+        "amount": 0.112
+      },
+      {
+        "date": 1526477400,
+        "formatted_date": "2018-05-16",
+        "amount": 0.112
+      },
+      {
+        "date": 1534339800,
+        "formatted_date": "2018-08-15",
+        "amount": 0.112
+      },
+      {
+        "date": 1542205800,
+        "formatted_date": "2018-11-14",
+        "amount": 0.112
+      },
+      {
+        "date": 1551882600,
+        "formatted_date": "2019-03-06",
+        "amount": 0.134
+      },
+      {
+        "date": 1557927000,
+        "formatted_date": "2019-05-15",
+        "amount": 0.134
+      },
+      {
+        "date": 1565789400,
+        "formatted_date": "2019-08-14",
+        "amount": 0.134
+      },
+      {
+        "date": 1573655400,
+        "formatted_date": "2019-11-13",
+        "amount": 0.134
+      }
+    ],
+    "volatililty": 0.3156271389136884,
+    "average_volume": 874508,
+    "next_dividend": {
+      "date": "2020-02-09 06:30:00",
+      "formatted_date": "2020-02-09",
+      "actual": false
+    },
+    "dividend_yield": 0.018
+  },
+  "GILD": {
+    "dividends": [
+      {
+        "date": 1521120600,
+        "formatted_date": "2018-03-15",
+        "amount": 0.57
+      },
+      {
+        "date": 1528983000,
+        "formatted_date": "2018-06-14",
+        "amount": 0.57
+      },
+      {
+        "date": 1536845400,
+        "formatted_date": "2018-09-13",
+        "amount": 0.57
+      },
+      {
+        "date": 1544711400,
+        "formatted_date": "2018-12-13",
+        "amount": 0.57
+      },
+      {
+        "date": 1552570200,
+        "formatted_date": "2019-03-14",
+        "amount": 0.63
+      },
+      {
+        "date": 1560432600,
+        "formatted_date": "2019-06-13",
+        "amount": 0.63
+      },
+      {
+        "date": 1568295000,
+        "formatted_date": "2019-09-12",
+        "amount": 0.63
+      },
+      {
+        "date": 1576161000,
+        "formatted_date": "2019-12-12",
+        "amount": 0.63
+      }
+    ],
+    "volatililty": 0.23157658432301734,
+    "average_volume": 6733314,
+    "next_dividend": {
+      "date": "2020-03-12 06:38:34.285714",
+      "formatted_date": "2020-03-12",
+      "actual": false
+    },
+    "dividend_yield": 0.04
+  },
+  "GILT": {
+    "dividends": [
+      {
+        "date": 1553693400,
+        "formatted_date": "2019-03-27",
+        "amount": 0.45
+      }
+    ],
+    "volatililty": 0.31643029477508194,
+    "average_volume": 31098,
+    "next_dividend": {
+      "date": "1970-01-01",
+      "formatted_date": "1970-01-01",
+      "actual": false
+    },
+    "dividend_yield": 0.05
+  },
+  "GIM": {
+    "dividends": [
+      {
+        "date": 1518618600,
+        "formatted_date": "2018-02-14",
+        "amount": 0.018
+      },
+      {
+        "date": 1521034200,
+        "formatted_date": "2018-03-14",
+        "amount": 0.017
+      },
+      {
+        "date": 1523539800,
+        "formatted_date": "2018-04-12",
+        "amount": 0.034
+      },
+      {
+        "date": 1526304600,
+        "formatted_date": "2018-05-14",
+        "amount": 0.033
+      },
+      {
+        "date": 1528983000,
+        "formatted_date": "2018-06-14",
+        "amount": 0.034
+      },
+      {
+        "date": 1531402200,
+        "formatted_date": "2018-07-12",
+        "amount": 0.031
+      },
+      {
+        "date": 1534253400,
+        "formatted_date": "2018-08-14",
+        "amount": 0.033
+      },
+      {
+        "date": 1536845400,
+        "formatted_date": "2018-09-13",
+        "amount": 0.036
+      },
+      {
+        "date": 1539351000,
+        "formatted_date": "2018-10-12",
+        "amount": 0.029
+      },
+      {
+        "date": 1542205800,
+        "formatted_date": "2018-11-14",
+        "amount": 0.031
+      },
+      {
+        "date": 1544797800,
+        "formatted_date": "2018-12-14",
+        "amount": 0.038
+      },
+      {
+        "date": 1547476200,
+        "formatted_date": "2019-01-14",
+        "amount": 0.037
+      },
+      {
+        "date": 1550154600,
+        "formatted_date": "2019-02-14",
+        "amount": 0.04
+      },
+      {
+        "date": 1552570200,
+        "formatted_date": "2019-03-14",
+        "amount": 0.041
+      },
+      {
+        "date": 1555075800,
+        "formatted_date": "2019-04-12",
+        "amount": 0.034
+      },
+      {
+        "date": 1557840600,
+        "formatted_date": "2019-05-14",
+        "amount": 0.035
+      },
+      {
+        "date": 1560432600,
+        "formatted_date": "2019-06-13",
+        "amount": 0.035
+      },
+      {
+        "date": 1562938200,
+        "formatted_date": "2019-07-12",
+        "amount": 0.036
+      },
+      {
+        "date": 1565789400,
+        "formatted_date": "2019-08-14",
+        "amount": 0.032
+      },
+      {
+        "date": 1568381400,
+        "formatted_date": "2019-09-13",
+        "amount": 0.028
+      },
+      {
+        "date": 1570800600,
+        "formatted_date": "2019-10-11",
+        "amount": 0.026
+      },
+      {
+        "date": 1573741800,
+        "formatted_date": "2019-11-14",
+        "amount": 0.025
+      },
+      {
+        "date": 1576247400,
+        "formatted_date": "2019-12-13",
+        "amount": 0.041
+      },
+      {
+        "date": 1579012200,
+        "formatted_date": "2020-01-14",
+        "amount": 0.029
+      }
+    ],
+    "volatililty": 0.09348027484102224,
+    "average_volume": 665570,
+    "next_dividend": {
+      "date": "2020-02-13 15:53:28.695652",
+      "formatted_date": "2020-02-13",
+      "actual": false
+    },
+    "dividend_yield": 0.0654
+  },
+  "GJH": {
+    "dividends": [
+      {
+        "date": 1528896600,
+        "formatted_date": "2018-06-13",
+        "amount": 0.319
+      },
+      {
+        "date": 1544711400,
+        "formatted_date": "2018-12-13",
+        "amount": 0.319
+      },
+      {
+        "date": 1560432600,
+        "formatted_date": "2019-06-13",
+        "amount": 0.319
+      },
+      {
+        "date": 1576161000,
+        "formatted_date": "2019-12-12",
+        "amount": 0.319
+      }
+    ],
+    "volatililty": 0.13887444539160293,
+    "average_volume": 732,
+    "next_dividend": {
+      "date": "2020-06-11 14:50:00",
+      "formatted_date": "2020-06-11",
+      "actual": false
+    },
+    "dividend_yield": null
   }
 }
