@@ -1,5 +1,6 @@
 yahoofinancials==1.5
-robin-stocks==0.9.9.5
+robin-stocks
+git+git://github.com/jmfernandes/robin_stocks#egg=robin-stock
 flower
 celery
 redis

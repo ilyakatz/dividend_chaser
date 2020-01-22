@@ -57,6 +57,7 @@ class Broker(AbstractBroker):
     logging.info(f"Buying {symbol} - {quantity}")
     data = self.broker().orders.order_buy_market(symbol, quantity)
     ref_id = data['ref_id']
+    logging.info(f"Data is {data}")
     if(ref_id):
       logging.info(f"Executed: ref_id {ref_id}")
       return ref_id

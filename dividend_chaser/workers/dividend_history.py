@@ -50,11 +50,15 @@ class DividendHistory:
         x[1]['next_dividend']['formatted_date'],
         x[1]['dividend_yield'],
         x[1]['volatililty'],
-        x[1].get('average_volume')), arr))
+        x[1].get('average_volume'),
+        x[1]['next_dividend'].get('actual')), arr))
+
     simplified = list(filter(lambda d: d.dividend_date.date() < (
         datetime.date.today() + datetime.timedelta(days=limit_days)), simplified))
 
     simplified.sort(key=lambda x: x.dividend_date, reverse=False)
+    simplified = list(filter(lambda d: d.actual, simplified))
+
     filtered = list(
         filter(lambda dividendable: dividendable.is_clearable(), simplified))
 
@@ -127,7 +131,7 @@ class DividendHistory:
   """
 
   def _enrich_with_next_dividend(self, symbols, dividends_data):
-    #service = IExcloudService(symbols, dividends_data)
+    # service = IExcloudService(symbols, dividends_data)
     service = YahooDataService(symbols, dividends_data)
     service.calculate_next_dividend()
 
