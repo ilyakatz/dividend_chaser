@@ -41,6 +41,8 @@ class BaseDataService(ABC):
       next_div_date = datetime.date.fromisoformat(date_str)
     except ValueError:
       next_div_date = BaseDataService.EPOCH
+    except TypeError:
+      next_div_date = BaseDataService.EPOCH
 
     today = datetime.date.today()
 
