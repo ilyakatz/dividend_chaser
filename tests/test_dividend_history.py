@@ -17,7 +17,8 @@ class TestUpcoming(unittest.TestCase):
             ],
             "next_dividend": {
                 "date": "2020-01-16 23:47:08.571429",
-                "formatted_date": "2020-01-16"
+                "formatted_date": "2020-01-16",
+                "actual": True
             },
             "volatililty": 0.13605430659514575,
             "dividend_yield": 0.0773,
@@ -42,7 +43,8 @@ class TestUpcoming(unittest.TestCase):
             ],
             "next_dividend": {
                 "date": "2020-01-16 23:47:08.571429",
-                "formatted_date": "2020-01-16"
+                "formatted_date": "2020-01-16",
+                "actual": True
             },
             "volatililty": 0.13605430659514575,
             "dividend_yield": 0.0773,
@@ -66,7 +68,8 @@ class TestUpcoming(unittest.TestCase):
             ],
             "next_dividend": {
                 "date": "2020-01-17 23:47:08.571429",
-                "formatted_date": "2020-01-17"
+                "formatted_date": "2020-01-17",
+                "actual": True
             },
             "volatililty": 0.13605430659514575,
             "dividend_yield": 0.0773,
@@ -78,7 +81,8 @@ class TestUpcoming(unittest.TestCase):
             ],
             "next_dividend": {
                 "date": "2020-01-15 23:47:08.571429",
-                "formatted_date": "2020-01-15"
+                "formatted_date": "2020-01-15",
+                "actual": True
             },
             "volatililty": 0.13605430659514575,
             "dividend_yield": 0.0773,
