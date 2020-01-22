@@ -47,7 +47,7 @@ class TestNextDiv(unittest.TestCase):
       self.assertEqual(res['actual'], False)
 
 
-class TestAverageDividendInterval(unittest.TestCase):
+class TestEstimateNextDate(unittest.TestCase):
   def test_not_enough_dates(self):
     """ Dividend history is too small
     """

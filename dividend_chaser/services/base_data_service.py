@@ -72,7 +72,11 @@ class BaseDataService(ABC):
 
   def _dates(self, symbol):
     divs = self.dividends_data[symbol]["dividends"]
-    return list(map(lambda x: x['date'], divs))
+    if(divs is None):
+      return []
+
+    dates = list(map(lambda x: x['date'], divs))
+    return dates
 
   def _average_dividend_interval(self, symbol) -> Optional[datetime.timedelta]:
     """ Calculates how often dividends get paid
