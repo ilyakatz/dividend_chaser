@@ -3,6 +3,7 @@ import datetime
 import logging
 from json import JSONDecodeError
 from yahoofinancials import YahooFinancials
+from redlock import RedLock
 
 from dividend_chaser.models.dividendable import Dividendable
 from dividend_chaser.services.yahoo_data_service import YahooDataService
@@ -90,7 +91,12 @@ class DividendHistory:
     logging.info(f"Dumping data for {self.symbols}")
     with open(self.filename, 'w') as fp:
       # json.dump(self.dividends_data, fp)
+      lock = RedLock("write_lock")
+      logging.info("dump: Lock Acquired")
+      lock.acquire()
       pretty = json.dumps(self.dividends_data, indent=2)
+      logging.info("dump: Lock Released")
+      lock.release()
       fp.write(pretty)
     # except:
     #   print("Exception:")

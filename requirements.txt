@@ -15,6 +15,7 @@ pylint
 dirtyjson
 click
 iexfinance
+redlock
 
 pytest
 pytest-mock

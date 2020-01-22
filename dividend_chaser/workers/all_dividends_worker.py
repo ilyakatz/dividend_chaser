@@ -1,5 +1,7 @@
 import json
 import numpy as np
+import logging
+from redlock import RedLock
 
 from dividend_chaser.workers.dividend_history import DividendHistory
 
@@ -14,8 +16,13 @@ class AllDividendsWorker:
     additional_reits = ["NHI", "VTR", "WELL", "HTA"]
     funds = ["MAIN"]
 
+    lock = RedLock("write_lock")
+    lock.acquire()
+    logging.info("dump: Lock Acquired")
     with open(AllDividendsWorker.filename) as file:
       all_stocks = json.load(file)
+    logging.info("dump: Lock Releasing")
+    lock.release()
 
     stocks = all_stocks + additional_reits + reits + funds
     stocks = list(np.unique(stocks))
