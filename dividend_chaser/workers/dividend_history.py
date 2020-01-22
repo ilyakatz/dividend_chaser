@@ -56,8 +56,9 @@ class DividendHistory:
     simplified = list(filter(lambda d: d.dividend_date.date() < (
         datetime.date.today() + datetime.timedelta(days=limit_days)), simplified))
 
-    simplified.sort(key=lambda x: x.dividend_date, reverse=False)
+    simplified = list(filter(lambda d: d.volatililty < 0.2, simplified))
     simplified = list(filter(lambda d: d.actual == True, simplified))
+    simplified = sorted(simplified, key=lambda x: ((1 - x.dividend_yield), x.dividend_date))
 
     filtered = list(
         filter(lambda dividendable: dividendable.is_clearable(), simplified))
