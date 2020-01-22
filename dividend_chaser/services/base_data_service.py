@@ -41,6 +41,8 @@ class BaseDataService(ABC):
       next_div_date = datetime.date.fromisoformat(date_str)
     except ValueError:
       next_div_date = BaseDataService.EPOCH
+    except TypeError:
+      next_div_date = BaseDataService.EPOCH
 
     today = datetime.date.today()
 
@@ -72,7 +74,11 @@ class BaseDataService(ABC):
 
   def _dates(self, symbol):
     divs = self.dividends_data[symbol]["dividends"]
-    return list(map(lambda x: x['date'], divs))
+    if(divs is None):
+      return []
+
+    dates = list(map(lambda x: x['date'], divs))
+    return dates
 
   def _average_dividend_interval(self, symbol) -> Optional[datetime.timedelta]:
     """ Calculates how often dividends get paid
