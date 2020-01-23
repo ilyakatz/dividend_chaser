@@ -25,7 +25,7 @@ class BaseDataService(ABC):
       actual = next_dividend_date["actual"]
 
       next_estimate_hash = {
-          "date": str(value),
+          "date": str(int(value.timestamp())),
           "formatted_date": value.strftime("%Y-%m-%d"),
           "actual": actual
       }

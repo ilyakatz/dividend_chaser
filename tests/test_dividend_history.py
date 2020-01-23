@@ -3,15 +3,23 @@ from unittest.mock import patch
 from freezegun import freeze_time
 
 from dividend_chaser.workers.dividend_history import DividendHistory
+from dividend_chaser.orm import orm
 
 
 class TestUpcoming(unittest.TestCase):
+
+  def setUp(self):
+    print("Cleaning up database")
+    orm.Dividend.where("1", "=", "1").delete()
+    orm.Dividendable.where("1", "=", "1").delete()
+
   @freeze_time("2020-01-12 12:00:01")
   def test_limit_upcoming_with_actual(self):
     """ Return only results that have actual dividends
     """
 
     dh = DividendHistory([])
+
     stocks = {
         "TRUE": {
             "dividends": [
@@ -41,11 +49,13 @@ class TestUpcoming(unittest.TestCase):
         }
     }
 
-    with patch.object(DividendHistory, 'loadStocks', return_value=stocks):
-      res = dh.upcoming()
+    for stock in stocks:
+      DividendHistory([])._persist_dividend_data(stock, stocks)
 
-      self.assertEqual(len(res), 1)
-      self.assertEqual(res[0].symbol, "TRUE")
+    res = dh.upcoming()
+
+    self.assertEqual(len(res), 1)
+    self.assertEqual(res[0].symbol, "TRUE")
 
   @freeze_time("2020-01-12 12:00:01")
   def test_limit_upcoming(self):
@@ -67,11 +77,13 @@ class TestUpcoming(unittest.TestCase):
         }
     }
 
-    with patch.object(DividendHistory, 'loadStocks', return_value=stocks):
-      res = dh.upcoming()
+    for stock in stocks:
+      DividendHistory([])._persist_dividend_data(stock, stocks)
 
-      self.assertEqual(len(res), 1)
-      self.assertEqual(res[0].symbol, "STWD")
+    res = dh.upcoming()
+
+    self.assertEqual(len(res), 1)
+    self.assertEqual(res[0].symbol, "STWD")
 
   @freeze_time("2020-01-16 12:00:01")
   def test_limit_upcoming_unmet(self):
@@ -93,10 +105,12 @@ class TestUpcoming(unittest.TestCase):
         }
     }
 
-    with patch.object(DividendHistory, 'loadStocks', return_value=stocks):
-      res = dh.upcoming()
+    for stock in stocks:
+      DividendHistory([])._persist_dividend_data(stock, stocks)
 
-      self.assertEqual(len(res), 0)
+    res = dh.upcoming()
+
+    self.assertEqual(len(res), 0)
 
   @freeze_time("2020-01-12 12:00:01")
   def test_limit_upcoming_custom_day_limit(self):
@@ -131,8 +145,10 @@ class TestUpcoming(unittest.TestCase):
         }
     }
 
-    with patch.object(DividendHistory, 'loadStocks', return_value=stocks):
-      res = dh.upcoming(limit_days=6)
+    for stock in stocks:
+      DividendHistory([])._persist_dividend_data(stock, stocks)
 
-      self.assertEqual(len(res), 1)
-      self.assertEqual(res[0].symbol, "STWD")
+    res = dh.upcoming(limit_days=6)
+
+    self.assertEqual(len(res), 1)
+    self.assertEqual(res[0].symbol, "STWD")

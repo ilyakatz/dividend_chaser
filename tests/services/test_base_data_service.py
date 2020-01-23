@@ -22,13 +22,14 @@ class TestNextDiv(unittest.TestCase):
 
     service = MockDataService([])
 
-    return_date = "2020-12-12"
+    return_date_str = "2020-12-12"
+    return_date = datetime.date.fromisoformat(return_date_str)
     with patch.object(service, '_estimate_next_date', return_value=return_date):
 
-      data = {'STWD': return_date}
+      data = {'STWD': return_date_str}
       res = service._next_div(data, "STWD")
 
-      self.assertEqual(res['value'], datetime.date.fromisoformat(return_date))
+      self.assertEqual(res['value'], return_date)
       self.assertEqual(res['actual'], True)
 
   def test_invalid_date(self):
@@ -37,7 +38,8 @@ class TestNextDiv(unittest.TestCase):
 
     service = MockDataService([])
 
-    return_date = "2012-12-12"
+    return_date_str = "2012-12-12"
+    return_date = datetime.date.fromisoformat(return_date_str)
     with patch.object(service, '_estimate_next_date', return_value=return_date):
 
       data = {'STWD': "-"}
