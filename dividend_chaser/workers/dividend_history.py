@@ -6,7 +6,7 @@ from yahoofinancials import YahooFinancials
 
 from dividend_chaser.models.dividendable import Dividendable
 from dividend_chaser.services.yahoo_data_service import YahooDataService
-# from dividend_chaser.services.iexcloud_service import IExcloudService
+from dividend_chaser.orm import orm
 
 """Class responsible for maintaining dividend history
 
@@ -43,15 +43,14 @@ class DividendHistory:
   """
   @classmethod
   def upcoming(cls, limit_days=14):
-    stocks = DividendHistory.loadStocks()
-    arr = list(stocks.items())
+    arr = orm.Dividendable.all()
     simplified = list(map(lambda x: Dividendable(
-        x[0],
-        x[1]['next_dividend']['formatted_date'],
-        x[1]['dividend_yield'],
-        x[1]['volatililty'],
-        x[1].get('average_volume'),
-        x[1]['next_dividend'].get('actual')), arr))
+        x.symbol,
+        x.next_dividend_formatted_date,
+        x.dividend_yield,
+        x.volatililty,
+        x.average_volume,
+        x.next_dividend_actual), arr))
 
     simplified = list(filter(lambda d: d.dividend_date.date() < (
         datetime.date.today() + datetime.timedelta(days=limit_days)), simplified))
@@ -65,7 +64,7 @@ class DividendHistory:
     return filtered
 
   @classmethod
-  def load_from_db(cls):
+  def load_from_file(cls):
     try:
       with open(DividendHistory.filename) as file:
         obj = json.load(file)
@@ -75,7 +74,7 @@ class DividendHistory:
     return obj
 
   def load(self):
-    obj = DividendHistory.load_from_db()
+    obj = DividendHistory.load_from_file()
 
     for symbol in self.symbols:
       if(symbol not in obj):
@@ -89,18 +88,33 @@ class DividendHistory:
     for symbol in self.symbols:
       self.dividends_data[symbol]["dividends"] = divs[symbol]
 
-    # try:
     self._enrich(self.symbols, self.dividends_data)
     logging.info(f"Dumping data for {self.symbols}")
+
+    for symbol in self.symbols:
+      self._persist_dividend_data(symbol, self.dividends_data)
+
     with open(self.filename, 'w') as fp:
-      # json.dump(self.dividends_data, fp)
       pretty = json.dumps(self.dividends_data, indent=2)
       fp.write(pretty)
-    # except:
-    #   print("Exception:")
-    #   print('-' * 60)
-    #   traceback.print_exc(file=sys.stdout)
-    #   print('-' * 60)
+
+  def _persist_dividend_data(self, symbol, dividends_data):
+    params = dividends_data[symbol].copy()
+    params["symbol"] = symbol
+    params["next_dividend_actual"] = params["next_dividend"]["actual"]
+    params["next_dividend_date"] = params["next_dividend"]["date"]
+    params["next_dividend_formatted_date"] = params["next_dividend"]["formatted_date"]
+
+    d = orm.Dividendable.first_or_create(symbol=symbol)
+    d.update(params)
+
+    for dividend_dict in params['dividends']:
+      orm.Dividend.first_or_create(
+          date=str(dividend_dict["date"]),
+          formatted_date=dividend_dict["formatted_date"],
+          amount=dividend_dict["amount"],
+          dividendable_id=d.id
+      )
 
   def _enrich(self, symbols, dividends_data):
     logging.debug("Starting _enrich")
@@ -120,7 +134,7 @@ class DividendHistory:
   @classmethod
   def next_dividend(cls, symbol):
     " TODO maybe can use get_exdividend_date "
-    data = DividendHistory.load_from_db()
+    data = DividendHistory.load_from_file()
     new_date = data[symbol]['next_dividend']['formatted_date']
     return datetime.date.fromisoformat(new_date)
 

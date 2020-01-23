@@ -22,9 +22,12 @@ jobs:
       - name: Lint with pylint
         run: |
           pylint --rcfile=setup.cfg dividend_chaser
+      - name: Database Schema
+        run: |
+          orator migrate -c database.test.yml -f
       - name: Test with pytest
         env:
           TZ: America/Los_Angeles
         run: |
           pip install pytest
-          py.test
+          ENVIRONMENT=test pytest

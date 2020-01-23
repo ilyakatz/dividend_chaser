@@ -1,0 +1,5 @@
+databases:
+  default: postgres
+  postgres:
+    driver: postgres
+    database: dividend_chaser_development
