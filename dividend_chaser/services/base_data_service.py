@@ -7,7 +7,7 @@ import numpy as np
 
 class BaseDataService(ABC):
   # pylint: disable=R0903
-  EPOCH = datetime.datetime(1970, 1, 1).date()
+  EPOCH = datetime.datetime(1970, 1, 1)
 
   def __init__(self, symbols, dividends_data=None):
     self.symbols = symbols
@@ -38,13 +38,13 @@ class BaseDataService(ABC):
   def _next_div(self, data, symbol):
     date_str = data[symbol]
     try:
-      next_div_date = datetime.date.fromisoformat(date_str)
+      next_div_date = datetime.datetime.fromisoformat(date_str)
     except ValueError:
       next_div_date = BaseDataService.EPOCH
     except TypeError:
       next_div_date = BaseDataService.EPOCH
 
-    today = datetime.date.today()
+    today = datetime.datetime.now()
 
     " at times, yahoo does not return correct next date "
     if (next_div_date < today):

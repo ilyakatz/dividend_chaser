@@ -23,7 +23,7 @@ class TestNextDiv(unittest.TestCase):
     service = MockDataService([])
 
     return_date_str = "2020-12-12"
-    return_date = datetime.date.fromisoformat(return_date_str)
+    return_date = datetime.datetime.fromisoformat(return_date_str)
     with patch.object(service, '_estimate_next_date', return_value=return_date):
 
       data = {'STWD': return_date_str}
