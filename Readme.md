@@ -126,6 +126,5 @@ orator migrate -c database.yml
 ## Debugging
 
 ```
-brew tap homebrew/cask-versions
-brew cask install pgadmin4
+brew cask install postico
 ```
