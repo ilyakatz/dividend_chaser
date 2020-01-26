@@ -1,11 +1,15 @@
 from celery import Celery
 from celery.schedules import crontab
 import sys
+import os
 
 from dividend_chaser.workers.all_dividends_worker import AllDividendsWorker
 from dividend_chaser.workers.dividend_history import DividendHistory
+import dividend_chaser.settings
 
-app = Celery('hello', broker='redis://localhost:6379//')
+REDIS_URL = os.getenv("REDIS_URL") or "localhost:6379"
+
+app = Celery('hello', broker=f"redis://{REDIS_URL}//")
 app.conf.timezone = 'America/Los_Angeles'
 
 
