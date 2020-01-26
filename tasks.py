@@ -7,10 +7,11 @@ from dividend_chaser.workers.all_dividends_worker import AllDividendsWorker
 from dividend_chaser.workers.dividend_history import DividendHistory
 import dividend_chaser.settings
 
-REDIS_URL = os.getenv("REDIS_URL") or "localhost:6379"
+REDIS_URL = os.getenv("REDIS_URL") or "redis://localhost:6379"
 
-app = Celery('hello', broker=f"redis://{REDIS_URL}//")
+app = Celery('hello', broker=f"{REDIS_URL}/0")
 app.conf.timezone = 'America/Los_Angeles'
+app.conf.redis_max_connections = 4
 
 
 @app.task

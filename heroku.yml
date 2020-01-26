@@ -1,0 +1,12 @@
+build:
+  docker:
+    dividend_chaser: Dockerfile
+run:
+  worker:
+    command:
+      - celery -A tasks worker --loglevel=info --concurrency=2
+    image: dividend_chaser
+  web:
+    command:
+      - flower -A tasks --port=$PORT --persistent=True --db=data/flower
+    image: dividend_chaser
