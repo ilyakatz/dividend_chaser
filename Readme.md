@@ -1,10 +1,20 @@
 ![Dividend Chaser](./assets/chaser_logo.png)
 
+### Install prerequisites
+
 ```
+brew install openssl
 pip3 install virtualenv
 virtualenv dividends_env
 source dividends_env/bin/activate
-pip install -r requirements.txt
+pip install -r prod.txt
+```
+
+### Create database
+
+```
+createdb dividend_chaser_development
+orator migrate -c database.yml
 ```
 
 ## Running
@@ -13,12 +23,20 @@ pip install -r requirements.txt
 export IEX_TOKEN="token"
 export USER_NAME="some user"
 export PASSWORD="somepassword"
+export ENVIRONMENT=development
 ```
 
 ### Run the main process
 
 ```
 python ./runner.py
+```
+
+### Tests
+
+```
+orator migrate -c database.test.yml -f
+ENVIRONMENT=test pytest
 ```
 
 #### Example
@@ -90,3 +108,23 @@ autopep8 --in-place --recursive --exclude=dividends_env .
 ## Robinhood
 
 Want to do your own automated trading? Use my referal link to sign up for [Robinhood](https://join.robinhood.com/ilyak36)
+
+## Models
+
+Create new model
+
+```
+orator make:model User -m
+```
+
+Migrate
+
+```
+orator migrate -c database.yml
+```
+
+## Debugging
+
+```
+brew cask install postico
+```

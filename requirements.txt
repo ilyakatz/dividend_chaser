@@ -16,6 +16,7 @@ pylint
 dirtyjson
 click
 iexfinance
+orator
 
 pytest
 pytest-mock

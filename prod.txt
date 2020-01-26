@@ -1,0 +1,4 @@
+# Everything the developer needs in addition to the production requirements
+-r requirements.txt
+
+psycopg2
