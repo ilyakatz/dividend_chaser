@@ -14,7 +14,7 @@ pip install -r prod.txt
 
 ```
 createdb dividend_chaser_development
-orator migrate -c database.yml
+orator migrate -c dividend_chaser/config/database.py
 ```
 
 ## Running
@@ -35,14 +35,14 @@ python ./runner.py
 ### Tests
 
 ```
-orator migrate -c database.test.yml -f
+orator migrate -c dividend_chaser/config/database_test.py -f
 ENVIRONMENT=test pytest
 ```
 
 #### Example
 
 ```
-% python3 ./runner.py                                                                                                                                                                                  ✹ ✭
+% python3 ./runner.py
 INFO - Logging in to Robinhood 🏹
 INFO - ---START STWD---
 INFO - Getting details

@@ -16,7 +16,7 @@ COPY . .
 
 EXPOSE 5555
 
-RUN pip install -r test.txt
+RUN pip install -r prod.txt
 RUN mkdir data
 
 CMD redis-server --daemonize yes && supervisord -c supervisord.conf
