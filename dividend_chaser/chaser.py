@@ -2,6 +2,7 @@ import logging
 from datetime import datetime
 import click
 
+from dividend_chaser.orm import orm
 from dividend_chaser.models.position import Position
 from dividend_chaser.models.dividendable import Dividendable
 from dividend_chaser.brokers.abstract_broker import AbstractBroker
@@ -24,7 +25,9 @@ class Chaser:
   """
 
   def reits(self):
-    return list(DividendHistory.loadStocks().keys())
+    records = orm.Dividendable.all()
+    stocks = list(map(lambda x: x.symbol, records))
+    return stocks
 
   def run(self):
     my_stocks = self.broker.positions()
