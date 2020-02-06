@@ -3,21 +3,15 @@ from orator.orm import belongs_to
 from orator import Model
 from orator import DatabaseManager
 from orator.orm import has_many
-import yaml
-
 
 environment = os.environ['ENVIRONMENT']
 
 if(environment == "development"):
-  db_file = "database.yml"
+  from dividend_chaser.config.database import DATABASES
 elif(environment == "test"):
-  db_file = "database.test.yml"
+  from dividend_chaser.config.database_test import DATABASES
 
-with open(db_file, 'r') as stream:
-  config = yaml.safe_load(stream)
-  config = config["databases"]
-
-db = DatabaseManager(config)
+db = DatabaseManager(DATABASES)
 Model.set_connection_resolver(db)
 
 

@@ -12,6 +12,7 @@ class ReloadStockDatabaseWorker:
     chunk_size = 5
     for i in range(0, len(stocks), chunk_size):
       chunk = stocks[i:i + chunk_size]
+      print(chunk)
       reload_batch_worker.delay(chunk)
 
     return True

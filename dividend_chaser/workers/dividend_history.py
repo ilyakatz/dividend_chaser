@@ -133,10 +133,9 @@ class DividendHistory:
 
   @classmethod
   def next_dividend(cls, symbol):
-    " TODO maybe can use get_exdividend_date "
-    data = DividendHistory.load_from_file()
-    new_date = data[symbol]['next_dividend']['formatted_date']
-    return datetime.date.fromisoformat(new_date)
+    dividendable = orm.Dividendable.where("symbol", "=", symbol).first()
+    new_date = dividendable.next_dividend_date
+    return datetime.date.fromtimestamp(new_date)
 
   """
   Returns

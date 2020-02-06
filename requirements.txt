@@ -17,6 +17,7 @@ dirtyjson
 click
 iexfinance
 orator
+python-dotenv
 
 pytest
 pytest-mock

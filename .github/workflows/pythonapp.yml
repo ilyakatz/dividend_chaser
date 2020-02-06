@@ -24,7 +24,7 @@ jobs:
           pylint --rcfile=setup.cfg dividend_chaser
       - name: Database Schema
         run: |
-          orator migrate -c database.test.yml -f
+          orator migrate -c dividend_chaser/config/database_test.py -f
       - name: Test with pytest
         env:
           TZ: America/Los_Angeles
