@@ -43,7 +43,9 @@ class DividendHistory:
   """
   @classmethod
   def upcoming(cls, limit_days=14):
-    arr = orm.Dividendable.all()
+
+    arr = orm.Dividendable.where("average_volume", ">", "100000").where("next_dividend_actual", "=", True).get()
+
     simplified = list(map(lambda x: Dividendable(
         x.symbol,
         x.next_dividend_formatted_date,
@@ -56,7 +58,6 @@ class DividendHistory:
         datetime.date.today() + datetime.timedelta(days=limit_days)), simplified))
 
     simplified.sort(key=lambda x: x.dividend_date, reverse=False)
-    simplified = list(filter(lambda d: d.actual, simplified))
 
     filtered = list(
         filter(lambda dividendable: dividendable.is_clearable(), simplified))
