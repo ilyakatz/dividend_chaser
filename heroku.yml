@@ -10,3 +10,7 @@ run:
     command:
       - flower -A tasks --port=$PORT --persistent=True --db=data/flower
     image: dividend_chaser
+  schedulder:
+    command:
+      - celery -A tasks beat
+    image: dividend_chaser
