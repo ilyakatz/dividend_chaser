@@ -18,6 +18,7 @@ click
 iexfinance
 orator
 python-dotenv
+alpaca-trade-api
 
 typing_extensions
 
