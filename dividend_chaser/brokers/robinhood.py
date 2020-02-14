@@ -26,7 +26,7 @@ class Broker(AbstractBroker):
     return auth
 
   @_login_required
-  def get_current_price(self, symbol):
+  def get_current_price(self, symbol) -> float:
     data = r.stocks.get_quotes(symbol)
     current_price = data[0]['last_trade_price']
     price = float(current_price)

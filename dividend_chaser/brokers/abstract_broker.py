@@ -10,7 +10,7 @@ class AbstractBroker(ABC):
     pass
 
   @abstractmethod
-  def get_current_price(self, symbol):
+  def get_current_price(self, symbol) -> float:
     pass
 
   """ Returns all known dividends pay to the account

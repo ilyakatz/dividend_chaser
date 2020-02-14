@@ -18,8 +18,9 @@ class Broker(AbstractBroker):
     self.api = None
     self.dry_run = dry_run
 
-  def get_current_price(self, symbol):
-    return None
+  def get_current_price(self, symbol) -> float:
+    trade = self.api.polygon.last_trade(symbol)
+    return trade.price
 
   def _login_required(function):
     def auth(self, *args, **kwargs):
