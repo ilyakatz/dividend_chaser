@@ -2,9 +2,12 @@ import datetime
 import collections
 import logging
 import pprint
+from typing import TYPE_CHECKING
 
-from dividend_chaser.brokers.abstract_broker import AbstractBroker
 from dividend_chaser.workers.dividend_history import DividendHistory
+
+if TYPE_CHECKING:
+  from dividend_chaser.brokers.abstract_broker import AbstractBroker
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -20,31 +23,11 @@ class Position:
   """Object that representation an instance of an REIT and operations that can be take on it
   """
 
-  def __init__(self, symbol, broker: AbstractBroker):
+  def __init__(self, symbol: str, bought_price: float, broker: 'AbstractBroker'):
     self.symbol = symbol
-    self.bought_price = None
+    self.bought_price = bought_price
     self.broker = broker
-    self.current_price = None
-    self.details = None
 
-  def get_details(self):
-    my_stocks = self.broker.positions()
-    for key, value in my_stocks.items():
-      if(key == self.symbol):
-        self.bought_price = float(value['average_buy_price'])
-        logging.info(f"Bought {key} for ${self.bought_price}")
-    self.get_current_price()
-
-  def _details_required(function):
-    def details(self, *args, **kwargs):
-      if(self.details is None):
-        logging.info("Getting details")
-        self.details = self.get_details()
-
-      return function(self, *args, **kwargs)
-    return details
-
-  @_details_required
   def is_allowed_to_sell(self):
     """Returns an indication that the current stock can be sold.
 
@@ -57,7 +40,7 @@ class Position:
       Tuple indicating with boolean and reasons of explaning the results
     """
 
-    price_difference = self.current_price - self.bought_price
+    price_difference = self.get_current_price() - self.bought_price
     price_threshold_met = (abs(price_difference) / self.bought_price *
                            100) < Position.PRICE_DIFFERENCE_PERCENT_THREADSHOLD
     to_sell = True
@@ -97,7 +80,6 @@ class Position:
     return num_pending_dividends > 0
 
   def get_current_price(self):
-    self.current_price = self.broker.get_current_price(self.symbol)
     current_price = self.broker.get_current_price(self.symbol)
     logging.info(f"Current price ${current_price}")
     return current_price
@@ -119,4 +101,4 @@ class Position:
     return self.__repr__()
 
   def __repr__(self):
-    return f"<Dividedable symbol={self.symbol} >"
+    return f"<Position symbol={self.symbol} bought_price={self.bought_price} >"

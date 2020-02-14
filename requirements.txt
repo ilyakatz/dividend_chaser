@@ -19,6 +19,8 @@ iexfinance
 orator
 python-dotenv
 
+typing_extensions
+
 pytest
 pytest-mock
 freezegun

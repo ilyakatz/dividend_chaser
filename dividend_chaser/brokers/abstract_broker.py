@@ -1,10 +1,12 @@
 from abc import ABC, abstractmethod
 
+from dividend_chaser.types import PositionsDict
+
 
 class AbstractBroker(ABC):
 
   @abstractmethod
-  def positions(self):
+  def positions(self) -> PositionsDict:
     pass
 
   @abstractmethod

@@ -5,6 +5,8 @@ import more_itertools as mit
 
 from dividend_chaser.brokers.abstract_broker import AbstractBroker
 from dividend_chaser.helpers.functions import do_if_enabled
+from dividend_chaser.models.position import Position
+from dividend_chaser.types import PositionsDict
 
 
 class Broker(AbstractBroker):
@@ -35,8 +37,16 @@ class Broker(AbstractBroker):
     return r
 
   @_login_required
-  def positions(self):
-    return r.build_holdings()
+  def positions(self) -> PositionsDict:
+    positions = {}
+    broker = self
+    robin_positions = r.build_holdings()
+    for symbol in robin_positions:
+      value = robin_positions[symbol]
+      pos = Position(symbol=symbol, bought_price=float(value['average_buy_price']), broker=broker)
+      positions[symbol] = pos
+
+    return positions
 
   @_login_required
   def get_dividends(self):

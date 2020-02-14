@@ -31,8 +31,8 @@ class Chaser:
 
   def run(self):
     my_stocks = self.broker.positions()
-    for key, _ in my_stocks.items():
-      self._run(key)
+    for _, position in my_stocks.items():
+      self._run(position)
 
   """ Attempts to find an alternative stock to buy
 
@@ -92,10 +92,10 @@ class Chaser:
       return None
     return filtered[0]
 
-  def _run(self, symbol):
+  def _run(self, position: Position):
+    symbol = position.symbol
     if(symbol in self.reits()):
       logging.info(f"---START {symbol}---")
-      position = Position(symbol, self.broker)
       res = position.is_allowed_to_sell()
       if(res.result):
         dividendable = self.find_better()
