@@ -98,3 +98,10 @@ def test_threshold(mocker):
   next_one = chaser._next_stock()
 
   assert next_one.symbol == "LOW"
+
+
+def test_nothing_upcoming(mocker):
+  res = chaser._should_exchange(position, None)
+
+  assert res.result == False
+  assert re.search('No new dividendable', res.reasons)
