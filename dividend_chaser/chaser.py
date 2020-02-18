@@ -62,6 +62,10 @@ class Chaser:
   """
 
   def _should_exchange(self, position: Position, dividendable: Dividendable):
+    if(not dividendable):
+      reason = f"No new dividendable available"
+      logging.info(reason)
+      return Position.BooleanResultWithReasons(result=False, reasons=reason)
     current_time_to_next_dividend = position.time_to_next_dividend().days
 
     if(current_time_to_next_dividend <= -1):
