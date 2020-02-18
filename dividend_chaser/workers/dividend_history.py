@@ -135,8 +135,21 @@ class DividendHistory:
   @classmethod
   def next_dividend(cls, symbol):
     dividendable = orm.Dividendable.where("symbol", "=", symbol).first()
-    new_date = dividendable.next_dividend_date
-    return datetime.date.fromtimestamp(new_date)
+    new_upcoming_date = dividendable.next_dividend_date
+
+    """ Accomodate the case where dividend has just passed
+    In some cases, our database gets updated on the date of the dividend,
+    So the system thinks that the next dividend is 30 days away, while
+    in real life, it's today
+    """
+    two_days_ago = datetime.date.today() - datetime.timedelta(days=2)
+    seconds = int(two_days_ago.strftime("%s"))
+
+    dividend = orm.Dividend.where("date", ">=", seconds).first()
+    if(dividend):
+      return datetime.date.fromtimestamp(dividend.date)
+
+    return datetime.date.fromtimestamp(new_upcoming_date)
 
   """
   Returns
