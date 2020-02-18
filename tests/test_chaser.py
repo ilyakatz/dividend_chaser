@@ -10,7 +10,7 @@ from dividend_chaser.workers.dividend_history import DividendHistory
 broker = None
 dividendable = Dividendable("AGNC", "2020-01-07", "0.01", 0.11, 2000, True)
 chaser = Chaser(broker)
-position = Position("APPLE", broker)
+position = Position("APPLE", 100, broker)
 
 positions_dic = {
     'MAA':

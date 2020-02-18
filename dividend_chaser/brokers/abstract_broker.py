@@ -1,14 +1,16 @@
 from abc import ABC, abstractmethod
 
+from dividend_chaser.types import PositionsDict
+
 
 class AbstractBroker(ABC):
 
   @abstractmethod
-  def positions(self):
+  def positions(self) -> PositionsDict:
     pass
 
   @abstractmethod
-  def get_current_price(self, symbol):
+  def get_current_price(self, symbol) -> float:
     pass
 
   """ Returns all known dividends pay to the account
