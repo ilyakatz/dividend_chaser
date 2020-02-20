@@ -63,6 +63,49 @@ class TestNextDividend(unittest.TestCase):
     next_date = DividendHistory.next_dividend("STWD")
     self.assertEqual(next_date, datetime.date(2020, 3, 12))
 
+  @freeze_time("2020-03-12 12:00:01")
+  def test_next_dividend_recent_for_dividendable(self):
+    """
+    Make sure that we only look at dividends for the correct stock
+    """
+    stwd_div_date = datetime.date(2020, 3, 31)
+    stocks = {
+        "STWD": {
+            "dividends": [
+                {"date": 1577716200, "formatted_date": "2019-12-30", "amount": 0.48},
+                {"date": datetime.date(2020, 3, 1).strftime("%s"), "formatted_date": "2019-03-1", "amount": 0.48}
+            ],
+            "next_dividend": {
+                "date": 1585640828,
+                "formatted_date": stwd_div_date,
+                "actual": True
+            },
+            "volatililty": 0.13605430659514575,
+            "dividend_yield": 0.0773,
+            "average_volume": 100001
+        },
+        "APPL": {
+            "dividends": [
+                {"date": 1577716200, "formatted_date": "2019-12-30", "amount": 0.48},
+                {"date": datetime.date(2020, 3, 12).strftime("%s"), "formatted_date": "2019-03-12", "amount": 0.48}
+            ],
+            "next_dividend": {
+                "date": 1585640828,
+                "formatted_date": "2020-03-31",
+                "actual": True
+            },
+            "volatililty": 0.13605430659514575,
+            "dividend_yield": 0.0773,
+            "average_volume": 100001
+        }
+    }
+
+    for stock in stocks:
+      DividendHistory([])._persist_dividend_data(stock, stocks)
+
+    next_date = DividendHistory.next_dividend("STWD")
+    self.assertEqual(next_date, stwd_div_date)
+
 
 class TestUpcoming(unittest.TestCase):
 

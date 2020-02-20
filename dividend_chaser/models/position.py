@@ -2,6 +2,7 @@ import datetime
 import collections
 import logging
 import pprint
+from typing import Optional
 
 from dividend_chaser.brokers.abstract_broker import AbstractBroker
 from dividend_chaser.workers.dividend_history import DividendHistory
@@ -109,7 +110,7 @@ class Position:
   datetime.timedelta
   """
 
-  def time_to_next_dividend(self):
+  def time_to_next_dividend(self) -> Optional[datetime.date]:
     next_date = DividendHistory.next_dividend(self.symbol)
     res = next_date - datetime.date.today()
     logging.info(f"Time to next dividend {res}")
