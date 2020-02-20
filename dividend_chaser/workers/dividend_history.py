@@ -2,6 +2,7 @@ import json
 import datetime
 import logging
 from json import JSONDecodeError
+from typing import Optional
 from yahoofinancials import YahooFinancials
 
 from dividend_chaser.models.dividendable import Dividendable
@@ -133,8 +134,9 @@ class DividendHistory:
   """
 
   @classmethod
-  def next_dividend(cls, symbol):
+  def next_dividend(cls, symbol: str) -> Optional[datetime.date]:
     dividendable = orm.Dividendable.where("symbol", "=", symbol).first()
+
     new_upcoming_date = dividendable.next_dividend_date
 
     """ Accomodate the case where dividend has just passed
@@ -145,11 +147,13 @@ class DividendHistory:
     two_days_ago = datetime.date.today() - datetime.timedelta(days=2)
     seconds = int(two_days_ago.strftime("%s"))
 
-    dividend = orm.Dividend.where("date", ">=", seconds).first()
+    dividend = orm.Dividend.where("date", ">=", seconds).where("dividendable_id", "=", dividendable.id).first()
     if(dividend):
       return datetime.date.fromtimestamp(dividend.date)
 
-    return datetime.date.fromtimestamp(new_upcoming_date)
+    next_div_date = datetime.date.fromtimestamp(new_upcoming_date)
+
+    return next_div_date
 
   """
   Returns
