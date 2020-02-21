@@ -4,15 +4,18 @@ import datetime
 import logging
 import numpy as np
 
+from dividend_chaser.models.data_service_configuration import DataServiceConfiguration
+
 
 class BaseDataService(ABC):
   # pylint: disable=R0903
   EPOCH = datetime.datetime(1970, 1, 1)
 
-  def __init__(self, symbols, dividends_data=None):
+  def __init__(self, symbols, dividends_data=None, config=DataServiceConfiguration()):
     self.symbols = symbols
     self.fin_data = {}
     self.dividends_data = dividends_data
+    self.config = config
     for symbol in symbols:
       self.fin_data[symbol] = {}
 
