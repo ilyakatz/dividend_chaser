@@ -2,5 +2,6 @@
   "python.pythonPath": "dividends_env/bin/python3.7",
   "python.linting.pylintEnabled": true,
   "python.linting.flake8Enabled": false,
-  "python.formatting.provider": "autopep8"
+  "python.formatting.provider": "autopep8",
+  "clockify.tracking.workspaceId": "5e4dc9eb254b7f586c4ed7a9"
 }
