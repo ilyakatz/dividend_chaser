@@ -6,17 +6,18 @@ import numpy as np
 import pandas_datareader as web
 
 from dividend_chaser.services.base_data_service import BaseDataService
+from dividend_chaser.models.data_service_configuration import DataServiceConfiguration
 
 
 class YahooDataService(BaseDataService):
-  def __init__(self, symbols, dividends_data):
-    super().__init__(symbols, dividends_data)
+  def __init__(self, symbols, dividends_data, config=DataServiceConfiguration()):
+    super().__init__(symbols, dividends_data, config)
 
   def volatililty(self, symbol):
     return self.fin_data[symbol]["volatililty"]
 
   def average_volume(self, symbol):
-    return self.fin_data[symbol]["average_volume"]
+    return self.fin_data[symbol].get("average_volume")
 
   def next_dividend(self, symbol):
     return self.fin_data[symbol]["next_dividend"]
@@ -26,17 +27,21 @@ class YahooDataService(BaseDataService):
 
   def calculate_dividend_yield(self):
     yahoo_financials = YahooFinancials(self.symbols)
-    logging.debug("YahooFinancials - Fetching get_dividend_yield")
+    logging.debug("[calculate_dividend_yield] YahooFinancials - Fetching get_dividend_yield")
     divs = yahoo_financials.get_dividend_yield()
-    logging.debug("YahooFinancials - Finished fetching get_exdividend_date")
+    logging.debug("[calculate_dividend_yield] YahooFinancials - Finished fetching get_exdividend_date")
     for symbol in self.symbols:
       self.fin_data[symbol]["dividend_yield"] = divs[symbol]
 
   def calculate_average_volume(self):
+    if(self.config.is_skip_average_volume()):
+      logging.info("[calculate_average_volume] Skipping calculate_average_volume")
+      return
+
     yahoo_financials = YahooFinancials(self.symbols)
     logging.debug("YahooFinancials - Fetching get_three_month_avg_daily_volume")
     yahoo_data = yahoo_financials.get_three_month_avg_daily_volume()
-    logging.debug("YahooFinancials - Finished detching get_three_month_avg_daily_volume")
+    logging.debug("YahooFinancials - Finished fetching get_three_month_avg_daily_volume")
     for symbol in self.symbols:
       self.fin_data[symbol]["average_volume"] = yahoo_data[symbol]
 
@@ -91,9 +96,9 @@ class YahooDataService(BaseDataService):
 
     """
     yahoo_financials = YahooFinancials(symbols)
-    logging.debug("Fetching get_exdividend_date")
+    logging.debug("[_calculate_next_dividend] Fetching get_exdividend_date")
     data = yahoo_financials.get_exdividend_date()
-    logging.debug("Finished fetching get_exdividend_date")
+    logging.debug("[_calculate_next_dividend] Finished fetching get_exdividend_date")
     next_div_dates = {}
     for symbol in symbols:
       dividends = self._next_div(data, symbol)

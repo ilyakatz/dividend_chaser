@@ -6,6 +6,7 @@ from typing import Optional
 from yahoofinancials import YahooFinancials
 
 from dividend_chaser.models.dividendable import Dividendable
+from dividend_chaser.models.data_service_configuration import DataServiceConfiguration
 from dividend_chaser.services.yahoo_data_service import YahooDataService
 from dividend_chaser.orm import orm
 
@@ -24,6 +25,13 @@ class DividendHistory:
     self.symbols = symbols
     self.filename = 'dividends.json'
     self.dividends_data = self.load()
+    """
+    Average volume is slow so we want to limit how often we recaculate it.
+    It is also calculated over a long period of time, so assuming that it doesn't change that much
+    """
+    self.config = DataServiceConfiguration({
+        "skip_average_volume": (datetime.date.today().day % 6) == 0
+    })
 
   @classmethod
   def loadStocks(cls):
@@ -110,7 +118,7 @@ class DividendHistory:
     d = orm.Dividendable.first_or_create(symbol=symbol)
     d.update(params)
 
-    for dividend_dict in params['dividends']:
+    for dividend_dict in (params.get('dividends') or []):
       orm.Dividend.first_or_create(
           date=str(dividend_dict["date"]),
           formatted_date=dividend_dict["formatted_date"],
@@ -119,7 +127,7 @@ class DividendHistory:
       )
 
   def _enrich(self, symbols, dividends_data):
-    logging.debug("Starting _enrich")
+    logging.debug("[_enrich] Starting _enrich")
     self._enrich_with_volatililty(symbols, dividends_data)
     # This is too slow
     self._enrich_with_volume(symbols, dividends_data)
@@ -177,11 +185,13 @@ class DividendHistory:
       self.dividends_data[symbol]["dividend_yield"] = service.dividend_yield(symbol)
 
   def _enrich_with_volume(self, symbols, dividends_data):
-    service = YahooDataService(symbols, dividends_data)
+    service = YahooDataService(symbols, dividends_data, self.config)
     service.calculate_average_volume()
 
     for symbol in symbols:
-      self.dividends_data[symbol]["average_volume"] = service.average_volume(symbol)
+      average_volume = service.average_volume(symbol)
+      if(average_volume):
+        self.dividends_data[symbol]["average_volume"] = average_volume
 
   def _enrich_with_volatililty(self, symbols, dividends_data):
     service = YahooDataService(symbols, dividends_data)
@@ -191,10 +201,12 @@ class DividendHistory:
       self.dividends_data[symbol]["volatililty"] = service.volatililty(symbol)
 
   def _get_dividends(self, symbols):
-    start_date = '2018-01-15'
+    start_date = '2019-01-15'
     d = datetime.datetime.today()
     end_date = d.strftime("%Y-%m-%d")
     yahoo_financials = YahooFinancials(symbols)
+    logging.info(f"[_get_dividends] Getting dividends from Yahoo {start_date} to {end_date} for {symbols}")
     divs = yahoo_financials.get_daily_dividend_data(start_date, end_date)
+    logging.info(f"[_get_dividends] Done")
 
     return divs
