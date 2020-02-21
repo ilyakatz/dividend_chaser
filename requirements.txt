@@ -25,3 +25,6 @@ freezegun
 
 # dev
 supervisor
+
+# system
+sentry-sdk==0.14.1
