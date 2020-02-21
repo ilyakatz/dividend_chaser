@@ -27,9 +27,9 @@ class YahooDataService(BaseDataService):
 
   def calculate_dividend_yield(self):
     yahoo_financials = YahooFinancials(self.symbols)
-    logging.debug("YahooFinancials - Fetching get_dividend_yield")
+    logging.debug("[calculate_dividend_yield] YahooFinancials - Fetching get_dividend_yield")
     divs = yahoo_financials.get_dividend_yield()
-    logging.debug("YahooFinancials - Finished fetching get_exdividend_date")
+    logging.debug("[calculate_dividend_yield] YahooFinancials - Finished fetching get_exdividend_date")
     for symbol in self.symbols:
       self.fin_data[symbol]["dividend_yield"] = divs[symbol]
 
@@ -41,7 +41,7 @@ class YahooDataService(BaseDataService):
     yahoo_financials = YahooFinancials(self.symbols)
     logging.debug("YahooFinancials - Fetching get_three_month_avg_daily_volume")
     yahoo_data = yahoo_financials.get_three_month_avg_daily_volume()
-    logging.debug("YahooFinancials - Finished detching get_three_month_avg_daily_volume")
+    logging.debug("YahooFinancials - Finished fetching get_three_month_avg_daily_volume")
     for symbol in self.symbols:
       self.fin_data[symbol]["average_volume"] = yahoo_data[symbol]
 
@@ -96,9 +96,9 @@ class YahooDataService(BaseDataService):
 
     """
     yahoo_financials = YahooFinancials(symbols)
-    logging.debug("Fetching get_exdividend_date")
+    logging.debug("[_calculate_next_dividend] Fetching get_exdividend_date")
     data = yahoo_financials.get_exdividend_date()
-    logging.debug("Finished fetching get_exdividend_date")
+    logging.debug("[_calculate_next_dividend] Finished fetching get_exdividend_date")
     next_div_dates = {}
     for symbol in symbols:
       dividends = self._next_div(data, symbol)

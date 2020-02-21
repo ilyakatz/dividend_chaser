@@ -127,7 +127,7 @@ class DividendHistory:
       )
 
   def _enrich(self, symbols, dividends_data):
-    logging.debug("Starting _enrich")
+    logging.debug("[_enrich] Starting _enrich")
     self._enrich_with_volatililty(symbols, dividends_data)
     # This is too slow
     self._enrich_with_volume(symbols, dividends_data)
@@ -201,10 +201,12 @@ class DividendHistory:
       self.dividends_data[symbol]["volatililty"] = service.volatililty(symbol)
 
   def _get_dividends(self, symbols):
-    start_date = '2018-01-15'
+    start_date = '2019-01-15'
     d = datetime.datetime.today()
     end_date = d.strftime("%Y-%m-%d")
     yahoo_financials = YahooFinancials(symbols)
+    logging.info(f"[_get_dividends] Getting dividends from Yahoo {start_date} to {end_date} for {symbols}")
     divs = yahoo_financials.get_daily_dividend_data(start_date, end_date)
+    logging.info(f"[_get_dividends] Done")
 
     return divs
