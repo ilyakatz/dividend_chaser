@@ -6,6 +6,7 @@ import click
 
 from dividend_chaser.brokers.robinhood import Broker
 from dividend_chaser.chaser import Chaser
+from dividend_chaser.alerting import setup_alerting
 
 
 @click.command()
@@ -29,6 +30,7 @@ if __name__ == '__main__':
   handler.setFormatter(formatter)
 
   root.addHandler(handler)
+  setup_alerting()
   run()
 
 

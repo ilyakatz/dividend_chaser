@@ -21,7 +21,7 @@ jobs:
           autopep8 --diff --recursive --exclude=dividends_env --exit-code .
       - name: Lint with pylint
         run: |
-          pylint --rcfile=setup.cfg dividend_chaser
+          pylint --rcfile=setup.cfg dividend_chaser runner.py
       - name: Database Schema
         run: |
           orator migrate -c dividend_chaser/config/database_test.py -f
