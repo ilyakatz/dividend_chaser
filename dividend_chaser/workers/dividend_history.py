@@ -117,6 +117,9 @@ class DividendHistory:
     d = orm.Dividendable.first_or_create(symbol=symbol)
     d.update(params)
 
+    " Remove old values "
+    orm.Dividend.where("dividendable_id", "=", d.id).delete()
+
     for dividend_dict in (params.get('dividends') or []):
       orm.Dividend.first_or_create(
           date=str(dividend_dict["date"]),
