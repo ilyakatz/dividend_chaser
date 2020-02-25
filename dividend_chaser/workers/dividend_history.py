@@ -19,6 +19,8 @@ easy retrieval
 
 
 class DividendHistory:
+  VOLUME_THRESHOLD = 100000
+
   filename = 'dividends.json'
 
   def __init__(self, symbols):
@@ -53,7 +55,8 @@ class DividendHistory:
   @classmethod
   def upcoming(cls, limit_days=14):
 
-    arr = orm.Dividendable.where("average_volume", ">", "100000").where("next_dividend_actual", "=", True).get()
+    arr = orm.Dividendable.where("average_volume", ">", DividendHistory.VOLUME_THRESHOLD).where(
+        "next_dividend_actual", "=", True).get()
 
     simplified = list(map(lambda x: Dividendable(
         x.symbol,
@@ -104,10 +107,6 @@ class DividendHistory:
     for symbol in self.symbols:
       self._persist_dividend_data(symbol, self.dividends_data)
 
-    with open(self.filename, 'w') as fp:
-      pretty = json.dumps(self.dividends_data, indent=2)
-      fp.write(pretty)
-
   def _persist_dividend_data(self, symbol, dividends_data):
     params = dividends_data[symbol].copy()
     params["symbol"] = symbol
@@ -117,6 +116,9 @@ class DividendHistory:
 
     d = orm.Dividendable.first_or_create(symbol=symbol)
     d.update(params)
+
+    " Remove old values "
+    orm.Dividend.where("dividendable_id", "=", d.id).delete()
 
     for dividend_dict in (params.get('dividends') or []):
       orm.Dividend.first_or_create(

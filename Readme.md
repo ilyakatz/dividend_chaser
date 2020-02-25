@@ -4,6 +4,7 @@
 
 ```
 brew install openssl
+brew install postgresql 
 pip3 install virtualenv
 virtualenv dividends_env
 source dividends_env/bin/activate
