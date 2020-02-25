@@ -4,16 +4,27 @@ import os
 import sys
 import click
 
-from dividend_chaser.brokers.robinhood import Broker
+from dividend_chaser.brokers.robinhood import Broker as RobinhoodBroker
+from dividend_chaser.brokers.alpaca import Broker as AlpacaBroker
+from dividend_chaser.brokers.abstract_broker import AbstractBroker
 from dividend_chaser.chaser import Chaser
 
 
 @click.command()
 @click.option('--execute/--no-execute', required=True, help='Dry run mode - buy and sell orders are not executed')
-def run(execute=False):
+@click.option('--broker', type=click.Choice(['alpaca', 'robinhood']), help='Name of the broker')
+def run(execute=False, broker="alpaca"):
   dry_run = not execute
-  broker = Broker(os.environ["USER_NAME"], os.environ["PASSWORD"], dry_run=dry_run)
-  chaser = Chaser(broker)
+  broker_obj: AbstractBroker;
+
+  if(broker=="alpaca"):
+    broker_obj = AlpacaBroker(dry_run=dry_run)
+  elif(broker=="robinhood"):
+    broker_obj = RobinhoodBroker(os.environ["USER_NAME"], os.environ["PASSWORD"], dry_run=dry_run)
+  else:
+    raise("Invalid broker")
+
+  chaser = Chaser(broker_obj)
   chaser.run()
 
 

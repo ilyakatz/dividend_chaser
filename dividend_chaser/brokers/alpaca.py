@@ -1,6 +1,8 @@
 import os
 import alpaca_trade_api as tradeapi
+from typing import List
 
+from dividend_chaser.models.payable_dividend import PayableDividend
 from dividend_chaser.brokers.abstract_broker import AbstractBroker
 from dividend_chaser.models.position import Position
 
@@ -45,7 +47,8 @@ class Broker(AbstractBroker):
     return positions
 
   @_login_required
-  def get_dividends(self):
+  def dividend_history_for(self, symbol: str) -> List[PayableDividend]:
+    self.api.get("/account/activities/DIV")
     return []
 
   @_login_required

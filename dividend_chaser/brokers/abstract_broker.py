@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
+from typing import List
 
+from dividend_chaser.models.payable_dividend import PayableDividend
 from dividend_chaser.types import PositionsDict
-
 
 class AbstractBroker(ABC):
 
@@ -16,7 +17,7 @@ class AbstractBroker(ABC):
   """ Returns all known dividends pay to the account
   """
   @abstractmethod
-  def get_dividends(self):
+  def dividend_history_for(self, symbol: str) -> List[PayableDividend]:
     pass
 
   @abstractmethod

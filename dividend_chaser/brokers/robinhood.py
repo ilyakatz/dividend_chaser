@@ -2,11 +2,13 @@ import logging
 import math
 import robin_stocks as r
 import more_itertools as mit
+from typing import List
 
 from dividend_chaser.brokers.abstract_broker import AbstractBroker
 from dividend_chaser.helpers.functions import do_if_enabled
 from dividend_chaser.models.position import Position
 from dividend_chaser.types import PositionsDict
+from dividend_chaser.models.payable_dividend import PayableDividend
 
 
 class Broker(AbstractBroker):
@@ -109,7 +111,7 @@ class Broker(AbstractBroker):
     return equity
 
   @_login_required
-  def dividend_history_for(self, symbol):
+  def dividend_history_for(self, symbol) -> List[PayableDividend]:
     info = self.broker().stocks.get_instruments_by_symbols(symbol)
     info = list(filter(None, info))
 
@@ -122,9 +124,15 @@ class Broker(AbstractBroker):
                 dividend_info['instrument'].find(i) > 0 for i in instrument_ids),
             all_dividends))
 
-    return relevent_dividends
+    dividends_paid = list(map(lambda info: PayableDividend( \
+      symbol=symbol, \
+      state=info["state"], \
+      amount=info["amount"], \
+      payable_date=info["payable_date"]), relevent_dividends))
+
+    return dividends_paid
 
   def latest_dividend_for(self, symbol):
     history = self.dividend_history_for(symbol)
-    history.sort(key=lambda x: x['payable_date'], reverse=True)
+    history.sort(key=lambda x: x.payable_date, reverse=True)
     return mit.first(history, default=None)
