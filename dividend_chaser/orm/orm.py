@@ -4,6 +4,9 @@ from orator import Model
 from orator import DatabaseManager
 from orator.orm import has_many
 
+# pylint: disable=W0611
+import dividend_chaser.settings
+
 environment = os.environ['ENVIRONMENT']
 
 if(environment == "development"):
